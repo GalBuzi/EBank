@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  mysqldb:
+    image: mysql:8
+    container_name: mysql-ebank-db
+    volumes:
+      - "./mysql-data:/var/lib/mysql"
+    restart: always
+    ports:
+      - 3308:3305
+    environment:
+      MYSQL_ROOT_PASSWORD: qwerty
+      MYSQL_DATABASE: eBank
