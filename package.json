@@ -1,7 +1,7 @@
 {
-    "name": "ts-swc-eslint-mocha-starter",
+    "name": "ebank-project",
     "version": "1.0.0",
-    "description": "This setup compiles Typescript to ESM for the Node.js runtime.     It's super-fast.      it uses *`swc`* for the actual compiling. *`tsc`* is used for type checking only. nodemon allows us to re-compile and run from dist with every change during development.",
+    "description": "eBank project backend academy",
     "main": "index.js",
     "type": "module",
     "scripts": {
@@ -54,10 +54,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YarivGilad/ts-swc-eslint-mocha-starter.git"
-    },
-    "bugs": {
-        "url": "https://github.com/YarivGilad/ts-swc-eslint-mocha-starter/issues"
-    },
-    "homepage": "https://github.com/YarivGilad/ts-swc-eslint-mocha-starter#readme"
+        "url": "git+https://bitbucket.org/elirand1994/ebank/src"
+    }
 }
