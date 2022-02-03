@@ -10,7 +10,7 @@ export async function connect(
   sqlPassword: string,
   sqlDB: string,
   sqlPort: number,
-)  : Promise< mysql.Connection | void>{
+): Promise<mysql.Connection | void> {
   if (db) return db;
   db = await mysql.createConnection({
     host: sqlHost,
