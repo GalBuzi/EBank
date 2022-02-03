@@ -16,7 +16,6 @@ class App {
     this.app.use(express.json());
   }
 
-  
   initRouting() {}
 
   initErrorHandling() {}
