@@ -1,3 +1,13 @@
+export {};
+declare global {
+  namespace Express {
+    interface Request {
+      request_id: string;
+      user_id: string;
+    }
+  }
+}
+
 export interface ConfigJson {
   NODE_ENV: string;
   HOST: string;
@@ -12,3 +22,5 @@ export interface ConfigJson {
   DB_SQL_PWD: string;
   DB_SQL_NAME: string;
 }
+
+

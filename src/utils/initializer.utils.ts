@@ -4,13 +4,13 @@ import log from '@ajar/marker';
 import { ConfigJson } from '../../typings.js';
 
 export let db: mysql.Connection;
-export const connect = async (
+export async function connect(
   sqlHost: string,
   sqlUser: string,
   sqlPassword: string,
   sqlDB: string,
   sqlPort: number,
-)  : Promise< mysql.Connection | void>=> {
+)  : Promise< mysql.Connection | void>{
   if (db) return db;
   db = await mysql.createConnection({
     host: sqlHost,
@@ -21,9 +21,9 @@ export const connect = async (
   });
   await db.connect();
   log.magenta('Connected to MySQL DB');
-};
-export const initConfigFile = (): ConfigJson =>  {
+}
+export function initConfigFile(): ConfigJson {
   return JSON.parse(
     fs.readFileSync(process.cwd() + '/config.json', 'utf-8'),
   ) as ConfigJson;
-};
+}
