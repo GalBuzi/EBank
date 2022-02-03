@@ -10,25 +10,25 @@ class App {
     this.app = express();
   }
 
-  initMiddleWares() {
+  initMiddleWares() : void {
     this.app.use(cors());
     this.app.use(morgan('dev'));
     this.app.use(express.json());
   }
 
-  initRouting() {}
+  initRouting() : void{}
 
-  initErrorHandling() {}
+  initErrorHandling() : void {}
 
-  async startServer(port: number, host: string) {
-    await this.app.listen(port, host);
+  startServer(port: number, host: string) : void {
+    this.app.listen(port, host);
     log.magenta(
       'api is live on',
       ` :sparkles: :zap:  http://${host}:${port} :sparkles: :zap:`,
     );
   }
 
-  get appInstance() {
+  get appInstance() : Express{
     return this.app;
   }
 }

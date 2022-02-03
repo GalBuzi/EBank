@@ -10,7 +10,7 @@ export const connect = async (
   sqlPassword: string,
   sqlDB: string,
   sqlPort: number,
-) => {
+)  : Promise< mysql.Connection | void>=> {
   if (db) return db;
   db = await mysql.createConnection({
     host: sqlHost,
@@ -22,7 +22,7 @@ export const connect = async (
   await db.connect();
   log.magenta('Connected to MySQL DB');
 };
-export const initConfigFile = () => {
+export const initConfigFile = (): ConfigJson =>  {
   return JSON.parse(
     fs.readFileSync(process.cwd() + '/config.json', 'utf-8'),
   ) as ConfigJson;
