@@ -5,7 +5,7 @@ import log from '@ajar/marker';
 import { UrlNotFoundException } from '../exceptions/UrlNotFoundException.exceptions.js';
 const { White, Reset, Red } = log.constants;
 
-export function NotFound(req : Request, res : Response, next : NextFunction) {
+export function NotFound(req : Request, res : Response, next : NextFunction) :void {
   log.info(`url: ${White}${req.url}${Reset}${Red} not found...`);
   next(new UrlNotFoundException(req.url));
 }

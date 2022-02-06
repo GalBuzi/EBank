@@ -22,7 +22,8 @@
       "no-invalid-this": 2,
       "@typescript-eslint/no-unsafe-return": 1,
       "@typescript-eslint/explicit-module-boundary-types": 2,
-      //"@typescript-eslint/no-unused-vars": 2,
+      //changed no-unused-vars from 2 to 0
+      "@typescript-eslint/no-unused-vars": 0,
       "@typescript-eslint/no-unsafe-call": 1,
       "no-var": 2,
       "no-useless-catch": 1,
@@ -36,7 +37,8 @@
       "@typescript-eslint/no-for-in-array": 1,
       "@typescript-eslint/no-floating-promises": 1,
       "no-case-declarations": 1,
-      "@typescript-eslint/await-thenable": 1,
+      // changed await-thenable from 1 to 0
+      "@typescript-eslint/await-thenable": 0,
       "no-prototype-builtins": 1,
       "@typescript-eslint/require-await": 1,
       "@typescript-eslint/no-empty-function": 1,
