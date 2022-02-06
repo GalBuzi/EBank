@@ -4,6 +4,8 @@ import log from '@ajar/marker';
 import cors from 'cors';
 import accountRouter from './routers/account.routers.js';
 import * as ErrorsMiddlwewares from './middleware/errors.middleware.js';
+import * as Loggers from './middleware/loggers.middleware.js';
+
 class App {
   private readonly app: Express;
 
@@ -26,7 +28,7 @@ class App {
 
   initErrorHandling() : void {
     this.app.use(ErrorsMiddlwewares.NotFound);
-    this.app.use(ErrorsMiddlwewares.logHttpError);
+    this.app.use(Loggers.logHttpError);
     this.app.use(ErrorsMiddlwewares.ErrorResponse);
   }
 

@@ -10,24 +10,6 @@ export function NotFound(req : Request, res : Response, next : NextFunction) :vo
   next(new UrlNotFoundException(req.url));
 }
 
-export function logHttpError(path: string) : ErrorRequestHandler {
-  const streamer = fs.createWriteStream(path, { flags: 'a' });
-  return function (
-    error: HttpException,
-    req: Request,
-    res: Response,
-    next: NextFunction,
-  ) : void {
-    streamer.write(
-      //${req.request_id} ::
-      `${error.statusCode} :: ${error.message} :: ${Date.now()} >> ${
-        error?.stack ? error.stack : ''
-      } \n`,
-    );
-    next(error);
-  };
-}
-
 export function ErrorResponse(
   err: HttpException,
   req: Request,
