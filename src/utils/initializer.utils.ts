@@ -5,19 +5,15 @@ import { ConfigJson } from '../../typings.js';
 
 export let db: mysql.Connection;
 export async function connect(
-  sqlHost: string,
-  sqlUser: string,
-  sqlPassword: string,
-  sqlDB: string,
-  sqlPort: number,
+  constants : ConfigJson,
 ): Promise<mysql.Connection | void> {
   if (db) return db;
   db = await mysql.createConnection({
-    host: sqlHost,
-    user: sqlUser,
-    password: sqlPassword,
-    database: sqlDB,
-    port: sqlPort,
+    host: constants.DB_SQL_HOST,
+    user: constants.DB_SQL_USER,
+    password: constants.DB_SQL_PWD,
+    database: constants.DB_SQL_NAME,
+    port: constants.DB_SQL_PORT,
   });
   await db.connect();
   log.magenta('Connected to MySQL DB');

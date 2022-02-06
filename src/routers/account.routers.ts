@@ -3,7 +3,7 @@ import express from 'express';
 import individualRouter from './individual.routers.js';
 import businessRouter from './business.routers.js';
 import familyRouter from './family.routers.js';
-
+import * as accountController from '../controllers/account.controllers.js';
 class AccountRouter {
   private _router = express.Router();
 

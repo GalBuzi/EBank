@@ -7,8 +7,8 @@
     "REFRESH_TOKEN_EXPIRATION":"60d",
     "SALT_ROUNDS":"4",
     "DB_SQL_HOST":"localhost",
-    "DB_SQL_PORT" : 3305,
+    "DB_SQL_PORT" : 3308,
     "DB_SQL_USER":"root",
     "DB_SQL_PWD":"qwerty",
-    "DB_SQL_NAME":"eBank"
+    "DB_SQL_NAME":"ebank"
 }

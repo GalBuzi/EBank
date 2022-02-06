@@ -12,9 +12,11 @@ export interface IAddress {
 export interface IAccount {
   currency : string,
   balance : number,
-  status : string,
-  type : string 
+  status_id : number,
+  type_name : string 
 }
+
+
 
 export interface IAccountUpdate {
   currency? : string,

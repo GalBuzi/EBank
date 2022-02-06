@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-
+import * as individualService from "../services/individual.services.js";
 class IndividualController {
 
   async createIndividualAcc(req: Request, res :Response){
-    
+    const result = await individualService.createIndividualAcc(req.body);
   }
 
   async getAllIndividualsAcc(req: Request, res : Response) {

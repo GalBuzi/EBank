@@ -5,6 +5,8 @@ import cors from 'cors';
 import accountRouter from './routers/account.routers.js';
 import * as ErrorsMiddlwewares from './middleware/errors.middleware.js';
 import * as Loggers from './middleware/loggers.middleware.js';
+import { connect } from './utils/initializer.utils.js';
+import { ConfigJson } from '../typings.js';
 
 class App {
   private readonly app: Express;
@@ -32,11 +34,12 @@ class App {
     this.app.use(ErrorsMiddlwewares.ErrorResponse);
   }
 
-  startServer(port: number, host: string) : void {
-    this.app.listen(port, host);
+  async startServer(constants : ConfigJson) : Promise<void> {
+    await connect(constants);
+    this.app.listen(constants.PORT, constants.HOST);
     log.magenta(
       'api is live on',
-      `http://${host}:${port}`,
+      `http://${constants.HOST}:${constants.PORT}`,
     );
   }
 
