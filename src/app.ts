@@ -36,7 +36,7 @@ class App {
     this.app.listen(port, host);
     log.magenta(
       'api is live on',
-      ` :sparkles: :zap:  http://${host}:${port} :sparkles: :zap:`,
+      `http://${host}:${port}`,
     );
   }
 
