@@ -25,10 +25,10 @@ export async function getAccountById(id : number) : Promise<IAccountDTO> {
 
 export async function createAccount(payload : IAccountModel) : Promise<IAccountDTO>{
   const [account] = await db.query(
-      "INSERT INTO account SET ?", payload
+    'INSERT INTO account SET ?', payload,
   ) as ResultSetHeader[];
-  if(account.changedRows === 0) throw new ServerException("artist was not created",500);
-      const accountCreated = await getAccountById(account.insertId);      
-      return accountCreated;
+  if (account.changedRows === 0) throw new ServerException('artist was not created', 500);
+  const accountCreated = await getAccountById(account.insertId);      
+  return accountCreated;
 } 
 

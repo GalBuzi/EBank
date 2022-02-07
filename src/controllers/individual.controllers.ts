@@ -7,8 +7,8 @@ class IndividualController {
     const response : ISuccessResponse = {
       status : 200,
       message : `Individual account with id ${result.individual_account_id} has been created!`,
-      data : result
-    }
+      data : result,
+    };
     res.status(response.status).json(response);
   }
 
