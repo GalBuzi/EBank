@@ -13,7 +13,7 @@ class IndividualController {
   }
 
   async getAllIndividualsAcc(req: Request, res : Response) {
-
+    
   }
 
   async getIndividualAccById(req: Request, res : Response) {

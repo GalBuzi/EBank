@@ -1,5 +1,5 @@
 import { OkPacket, ResultSetHeader, RowDataPacket } from 'mysql2';
-import { IAdressModel } from '../../types/models.types.js';
+import { IAddressModel } from '../../types/models.types.js';
 import { IAddressDTO } from '../../types/dto_models.types.js';
 import { db } from '../../utils/initializer.utils.js';
 import { ServerException } from '../../exceptions/ServerExcpetion.exceptions.js';
@@ -12,7 +12,7 @@ export async function getAddressById(id : number) : Promise<IAddressDTO> {
   return address;
 }
 
-export async function createAddress(payload : IAdressModel) : Promise<IAddressDTO>{
+export async function createAddress(payload : IAddressModel) : Promise<IAddressDTO>{
   const [address] = await db.query(
     'INSERT INTO address SET ?', payload,
   ) as ResultSetHeader[];

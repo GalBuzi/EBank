@@ -23,3 +23,11 @@ export function initConfigFile(): ConfigJson {
     fs.readFileSync(process.cwd() + '/config.json', 'utf-8'),
   ) as ConfigJson;
 }
+
+export function initRequiredParams() : Map<string, string[]> {
+  const requiredParams = new Map<string, string[]>();
+  requiredParams.set('individual', ['individual_id', 'first_name', 'last_name', 'currency']);
+  requiredParams.set('business', ['compay_id', 'company_name', 'currency']);
+  requiredParams.set('family', ['owners', 'currency']);
+  return requiredParams;
+}
