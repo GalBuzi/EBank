@@ -7,7 +7,7 @@ export interface IAccountDTO extends MODELS.IAccountModel {
   account_id : number
 }
 
- export interface IIndividualAccountDTO extends MODELS.IIndividualAccountModel {
+export interface IIndividualAccountDTO extends MODELS.IIndividualAccountModel {
   individual_account_id : number,
   address_id : number,
   account_id : number
@@ -39,7 +39,7 @@ export interface IIndividualAccountRecord {
   address_id : number,
   account_id : number
 }
- export interface IBusinessAccountRecord {
+export interface IBusinessAccountRecord {
   company_id : number,
   comapny_name : string,
   context : string,
