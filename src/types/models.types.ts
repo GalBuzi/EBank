@@ -1,5 +1,9 @@
-export interface IAddress {
-  address_id : number, 
+
+/**
+ * The models beloew represent the data coming from the request to build the models
+ * that are inserted to the DB
+ */
+export interface IAdressModel {
   country_name : string,
   country_code : string,
   postal_code : number,
@@ -9,7 +13,7 @@ export interface IAddress {
   street_number : number
 }
 
-export interface IAccount {
+export interface IAccountModel {
   currency : string,
   balance : number,
   status_id : number,
@@ -17,46 +21,20 @@ export interface IAccount {
 }
 
 
-
-export interface IAccountUpdate {
-  currency? : string,
-  balance? : number,
-  status? : string,
-  type? : string 
-}
-
-export interface IBusinessAccount extends IAccount, IAddress {
+export interface IBusinessAccountModel extends IAccountModel, IAdressModel {
   company_id : number,
   company_name : string,
   context : string
 }
 
-export interface IBusinessAccountUpdate extends IAccount, IAddress {
-  company_id? : number,
-  company_name? : string,
-  context? : string
-}
-
-export interface IIndividualAccount extends IAccount, IAddress {
+export interface IIndividualAccountModel extends IAccountModel {
   individual_id : number,
   first_name : string,
   last_name: string,
-  email : string
+  email : string,
+  address : IAdressModel
 }
-
-export interface IIndividualAccountUpdate extends IAccount, IAddress {
-  individual_id? : number,
-  first_name? : string,
-  last_name? : string,
-  email? : string
-}
-
-export interface IFamilyAccount extends IAccount {
-  owners : IIndividualAccount[],
+export interface IFamilyAccountModel extends IAccountModel {
+  owners : IIndividualAccountModel[],
   context : string
-}
-
-export interface IFamilyAccountUpdate extends IAccount {
-  owners? : IIndividualAccount[],
-  context? : string
 }
