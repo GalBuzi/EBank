@@ -23,7 +23,7 @@ export interface IFamilyAccountDTO extends MODELS.IFamilyAccountModel {
   family_account_id : number
 }
 
-export interface IAddressDTO extends MODELS.IAdressModel {
+export interface IAddressDTO extends MODELS.IAddressModel {
   address_id : number
 }
 

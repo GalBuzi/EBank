@@ -3,7 +3,7 @@
  * The models beloew represent the data coming from the request to build the models
  * that are inserted to the DB
  */
-export interface IAdressModel {
+export interface IAddressModel {
   country_name : string,
   country_code : string,
   postal_code : number,
@@ -21,7 +21,7 @@ export interface IAccountModel {
 }
 
 
-export interface IBusinessAccountModel extends IAccountModel, IAdressModel {
+export interface IBusinessAccountModel extends IAccountModel, IAddressModel {
   company_id : number,
   company_name : string,
   context : string
@@ -32,7 +32,7 @@ export interface IIndividualAccountModel extends IAccountModel {
   first_name : string,
   last_name: string,
   email : string,
-  address : IAdressModel
+  address : IAddressModel
 }
 export interface IFamilyAccountModel extends IAccountModel {
   owners : IIndividualAccountModel[],

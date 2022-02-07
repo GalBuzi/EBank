@@ -1,7 +1,7 @@
 import { OkPacket, ResultSetHeader, RowDataPacket } from 'mysql2';
 import { ServerException } from '../../exceptions/ServerExcpetion.exceptions.js';
 import { IIndividualAccountDTO, IIndividualAccountRecord } from '../../types/dto_models.types.js';
-import { IAccountModel, IAdressModel, IIndividualAccountModel } from '../../types/models.types.js';
+import { IAccountModel, IAddressModel, IIndividualAccountModel } from '../../types/models.types.js';
 import { db } from '../../utils/initializer.utils.js';
 
 export async function getIndividualAccountById(id : number) : Promise<IIndividualAccountDTO>{
