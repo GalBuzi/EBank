@@ -40,9 +40,6 @@ export interface IFamilyAccountModel extends IAccountModel {
   context : string
 }
 
-//create optional fields object
-export interface IBusinessAccountModelUpdate extends Partial<IBusinessAccountModel> {} 
-
 
 
 

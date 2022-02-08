@@ -30,4 +30,3 @@ export async function createBusinessAccount(payload : IBusinessAccountRecord) : 
   const businessCreated = await getBusinessAccountById(business.insertId);   
   return businessCreated ;
 }
-

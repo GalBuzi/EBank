@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as businessService from '../services/business.services.js';
+import businessService from '../services/business.services.js';
 
 class BusinessController {
 
@@ -31,18 +31,6 @@ class BusinessController {
       data : result,
     };
     res.status(response.status).json(response);
-  }
-
-  async deleteBusinessByIdAcc(req: Request, res : Response) {
-    
-  }
-
-  async updateBusinessByIdAcc(req: Request, res : Response) {
-
-  }
-
-  async patchBusinessByIdAcc(req: Request, res : Response) {
-
   }
 }
 
