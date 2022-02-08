@@ -11,7 +11,7 @@ class BusinessRouter {
   initRouting() {
     this._router.post('/', errorWrapper(businessController.createBusinessAcc));
     this._router.get('/', errorWrapper(businessController.getAllBusinessesAcc)); 
-    this._router.get('/:id', errorWrapper(businessController.getBusinessByIdAcc));
+    this._router.get('/:id', errorWrapper(businessController.getBusinessAccountById));
     this._router.delete('/:id', errorWrapper(businessController.deleteBusinessByIdAcc));
     this._router.put('/:id', errorWrapper(businessController.updateBusinessByIdAcc));
     this._router.patch('/:id', errorWrapper(businessController.patchBusinessByIdAcc));
