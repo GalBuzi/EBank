@@ -3,6 +3,7 @@ import { IIndividualAccountDTO } from "./dto_models.types";
 export interface RowPacketInfo {
     [key : string] : any
 }
+
 export function buildIndividualAccountsFromDB(individualAccDto : RowPacketInfo[]) : IIndividualAccountDTO[] {
     const accounts : IIndividualAccountDTO[] = [];
     for (const element of individualAccDto) {
