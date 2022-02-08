@@ -41,7 +41,7 @@ export interface IIndividualAccountRecord {
 }
 export interface IBusinessAccountRecord {
   company_id : number,
-  comapny_name : string,
+  company_name : string,
   context : string,
   address_id : number,
   account_id : number
