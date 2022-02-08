@@ -4,7 +4,7 @@ import * as individualRepository from '../repositories/SQLRepository/individual.
 import * as addressRepository from '../repositories/SQLRepository/address.repository.js';
 import { IIndividualAccountDTO, IIndividualAccountRecord } from '../types/dto_models.types.js';
 import { extractDataFromIndividualModel } from '../types/extractor.types.js';
-
+import {buildIndividualAccountsFromDB} from '../types/builder.types.js';
 export async function createIndividualAcc(payload : IIndividualAccountModel) : Promise<IIndividualAccountDTO> {
   const { accountToInsert, addressToInsert, individualToInsert } = extractDataFromIndividualModel(payload);
   const createdAccount = await accountRepository.createAccount(accountToInsert);
@@ -13,6 +13,12 @@ export async function createIndividualAcc(payload : IIndividualAccountModel) : P
   individualToInsert.address_id = cretedAddress.address_id;
   const individualAccount = await individualRepository.createIndividualAccount(individualToInsert);
   return individualAccount;
+}
+
+export async function getAllIndividualAcc() : Promise<IIndividualAccountDTO[]> {
+    const result = await individualRepository.getAllIndividualsAcc();
+    const accounts = buildIndividualAccountsFromDB(result);
+    return accounts;
 }
 
 
