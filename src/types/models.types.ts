@@ -21,10 +21,11 @@ export interface IAccountModel {
 }
 
 
-export interface IBusinessAccountModel extends IAccountModel, IAddressModel {
+export interface IBusinessAccountModel extends IAccountModel {
   company_id : number,
   company_name : string,
   context : string
+  address : IAddressModel
 }
 
 export interface IIndividualAccountModel extends IAccountModel {
