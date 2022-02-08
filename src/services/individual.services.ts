@@ -1,4 +1,4 @@
-import {IIndividualAccountModel  } from '../types/models.types.js';
+import { IIndividualAccountModel  } from '../types/models.types.js';
 import * as accountRepository from '../repositories/SQLRepository/account.repository.js';
 import * as individualRepository from '../repositories/SQLRepository/individual.repository.js';
 import * as addressRepository from '../repositories/SQLRepository/address.repository.js';
@@ -18,15 +18,12 @@ export async function createIndividualAcc(payload : IIndividualAccountModel) : P
 
 export async function getAllIndividualAcc() : Promise<IIndividualAccountDTO[]> {
   const allAccounts = await individualRepository.getAllIndividualsAcc();
-  console.log(allAccounts)
   const accountsDTOArr = builder.buildDTOArr(allAccounts) as IIndividualAccountDTO[];
   return accountsDTOArr;
 }
 
 export async function getIndividualById(id : number) : Promise<IIndividualAccountDTO> {
   const individualAccount = await individualRepository.getIndividualAccountById(id);
-  console.log(individualAccount)
-
   const formattedAccount = builder.buildDTOArr([individualAccount]) as IIndividualAccountDTO[];
   return formattedAccount[0];
 }

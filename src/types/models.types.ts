@@ -41,7 +41,7 @@ export interface IFamilyAccountModel extends IAccountModel {
 }
 
 //create optional fields object
-export interface IBusinessAccountModelUpdate extends Partial<IBusinessAccountModel> {} 
+export type IBusinessAccountModelUpdate = Partial<IBusinessAccountModel>; 
 
 
 
