@@ -3,4 +3,6 @@ import App from './app.js';
 
 const CONSTANTS = UTILS.initConfigFile();
 
-App.startServer(CONSTANTS);
+(async ()=>{
+  await App.startServer(CONSTANTS);
+})().catch(console.log);

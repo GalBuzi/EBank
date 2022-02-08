@@ -32,17 +32,6 @@ class IndividualController {
     res.status(response.status).json(response);
   }
 
-  async deleteIndividualAccById(req: Request, res : Response) {
-
-  }
-
-  async updateIndividualAccById(req: Request, res : Response) {
-
-  }
-
-  async patchIndividualAccById(req: Request, res : Response) {
-
-  }
 }
 
 const individualController = new IndividualController();

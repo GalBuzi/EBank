@@ -3,6 +3,7 @@ import { IAddressModel, IIndividualAccountModel } from '../types/models.types.js
 import { Request, Response, NextFunction, RequestHandler } from 'express';
 import { ValidationException } from '../exceptions/ValidationException.excpetions.js';
 import * as UTILS from '../utils/initializer.utils.js';
+
 export function checkParamsExist(model : string) : RequestHandler {
   const requiredParams = UTILS.initRequiredParams();
   return function paramsMiddleware(req : Request, res : Response, next : NextFunction) : void {
