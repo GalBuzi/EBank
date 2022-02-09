@@ -1,5 +1,5 @@
-import { IAccountModel, IAddressModel, IIndividualAccountModel } from '../types/models.types.js';
-import { IIndividualAccountRecord } from '../types/dto_models.types.js';
+import { IAccountModel, IAddressModel, IBusinessAccountModel, IIndividualAccountModel } from '../types/models.types.js';
+import { IBusinessAccountRecord, IIndividualAccountRecord } from '../types/dto_models.types.js';
 
 interface ExtractDataFromIndividualModel {
   accountToInsert:IAccountModel;
@@ -38,6 +38,48 @@ export function extractDataFromIndividualModel(individual_model:IIndividualAccou
     accountToInsert,
     addressToInsert,
     individualToInsert,
+  };
+  
+  return res;
+}
+
+interface ExtractDataFromBusinessModel {
+  accountToInsert:IAccountModel;
+  addressToInsert:IAddressModel
+  businessToInsert:IBusinessAccountRecord
+}
+
+  
+export function extractDataFromBusinessModel(model:IBusinessAccountModel):ExtractDataFromBusinessModel {
+  const accountToInsert : IAccountModel = {
+    currency : model.currency,
+    type_name : model.type_name,
+    balance : model.balance,
+    status_id : model.status_id,
+  };
+  
+  const addressToInsert : IAddressModel = {
+    country_name : model.address.country_name,
+    country_code : model.address.country_code,
+    postal_code : model.address.postal_code,
+    city : model.address.city,
+    region : model.address.region,
+    street_name : model.address.street_name,
+    street_number : model.address.street_number,
+  };
+  
+  const businessToInsert : IBusinessAccountRecord  = {
+    company_name : model.company_name,
+    company_id: model.company_id,
+    context : model.context,
+    address_id: -1,
+    account_id: -1,
+  };
+  
+  const res : ExtractDataFromBusinessModel = {
+    accountToInsert,
+    addressToInsert,
+    businessToInsert,
   };
   
   return res;

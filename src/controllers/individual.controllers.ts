@@ -23,20 +23,15 @@ class IndividualController {
   }
 
   async getIndividualAccById(req: Request, res : Response) {
-
+    const individual = await individualService.getIndividualById(Number(req.params.id));
+    const response : ISuccessResponse = {
+      status : 200,
+      message : 'All Individual accounts have been loaded!',
+      data : individual,
+    };
+    res.status(response.status).json(response);
   }
 
-  async deleteIndividualAccById(req: Request, res : Response) {
-
-  }
-
-  async updateIndividualAccById(req: Request, res : Response) {
-
-  }
-
-  async patchIndividualAccById(req: Request, res : Response) {
-
-  }
 }
 
 const individualController = new IndividualController();

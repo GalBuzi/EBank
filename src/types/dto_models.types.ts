@@ -41,7 +41,7 @@ export interface IIndividualAccountRecord {
 }
 export interface IBusinessAccountRecord {
   company_id : number,
-  comapny_name : string,
+  company_name : string,
   context : string,
   address_id : number,
   account_id : number
@@ -50,6 +50,17 @@ export interface IBusinessAccountRecord {
 export interface IFamilyAccountRecord {
   account_id : number,
   context : string,
+}
+
+interface ITransferDataModel{
+  id : number,
+  balance : number,
+  currency : string
+}
+
+export interface ITransferResult {
+  sourceAccount : ITransferDataModel,
+  destinationAccount : ITransferDataModel
 }
 
 

@@ -39,3 +39,16 @@ export interface IFamilyAccountModel extends IAccountModel {
   owners : IIndividualAccountModel[],
   context : string
 }
+
+export interface ITransferB2B {
+  sourceAccount : number,
+  destinationAccount : number,
+  amount : number
+}
+
+//create optional fields object
+export type IBusinessAccountModelUpdate = Partial<IBusinessAccountModel>; 
+
+
+
+
