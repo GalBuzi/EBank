@@ -1,9 +1,10 @@
 import { Request, Response } from 'express';
 import * as individualService from '../services/individual.services.js';
+import { IIndividualAccountModel } from '../types/models.types.js';
 class IndividualController {
 
   async createIndividualAcc(req: Request, res :Response){
-    const result = await individualService.createIndividualAcc(req.body);
+    const result = await individualService.createIndividualAcc(req.body as IIndividualAccountModel);
     const response : ISuccessResponse = {
       status : 200,
       message : `Individual account with id ${result.individual_account_id} has been created!`,

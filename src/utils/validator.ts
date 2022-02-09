@@ -50,14 +50,42 @@ function isDigitCountMatch(obj: ObjectAny, keys:string[], values:string[]) : str
   return ['true'];
 }
 
-function isPositiveNumber(obj: ObjectAny, keys:string[], values:string[]) : string[]{
+function isPositiveNumber(obj: ObjectAny, keys:string[]) : string[]{
   const ans : string[] = [];
-  keys.forEach( (key, i) => {
+  keys.forEach( (key) => {
     if (!(Number(obj[key]) > 0)){
-      ans.push(`${key} is not ${values[i]} positive number`);
+      ans.push(`${key} is not positive number`);
     }
   });
   if (ans.length > 0) return ans;
+  return ['true'];
+}
+
+function validateTuplesStructure(obj: ObjectAny, keys:string[]) : string[]{
+  const ans : string[] = []; 
+  keys.forEach( (key) => {
+    const tuple = obj[key];
+    if (obj[key] && Array(tuple)){
+      if (tuple.length !== 2){
+        ans.push('found wrong tuple');
+      }
+    }
+  });
+  if (ans.length > 0) return ans;
+  return ['true'];
+}
+
+function checkTuplesSumToMin(obj: ObjectAny, keys:string[], values:string[]) : string[]{
+  const ans : string[] = []; 
+  const isTupleArr = validateTuplesStructure(obj, keys);
+  let sum = 0;
+  if (isTupleArr.toString() === 'true'){
+    keys.forEach( (key) => {
+      const tuple = obj[key];
+      sum += Number(tuple[1]);
+    });
+    if (sum < 5000) ans.push(`sum is less than ${values[0]}`);
+  }
   return ['true'];
 }
 
@@ -101,6 +129,8 @@ export const validationStringToFuncPointer : IValidationStringToFuncPointer = {
   'isDigitCountMatch' : isDigitCountMatch,
   'isPositiveNumber' : isPositiveNumber,
   'isNumeric' : isNumeric,
+  'validateTuplesStructure' : validateTuplesStructure,
+  'checkTuplesSumToMin': checkTuplesSumToMin,
 };
 
 export enum ValidationPerRoute {
@@ -110,6 +140,9 @@ export enum ValidationPerRoute {
   getIndividualAccountById = 'getIndividualAccountById',
   createFamilyAccount = 'createFamilyAccount',
   getFamilyAccountById = 'getFamilyAccountById',
+  transferB2B = 'transferB2B',
+  transferB2I = 'transferB2I',
+  transferF2B = 'transferF2B',
 }
 
 

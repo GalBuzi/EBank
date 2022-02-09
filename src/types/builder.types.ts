@@ -1,4 +1,4 @@
-import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTO, IIndividualAccountDTO } from './dto_models.types.js';
+import { IAccountDTO, IBusinessAccountDTO, IIndividualAccountDTO } from './dto_models.types.js';
 
 export interface RowDataIndividual extends IAccountDTO {
   individual_account_id : number

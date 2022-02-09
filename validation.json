@@ -54,6 +54,101 @@
                     "params_values":["7"]
                 }
             ]
+        },
+        {
+            "route": "getIndividualAccountById",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["primary_id"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isNumeric",
+                    "params": ["primary_id"],
+                    "params_values" : []
+                }
+            ]
+        },
+        {
+            "route": "createFamilyAccount",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["owners", "currency"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "validateTuplesStructure",
+                    "params": ["owners"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "checkSumToMin",
+                    "params": ["owners"],
+                    "params_values" : ["5000"]
+                }
+            ]
+        },
+        {
+            "route": "getFamilyAccountById",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["primary_id"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isNumeric",
+                    "params": ["primary_id"],
+                    "params_values" : []
+                }
+            ]
+        },
+        {
+            "route": "transferB2B",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["source_id", "destination_id","amount"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isPositiveNumber",
+                    "params": ["amount"],
+                    "params_values" : []
+                }
+            ]
+        },
+        {
+            "route": "transferB2I",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["source_id", "destination_id","amount"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isPositiveNumber",
+                    "params": ["amount"],
+                    "params_values" : []
+                }
+            ]
+        },
+        {
+            "route": "transferF2B",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["source_id", "destination_id","amount"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isPositiveNumber",
+                    "params": ["amount"],
+                    "params_values" : []
+                }
+            ]
         }
     ],
 
@@ -61,6 +156,8 @@
         "checkForRequiredFields",
         "checkForNonValidFields",
         "isDigitCountMatch",
-        "isNumeric"
+        "isPositiveNumber",
+        "isNumeric",
+        "validateTuplesStructureAndSumToMin"
     ]
 }

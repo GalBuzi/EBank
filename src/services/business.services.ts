@@ -17,30 +17,30 @@ class BusinessAccountService implements builder.Converter{
     businessToInsert.account_id = createdAccount.account_id;
     businessToInsert.address_id = createdAddress.address_id;
     const businessAccountCreated = await businessRepository.createBusinessAccount(businessToInsert);
-    const businessDTOArr = this.convertRowsDataToDTO([businessAccountCreated]) as IBusinessAccountDTO[];
+    const businessDTOArr = this.convertRowsDataToDTO([businessAccountCreated]);
     return businessDTOArr[0];
   }
     
   async getBusinessAccountById(business_id : string) : Promise<IBusinessAccountDTO> {
     const businessObject = await businessRepository.getBusinessAccountById(business_id);
-    const businessDTOArr = this.convertRowsDataToDTO([businessObject])  as IBusinessAccountDTO[];
+    const businessDTOArr = this.convertRowsDataToDTO([businessObject]);
     return businessDTOArr[0];
   }
     
-  async getAllBusinessAccount() : Promise<IBusinessAccountDTO[]> {
-    const businessObject = await businessRepository.getAllBusinessAccount();
-    const businessDTOArr : IBusinessAccountDTO[] = this.convertRowsDataToDTO(businessObject) as IBusinessAccountDTO[];
-    return businessDTOArr;
-  }
+  // async getAllBusinessAccount() : Promise<IBusinessAccountDTO[]> {
+  //   const businessObject = await businessRepository.getAllBusinessAccount();
+  //   const businessDTOArr : IBusinessAccountDTO[] = this.convertRowsDataToDTO(businessObject) as IBusinessAccountDTO[];
+  //   return businessDTOArr;
+  // }
 
   convertRowsDataToDTO(data: RowDataBusiness[]): IBusinessAccountDTO[] {
     const accounts : IBusinessAccountDTO[] = [];
     for (const element of data) { 
       let formatted;
-      formatted = this.formatToBusinessDTO(element as RowDataBusiness);
+      formatted = this.formatToBusinessDTO(element);
       accounts.push(formatted);
     }
-    return accounts as IBusinessAccountDTO[];
+    return accounts;
   }
 
   formatToBusinessDTO(element : RowDataBusiness) : IBusinessAccountDTO { 

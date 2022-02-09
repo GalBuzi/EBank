@@ -1,5 +1,3 @@
-import { IIndividualAccountDTO } from '../types/dto_models.types.js';
-import { IAddressModel, IIndividualAccountModel } from '../types/models.types.js';
 import { Request, Response, NextFunction, RequestHandler } from 'express';
 import { ValidationException } from '../exceptions/ValidationException.excpetions.js';
 import * as UTILS from '../utils/initializer.utils.js';
