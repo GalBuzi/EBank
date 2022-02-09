@@ -21,7 +21,7 @@ class BusinessAccountService implements builder.Converter{
     return businessDTOArr[0];
   }
     
-  async getBusinessAccountById(business_id : number) : Promise<IBusinessAccountDTO> {
+  async getBusinessAccountById(business_id : string) : Promise<IBusinessAccountDTO> {
     const businessObject = await businessRepository.getBusinessAccountById(business_id);
     const businessDTOArr = this.convertRowsDataToDTO([businessObject])  as IBusinessAccountDTO[];
     return businessDTOArr[0];

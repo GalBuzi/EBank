@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import businessService from '../services/business.services.js';
-
 class BusinessController {
 
   async createBusinessAcc(req: Request, res :Response){
@@ -14,6 +13,7 @@ class BusinessController {
   }
 
   async getAllBusinessesAcc(req: Request, res : Response) {
+    
     const result = await businessService.getAllBusinessAccount();
     const response : ISuccessResponse = {
       status : 200,
@@ -24,7 +24,7 @@ class BusinessController {
   }
 
   async getBusinessAccountById(req: Request, res : Response) {
-    const result = await businessService.getBusinessAccountById(Number(req.params.id));
+    const result = await businessService.getBusinessAccountById(req.params.primary_id);
     const response : ISuccessResponse = {
       status : 200,
       message : `Business account with id ${result.business_account_id} is attached!`,

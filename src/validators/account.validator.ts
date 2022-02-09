@@ -5,11 +5,11 @@ class AccountValidator {
 
   }
 
-  isTypeOf(accounts : IAccountModel[], type: string){
+  isAccountSameType(accounts : IAccountModel[], type: string){
 
   }
 
-  sameCurrency(accounts : IAccountModel[], currency:string){
+  isSameCurrency(accounts : IAccountModel[], currency:string){
 
   }
 
@@ -18,7 +18,7 @@ class AccountValidator {
 
   }
 
-  isSameOwningCompany(accounts: IAddressModel[], company_name:string){
+  isAcoountsHasSameOwningCompany(accounts: IAddressModel[], company_name:string){
 
   }
 }

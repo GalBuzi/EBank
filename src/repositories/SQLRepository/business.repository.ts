@@ -5,7 +5,7 @@ import { IAccountModel, IAddressModel, IBusinessAccountModel } from '../../types
 import { db } from '../../utils/initializer.utils.js';
 import { RowDataBusiness } from '../../types/builder.types.js';
 
-export async function getBusinessAccountById(id: number):Promise<RowDataBusiness> {
+export async function getBusinessAccountById(id: string):Promise<RowDataBusiness> {
   const [business] = await db.query(
     `SELECT * FROM business_account ba JOIN account a ON ba.account_id = a.account_id
     JOIN address ad ON ad.address_id = ba.address_id
@@ -23,10 +23,9 @@ export async function getAllBusinessAccount() : Promise<RowDataBusiness[]>{
 }
 
 export async function createBusinessAccount(payload : IBusinessAccountRecord) : Promise<RowDataBusiness>{
-  console.log(payload);
   const [business] = await db.query(
     'INSERT INTO business_account SET ?', payload) as ResultSetHeader[];
   if (business.changedRows === 0) throw new ServerException('artist was not created', 500);
-  const businessCreated = await getBusinessAccountById(business.insertId);   
+  const businessCreated = await getBusinessAccountById(business.insertId.toString());   
   return businessCreated ;
 }
