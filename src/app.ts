@@ -8,6 +8,7 @@ import * as Loggers from './middleware/loggers.middleware.js';
 import { connect } from './utils/initializer.utils.js';
 import { ConfigJson } from '../typings.js';
 
+
 class App {
   private readonly app: Express;
 
@@ -41,6 +42,7 @@ class App {
       'api is live on',
       `http://${constants.HOST}:${constants.PORT}`,
     );
+    
   }
 
   get appInstance() : Express{
