@@ -23,4 +23,3 @@ export interface ConfigJson {
   DB_SQL_NAME: string;
 }
 
-

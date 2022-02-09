@@ -2,6 +2,8 @@ import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import { IIndividualAccountRecord } from '../../types/dto_models.types.js';
 import { db } from '../../utils/initializer.utils.js';
 import { RowDataIndividual } from '../../types/builder.types.js';
+
+
 export async function getIndividualAccountById(id : number) : Promise<RowDataIndividual>{
   const [account] = await db.query(
     'SELECT * FROM individual_account ia JOIN account a ON ia.account_id = a.account_id JOIN address ad ON ia.address_id =ad.address_id WHERE individual_account_id = ?', id,

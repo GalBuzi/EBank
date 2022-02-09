@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction, RequestHandler } from 'express';
 import fetch from 'node-fetch';
 import { IRateResult } from '../types/models.types.js';
+
 export default function errorWrapper(routingFunc: RequestHandler):RequestHandler {
   return async function (req: Request, res: Response, next: NextFunction) {
     try {

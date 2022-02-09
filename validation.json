@@ -1,0 +1,163 @@
+{
+    "routes": [
+        {
+            "route": "createBusinessAccount",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["company_id", "company_name", "currency"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "checkForNonValidFields",
+                    "params": ["primary_id", "account_id"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isDigitCountMatch",
+                    "params": ["company_id"],
+                    "params_values":["8"]
+                }
+            ]
+        },
+        {
+            "route": "getBusinessAccountById",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["primary_id"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isNumeric",
+                    "params": ["primary_id"],
+                    "params_values" : []
+                }
+            ]
+        },
+        {
+            "route": "createIndividualAccount",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["individual_id", "first_name", "last_name","currency"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "checkForNonValidFields",
+                    "params": ["primary_id", "account_id"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isDigitCountMatch",
+                    "params": ["individual_id"],
+                    "params_values":["7"]
+                }
+            ]
+        },
+        {
+            "route": "getIndividualAccountById",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["primary_id"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isNumeric",
+                    "params": ["primary_id"],
+                    "params_values" : []
+                }
+            ]
+        },
+        {
+            "route": "createFamilyAccount",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["owners", "currency"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "validateTuplesStructure",
+                    "params": ["owners"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "checkSumToMin",
+                    "params": ["owners"],
+                    "params_values" : ["5000"]
+                }
+            ]
+        },
+        {
+            "route": "getFamilyAccountById",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["primary_id"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isNumeric",
+                    "params": ["primary_id"],
+                    "params_values" : []
+                }
+            ]
+        },
+        {
+            "route": "transferB2B",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["source_id", "destination_id","amount"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isPositiveNumber",
+                    "params": ["amount"],
+                    "params_values" : []
+                }
+            ]
+        },
+        {
+            "route": "transferB2I",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["source_id", "destination_id","amount"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isPositiveNumber",
+                    "params": ["amount"],
+                    "params_values" : []
+                }
+            ]
+        },
+        {
+            "route": "transferF2B",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["source_id", "destination_id","amount"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isPositiveNumber",
+                    "params": ["amount"],
+                    "params_values" : []
+                }
+            ]
+        }
+    ],
+
+    "validation_options": [
+        "checkForRequiredFields",
+        "checkForNonValidFields",
+        "isDigitCountMatch",
+        "isPositiveNumber",
+        "isNumeric",
+        "validateTuplesStructureAndSumToMin"
+    ]
+}
