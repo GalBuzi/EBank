@@ -6,11 +6,7 @@ import { ValidationPerRoute } from '../utils/validator.js';
 class BusinessRouter {
   private _router = express.Router();
 
-<<<<<<< HEAD
-  constructor(){    
-=======
   constructor() {
->>>>>>> upstream/main
     this.initRouting();
   }
 
@@ -20,8 +16,8 @@ class BusinessRouter {
       errorWrapper(businessController.createBusinessAcc));
     //this._router.get('/', errorWrapper(businessController.getAllBusinessesAcc));
     this._router.get('/:id', 
-    errorWrapper(validateRoute(ValidationPerRoute.getBusinessAccountById)),
-    errorWrapper(businessController.getBusinessAccountById));
+      errorWrapper(validateRoute(ValidationPerRoute.getBusinessAccountById)),
+      errorWrapper(businessController.getBusinessAccountById));
     this._router.put(
       '/transferB2B/source/:sourceId/:destinationId',
       errorWrapper(businessController.transferB2B),
