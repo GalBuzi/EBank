@@ -4,7 +4,7 @@ import { RowDataIndividual } from '../../types/builder.types.js';
 import { IIndividualAccountDTO, IIndividualAccountRecord } from '../../types/dto_models.types.js';
 import { IAccountModel, IAddressModel, IIndividualAccountModel } from '../../types/models.types.js';
 import { db } from '../../utils/initializer.utils.js';
-import { RowPacketInfo } from '../../types/builder.types.js';
+
 export async function getIndividualAccountById(id : number) : Promise<IIndividualAccountDTO>{
   const sql = 'SELECT * FROM individual_account WHERE individual_account_id = ?';
   const results = await db.query(sql, id);
@@ -24,10 +24,4 @@ export async function createIndividualAccount(payload : IIndividualAccountRecord
   return individualCreated;
 }
 
-export async function getAllIndividualsAcc() : Promise<RowPacketInfo[]> {
-  const [accounts] = await db.query(
-    'SELECT * FROM individual_account ia JOIN account a ON ia.account_id = a.account_id JOIN address ad ON ia.address_id =ad.address_id',
-  ) as RowDataPacket[];
-  return accounts as RowPacketInfo[];
-}
 
