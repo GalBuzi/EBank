@@ -106,13 +106,10 @@ export const validationStringToFuncPointer : IValidationStringToFuncPointer = {
 export enum ValidationPerRoute {
   createBusinessAccount = 'createBusinessAccount',
   getBusinessAccountById = 'getBusinessAccountById',
-  getAllBusinessAccount = 'getAllBusinessAccount',
   createIndividualAccount = 'createIndividualAccount',
   getIndividualAccountById = 'getIndividualAccountById',
-  getAllIndividualAccount = 'getAllIndividualAccount',
   createFamilyAccount = 'createFamilyAccount',
   getFamilyAccountById = 'getFamilyAccountById',
-  getAllFamilyAccount = 'getAllFamilyAccount',
 }
 
 
