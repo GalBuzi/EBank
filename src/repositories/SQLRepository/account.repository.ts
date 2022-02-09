@@ -1,4 +1,4 @@
-import { OkPacket, ResultSetHeader, RowDataPacket } from 'mysql2';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import { ServerException } from '../../exceptions/ServerExcpetion.exceptions.js';
 import { IAccountDTO } from '../../types/dto_models.types.js';
 import { IAccountModel } from '../../types/models.types.js';
@@ -10,8 +10,6 @@ export async function getAccountById(id : number) : Promise<IAccountDTO> {
   const results = await db.query(sql, id);
   const result: RowDataPacket[] = results[0] as RowDataPacket[];
   const account = result[0] as IAccountDTO;
-  // if (result.length === 0)
-  //     throw new ResourceNotFound(`Artist with id ${id} not found!`);
   return account;
 }
 // export async function createAccount(payload : IAccountModel) : Promise<IAccountDTO>{

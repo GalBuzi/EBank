@@ -1,12 +1,12 @@
-interface IResponse {
-  status : number, 
-  message : string
+export interface IResponse {
+  status: number;
+  message: string;
 }
 
-interface ISuccessResponse extends IResponse{
-  data : any
+export interface ISuccessResponse extends IResponse {
+  data: any;
 }
 
-interface IErrorResponse extends IResponse {
-  stack : string
+export interface IErrorResponse extends IResponse {
+  stack: string;
 }
