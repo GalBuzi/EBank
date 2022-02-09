@@ -1,27 +1,29 @@
-import { OkPacket, ResultSetHeader, RowDataPacket } from 'mysql2';
-import { ServerException } from '../../exceptions/ServerExcpetion.exceptions.js';
-import { RowDataIndividual } from '../../types/builder.types.js';
-import { IIndividualAccountDTO, IIndividualAccountRecord } from '../../types/dto_models.types.js';
-import { IAccountModel, IAddressModel, IIndividualAccountModel } from '../../types/models.types.js';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
+import { IIndividualAccountRecord } from '../../types/dto_models.types.js';
 import { db } from '../../utils/initializer.utils.js';
+import { RowDataIndividual } from '../../types/builder.types.js';
 
-export async function getIndividualAccountById(id : number) : Promise<IIndividualAccountDTO>{
-  const sql = 'SELECT * FROM individual_account WHERE individual_account_id = ?';
-  const results = await db.query(sql, id);
-  const result: RowDataPacket[] = results[0] as RowDataPacket[];
-  const individualAccount = result[0] as IIndividualAccountDTO;
-  // if (result.length === 0)
-  //     throw new ResourceNotFound(`Artist with id ${id} not found!`);
-  return individualAccount;
+
+export async function getIndividualAccountById(id : number) : Promise<RowDataIndividual>{
+  const [account] = await db.query(
+    'SELECT * FROM individual_account ia JOIN account a ON ia.account_id = a.account_id JOIN address ad ON ia.address_id =ad.address_id WHERE individual_account_id = ?', id,
+  ) as RowDataPacket[];
+  return account[0] as RowDataIndividual;
+
 }
-
-export async function createIndividualAccount(payload : IIndividualAccountRecord) : Promise<IIndividualAccountDTO>{
+export async function createIndividualAccount(payload : IIndividualAccountRecord) : Promise<RowDataIndividual>{
   const [individual] = await db.query(
     'INSERT INTO individual_account SET ?', payload,
   ) as ResultSetHeader[];
-  if (individual.changedRows === 0) throw new ServerException('artist was not created', 500);
   const individualCreated = await getIndividualAccountById(individual.insertId);   
   return individualCreated;
 }
+
+// export async function getAllIndividualsAcc() : Promise<RowDataIndividual[]> {
+//   const [accounts] = await db.query(
+//     'SELECT * FROM individual_account ia JOIN account a ON ia.account_id = a.account_id JOIN address ad ON ia.address_id =ad.address_id',
+//   ) as RowDataPacket[];
+//   return accounts as RowDataIndividual[];
+// }
 
 

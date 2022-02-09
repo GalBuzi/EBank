@@ -10,7 +10,7 @@
         "build-dev": "npm run build && node dist/index.js",
         "dev": "nodemon",
         "start": "NODE_ENV=production node dist/index.js",
-        "lint": "eslint src/**/*.ts src/*.ts",
+        "lint": "eslint src/**/*.ts src/*.ts --fix",
         "lint-fix": "eslint src/**/**/*.ts src/**/*.ts src/*.ts --fix",
         "format": "prettier src/**/*.ts src/*.ts --write",
         "prepare": "husky install",
@@ -63,6 +63,7 @@
         "express": "^4.17.2",
         "morgan": "^1.10.0",
         "mysql2": "^2.3.3",
+        "node-fetch": "^3.2.0",
         "uuid": "^3.4.0"
     },
     "repository": {
