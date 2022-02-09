@@ -32,6 +32,28 @@ class BusinessController {
     };
     res.status(response.status).json(response);
   }
+
+  async transferB2B(req : Request, res : Response) {
+    const result = await businessService.transferB2B(req.body);
+    const response : ISuccessResponse = {
+      status : 200,
+      message : 'Transfer is complete',
+      data : result,
+    };
+    res.status(response.status).json(response);
+  }
+
+  async transferB2I(req : Request, res : Response) {
+    const result = await businessService.transferB2I(req.body);
+    const response : ISuccessResponse = {
+      status : 200,
+      message : 'Transfer is complete',
+      data : result,
+    };
+    res.status(response.status).json(response);
+  }
+
+
 }
 
 const businessController = new BusinessController();

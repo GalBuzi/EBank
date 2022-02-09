@@ -52,5 +52,16 @@ export interface IFamilyAccountRecord {
   context : string,
 }
 
+interface ITransferDataModel{
+  id : number,
+  balance : number,
+  currency : string
+}
+
+export interface ITransferResult {
+  sourceAccount : ITransferDataModel,
+  destinationAccount : ITransferDataModel
+}
+
 
 

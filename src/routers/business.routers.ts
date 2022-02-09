@@ -12,6 +12,9 @@ class BusinessRouter {
     this._router.post('/', errorWrapper(businessController.createBusinessAcc));
     this._router.get('/', errorWrapper(businessController.getAllBusinessesAcc)); 
     this._router.get('/:id', errorWrapper(businessController.getBusinessAccountById));
+    this._router.post('/business', errorWrapper(businessController.transferB2B));
+    this._router.post('/individual', errorWrapper(businessController.transferB2I));
+
   }
     
   get router(){
