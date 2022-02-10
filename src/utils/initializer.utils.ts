@@ -2,6 +2,7 @@ import fs from 'fs';
 import mysql from 'mysql2/promise';
 import log from '@ajar/marker';
 import { ConfigJson } from '../../typings.js';
+import { ValidationConfig } from './validations/types.validations.js';
 
 export let db: mysql.Connection;
 export async function connect(constants: ConfigJson): Promise<mysql.Connection | void> {
@@ -20,10 +21,10 @@ export function initConfigFile(): ConfigJson {
   return JSON.parse(fs.readFileSync(process.cwd() + '/config.json', 'utf-8')) as ConfigJson;
 }
 
-export function initRequiredParams(): Map<string, string[]> {
-  const requiredParams = new Map<string, string[]>();
-  requiredParams.set('individual', ['individual_id', 'first_name', 'last_name', 'currency']);
-  requiredParams.set('business', ['compay_id', 'company_name', 'currency']);
-  requiredParams.set('family', ['owners', 'currency']);
-  return requiredParams;
+function initValidationConfig(): ValidationConfig {
+  return JSON.parse(
+    fs.readFileSync(process.cwd() + '/validation.json', 'utf-8'),
+  ) as ValidationConfig;
 }
+export const validationConfigObj = initValidationConfig();
+console.log(validationConfigObj);

@@ -62,6 +62,3 @@ export interface IRateResult {
   date: Date;
   rates: { [key: string]: string };
 }
-
-//create optional fields object
-export type IBusinessAccountModelUpdate = Partial<IBusinessAccountModel>;

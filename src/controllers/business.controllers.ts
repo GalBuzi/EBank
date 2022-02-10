@@ -36,12 +36,27 @@ class BusinessController {
 
   async transferB2B(req: Request, res: Response) {
     const { sourceId, destinationId } = req.params;
-    const { amount, flag } = req.query;
+    const { amount } = req.query;
     const result = await businessService.transferB2B(
       Number(sourceId),
       Number(destinationId),
       Number(amount),
-      flag as string,
+    );
+    const response: ISuccessResponse = {
+      status: 200,
+      message: 'Transfer is complete',
+      data: result,
+    };
+    res.status(response.status).json(response);
+  }
+
+  async transferB2BFX(req: Request, res: Response) {
+    const { sourceId, destinationId } = req.params;
+    const { amount } = req.query;
+    const result = await businessService.transferB2BFX(
+      Number(sourceId),
+      Number(destinationId),
+      Number(amount),
     );
     const response: ISuccessResponse = {
       status: 200,

@@ -73,6 +73,5 @@ class FamilyAccountService implements builder.ConvertRowDataToDTO{
   }
 }
 
-
 const instance = new FamilyAccountService();
 export default instance;

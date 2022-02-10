@@ -2,7 +2,7 @@ import errorWrapper from '../utils/helpers.utils.js';
 import express from 'express';
 import businessController from '../controllers/business.controllers.js';
 import { validateRoute } from '../middleware/validation.middleware.js';
-import { ValidationPerRoute } from '../utils/validator.js';
+import { InputValidationPerRoute } from '../utils/validations/types.validations.js';
 class BusinessRouter {
   private _router = express.Router();
 
@@ -12,16 +12,23 @@ class BusinessRouter {
 
   initRouting() {
     this._router.post('/',
-      errorWrapper(validateRoute(ValidationPerRoute.createBusinessAccount)),
+      errorWrapper(validateRoute(InputValidationPerRoute.createBusinessAccount)),
       errorWrapper(businessController.createBusinessAcc));
     //this._router.get('/', errorWrapper(businessController.getAllBusinessesAcc));
+  
     this._router.get('/:id', 
-      errorWrapper(validateRoute(ValidationPerRoute.getBusinessAccountById)),
+      errorWrapper(validateRoute(InputValidationPerRoute.getBusinessAccountById)),
       errorWrapper(businessController.getBusinessAccountById));
+    
     this._router.put(
-      '/transferB2B/source/:sourceId/:destinationId',
-      errorWrapper(businessController.transferB2B),
+      '/transferB2B/source/:sourceId/destination/:destinationId',
+      errorWrapper(businessController.transferB2B));
+  
+    this._router.put(
+      '/transferB2BFX/source/:sourceId/destination/:destinationId',
+      errorWrapper(businessController.transferB2BFX),
     );
+  
     this._router.put(
       '/transferB2I/source/:sourceId/:destinationId',
       errorWrapper(businessController.transferB2I),
