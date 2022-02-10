@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as businessService from '../services/business.services.js';
+import businessService from '../services/business.services.js';
 import { IBusinessAccountModel } from '../types/models.types.js';
 import { ISuccessResponse } from '../types/responses.typings.js';
 
