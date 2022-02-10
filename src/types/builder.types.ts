@@ -1,4 +1,4 @@
-import { IAccountDTO, IBusinessAccountDTO, IIndividualAccountDTO } from './dto_models.types.js';
+import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTO, IIndividualAccountDTO } from './dto_models.types.js';
 
 export interface RowDataIndividual extends IAccountDTO {
   individual_account_id: number;
@@ -31,20 +31,15 @@ export interface RowDataBusiness extends IAccountDTO {
   region: string;
 }
 
-export interface RowDataFamilyShort extends IAccountDTO {
-  family_account_id : number,
+export interface RowDataFamily extends IAccountDTO {
+  owners : number,
   context : string,
-  individual_account_id : number
+  family_account_id : number,
+  indiv_account_id : number
 }
 
-export interface RowDataFamilyLong extends IAccountDTO {
-  family_account_id : number,
-  context : string,
-  individual_account_id : number
-}
-
-export type RowDataAccount = RowDataIndividual | RowDataBusiness;
-export type AccountDTO = IIndividualAccountDTO | IBusinessAccountDTO;
+export type RowDataAccount = RowDataIndividual | RowDataBusiness | RowDataFamily;
+export type AccountDTO = IIndividualAccountDTO | IBusinessAccountDTO | Omit<IFamilyAccountDTO, 'owners'>;
 
 export interface ConvertRowDataToDTO {
   convertRowsDataToDTO(T:RowDataAccount[]) : AccountDTO[];

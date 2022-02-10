@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as individualService from '../services/individual.services.js';
+import individualService from '../services/individual.services.js';
 import { IIndividualAccountModel } from '../types/models.types.js';
 import { ISuccessResponse } from '../types/responses.typings.js';
 class IndividualController {

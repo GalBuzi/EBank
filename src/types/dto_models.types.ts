@@ -18,9 +18,12 @@ export interface IBusinessAccountDTO extends MODELS.IBusinessAccountModel {
   business_account_id: number;
   address_id: number;
 }
-export interface IFamilyAccountDTO extends MODELS.IFamilyAccountModel {
-  account_id: number;
-  family_account_id: number;
+
+export interface IFamilyAccountDTO extends MODELS.IAccountModel {
+  owners: number[] | IIndividualAccountDTO[];
+  context: string;
+  family_account_id : number,
+  account_id : number
 }
 
 export interface IAddressDTO extends MODELS.IAddressModel {

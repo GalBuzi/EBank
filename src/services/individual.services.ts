@@ -30,7 +30,14 @@ class IndividualAccountService implements builder.ConvertRowDataToDTO{
   //   return accountsDTOArr;
   // }
   
-  async  getIndividualById(id: number): Promise<IIndividualAccountDTO> {
+  async getListOfIndividualsById(individualsId: number[]): Promise<IIndividualAccountDTO[]> {
+    const individualAccounts = await individualRepository.getListOfIndividualsAccountsById(individualsId);
+    if (!individualAccounts) throw new ServerException('One of the individuals doesn\'t exist!');
+    const formattedAccount = this.convertRowsDataToDTO(individualAccounts) as IIndividualAccountDTO[];
+    return formattedAccount;
+  }
+
+  async getIndividualById(id: number): Promise<IIndividualAccountDTO> {
     const individualAccount = await individualRepository.getIndividualAccountById(id);
     if (!individualAccount) throw new ServerException(`Individual account with id ${id} not found`);
     const formattedAccount = this.convertRowsDataToDTO([individualAccount]) as IIndividualAccountDTO[];
