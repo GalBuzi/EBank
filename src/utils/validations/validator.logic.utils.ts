@@ -84,9 +84,9 @@ export function isSameCurrency(source: RowDataAccount, destination: RowDataAccou
 }
 
 export function isDifferentCurrency(source: RowDataAccount, destination: RowDataAccount): string[] {
-  const errors : string[] = [];
+  const errors : string[] = [];  
   if (source.currency === destination.currency)
-    errors.push('currency must be the different');
+    errors.push('currency must be different');
   return errors;
 }
 
@@ -95,8 +95,7 @@ export function isValidBalanceB2B(source: RowDataAccount,
   
   const errors : string[] = [];
   if (source.balance - amount < 10000)
-    errors.push(`${source.type_name} source account must remain with at least 10000 
-                    after transfer to ${destination.type_name} account`);
+    errors.push(`${source.type_name} source account must remain with at least 10000 after transfer to ${destination.type_name} account`);
   return errors;
 }
 export function isValidBalanceB2I(source: RowDataAccount, 
@@ -104,8 +103,7 @@ export function isValidBalanceB2I(source: RowDataAccount,
   
   const errors : string[] = [];
   if (source.balance - amount < 1000)
-    errors.push(`${source.type_name} source account must remain with at least 1000 
-                after transfer to ${destination.type_name} account`);
+    errors.push(`${source.type_name} source account must remain with at least 1000 after transfer to ${destination.type_name} account`);
   return errors;
 }
 export function isValidTypesB2I(source: RowDataAccount, 
@@ -139,8 +137,7 @@ export function isLimitValidB2B(source: RowDataBusiness,
 export function isLimitValidB2I(source: RowDataAccount, 
   destination: RowDataAccount, amount: number): string[] {
   const errors : string[] = [];
-  if (amount > 1000) errors.push(`Amount must be under or equal to 1000 while transfring from 
-                                ${source.type_name}  account to ${destination.type_name} account`);
+  if (amount > 1000) errors.push(`Amount must be under or equal to 1000 while transfring from ${source.type_name}  account to ${destination.type_name} account`);
   return errors;
 }
 

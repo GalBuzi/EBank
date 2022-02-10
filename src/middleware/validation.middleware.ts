@@ -21,7 +21,7 @@ export function validateRoute(validationRouteName: string) : RequestHandler {
     if (toNext.length === 0){
       next();
     } else {
-      const msg = toNext.join('\n');
+      const msg = toNext.join(', ');
       next(new ValidationException(msg));
     } 
   };

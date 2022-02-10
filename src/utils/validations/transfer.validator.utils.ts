@@ -44,18 +44,23 @@ import { ValidationException } from '../../exceptions/ValidationException.excpet
 function runValidationFunctions(validationTranserName:string, source : RowDataAccount, 
   destination: RowDataAccount, amount:number):void{
   const validationTransfer = validationConfigObj.transfers.find(r => r.transfer_type === validationTranserName);
-  const validAnswers : string[] = [];
+  console.log(validationTransfer);
+  let validAnswers : string[] = [];
   if (validationTransfer) {
     const validFunctionsObj = validationTransfer.validation_functions;
     validFunctionsObj.forEach(obj => {
+      console.log('function validating ', obj);
       const func = transferValidationStringToFuncPointer[obj];
       const answers = func(source, destination, amount);
-      validAnswers.concat(answers);
+      console.log('answers result ', answers);
+      
+      validAnswers = validAnswers.concat(answers);
     });
   }
   console.log(validAnswers);
+  
   const toNext = validAnswers.filter(ans => ans !== 'true');
-  if (toNext.length > 0) throw new ValidationException(toNext.join('\n'));
+  if (toNext.length > 0) throw new ValidationException(toNext.join(', '));
   else return;
 }
 

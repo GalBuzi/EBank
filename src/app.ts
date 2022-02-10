@@ -8,7 +8,6 @@ import * as Loggers from './middleware/loggers.middleware.js';
 import { connect } from './utils/initializer.utils.js';
 import { ConfigJson } from '../typings.js';
 
-
 class App {
   private readonly app: Express;
 
@@ -19,33 +18,29 @@ class App {
     this.initErrorHandling();
   }
 
-  initMiddleWares() : void {
+  initMiddleWares(): void {
     this.app.use(cors());
     this.app.use(morgan('dev'));
     this.app.use(express.json());
   }
 
-  initRouting() : void{
+  initRouting(): void {
     this.app.use('/account', accountRouter.router);
   }
 
-  initErrorHandling() : void {
+  initErrorHandling(): void {
     this.app.use(ErrorsMiddlwewares.NotFound);
     this.app.use(Loggers.logHttpError);
     this.app.use(ErrorsMiddlwewares.ErrorResponse);
   }
 
-  async startServer(constants : ConfigJson) : Promise<void> {
+  async startServer(constants: ConfigJson): Promise<void> {
     await connect(constants);
     this.app.listen(constants.PORT, constants.HOST);
-    log.magenta(
-      'api is live on',
-      `http://${constants.HOST}:${constants.PORT}`,
-    );
-    
+    log.magenta('api is live on', `http://${constants.HOST}:${constants.PORT}`);
   }
 
-  get appInstance() : Express{
+  get appInstance(): Express {
     return this.app;
   }
 }

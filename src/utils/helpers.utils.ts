@@ -14,7 +14,7 @@ export default function errorWrapper(routingFunc: RequestHandler):RequestHandler
 
 export async function getRate(base: string, currency: string): Promise<number> {
   const baseUrl = 'http://api.exchangeratesapi.io/latest';
-  const url = `${baseUrl}?base=${base}&symbols=${currency}&access_key=36dc769935e003a051e569b22ce2571f`;
+  const url = `${baseUrl}?base=${base}&symbols=${currency}&access_key=c2fde0c2528d1735144403fc92dd310a`;
   const response = await fetch(url);
   const result = (await response.json()) as IRateResult;
   return Number(Object.values(result.rates)[0]);

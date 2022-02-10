@@ -15,17 +15,20 @@ class BusinessRouter {
       errorWrapper(validateRoute(InputValidationPerRoute.createBusinessAccount)),
       errorWrapper(businessController.createBusinessAcc));
     //this._router.get('/', errorWrapper(businessController.getAllBusinessesAcc));
+  
     this._router.get('/:id', 
       errorWrapper(validateRoute(InputValidationPerRoute.getBusinessAccountById)),
       errorWrapper(businessController.getBusinessAccountById));
+    
     this._router.put(
-      '/transferB2B/source/:sourceId/:destinationId',
-      errorWrapper(businessController.transferB2B),
-    );
+      '/transferB2B/source/:sourceId/destination/:destinationId',
+      errorWrapper(businessController.transferB2B));
+  
     this._router.put(
-      '/transferB2BFX/source/:sourceId/:destinationId',
+      '/transferB2BFX/source/:sourceId/destination/:destinationId',
       errorWrapper(businessController.transferB2BFX),
     );
+  
     this._router.put(
       '/transferB2I/source/:sourceId/:destinationId',
       errorWrapper(businessController.transferB2I),

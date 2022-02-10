@@ -79,7 +79,7 @@ class BusinessAccountService implements builder.ConvertRowDataToDTO {
     amount: number,
   ): Promise<ITransferResult> {
     let toDeposit: number;
-    const { source, destination } = await validateTransferB2BFX(sourceId, destinationId, amount);
+    const { source, destination } = await validateTransferB2BFX(sourceId, destinationId, amount);  
     toDeposit = amount * (await getRate(source.currency, destination.currency));
     await businessRepository.transferB2B(source, destination, amount, toDeposit);
     const result: ITransferResult = {
