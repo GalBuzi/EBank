@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express';
 import { ValidationException } from '../exceptions/ValidationException.excpetions.js';
-import { validationConfigObj, validationStringToFuncPointer } from '../utils/validator.js';
-
+import { inputValidationStringToFuncPointer } from '../utils/validations/input.validator.js';
+import { validationConfigObj } from '../utils/initializer.utils.js';
 
 export function validateRoute(validationRouteName: string) : RequestHandler {
   return function (req, res, next) {
@@ -11,9 +11,9 @@ export function validateRoute(validationRouteName: string) : RequestHandler {
     if (validationRoute) {
       const validFunctionsObj = validationRoute.validation_functions;
       validFunctionsObj.forEach(obj => {
-        const func = validationStringToFuncPointer[obj.func_name];
+        const func = inputValidationStringToFuncPointer[obj.func_name];
         const answers = func(allParams, obj.params, obj.params_values);
-        validAnswers.push(answers.join(','));
+        validAnswers.concat(answers);
       });
     }
     console.log(validAnswers);
@@ -21,7 +21,7 @@ export function validateRoute(validationRouteName: string) : RequestHandler {
     if (toNext.length === 0){
       next();
     } else {
-      const msg = toNext.join(',');
+      const msg = toNext.join('\n');
       next(new ValidationException(msg));
     } 
   };

@@ -134,30 +134,61 @@
                     "params_values" : []
                 }
             ]
-        },
-        {
-            "route": "transferF2B",
-            "validation_functions": [
-                {
-                    "func_name": "checkForRequiredFields",
-                    "params": ["source_id", "destination_id","amount"],
-                    "params_values" : []
-                },
-                {
-                    "func_name": "isPositiveNumber",
-                    "params": ["amount"],
-                    "params_values" : []
-                }
-            ]
         }
     ],
 
-    "validation_options": [
+    "transfers":[
+        {
+            "transfer_type" : "validateTransferB2B",
+            "validation_functions": [
+                "isActiveAccounts",
+                "isValidTypesB2B",
+                "isValidBalanceB2B",
+                "isLimitValidB2B",
+                "isSameCurrency"
+            ]
+        },
+        {
+            "transfer_type" : "validateTransferB2BFX",
+            "validation_functions": [
+                "isActiveAccounts",
+                "isValidTypesB2B",
+                "isValidBalanceB2B",
+                "isLimitValidB2B",
+                "isDifferentCurrency"
+            ]
+        },
+        {
+            "transfer_type": "validateTransferB2I",
+            "validation_functions" : [
+                "isActiveAccounts",
+                "isValidTypesB2I",
+                "isSameCurrency",
+                "isValidBalanceB2I",
+                "isLimitValidB2I"
+            ]
+        }
+        
+    ],
+
+    "input_validation_options": [
         "checkForRequiredFields",
         "checkForNonValidFields",
         "isDigitCountMatch",
         "isPositiveNumber",
         "isNumeric",
         "validateTuplesStructureAndSumToMin"
+    ],
+
+    "transfers_validation_options": [
+        "isActiveAccounts",
+        "isValidTypesB2B",
+        "isValidBalanceB2B",
+        "isLimitValidB2B",
+        "isValidTypesB2I",
+        "isSameCurrency",
+        "isValidBalanceB2I",
+        "isLimitValidB2I",
+        "isDifferentCurrency"
     ]
 }

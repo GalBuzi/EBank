@@ -6,7 +6,7 @@ import * as addressRepository from '../repositories/SQLRepository/address.reposi
 import * as businessRepository from '../repositories/SQLRepository/business.repository.js';
 import * as builder from '../types/builder.types.js';
 import { RowDataBusiness } from '../types/builder.types.js';
-import { validateTransferB2B, validateTransferB2I } from '../utils/transfer.validator.utils.js';
+import { validateTransferB2B, validateTransferB2I } from '../utils/validations/transfer.validator.utils.js';
 import { ServerException } from '../exceptions/ServerExcpetion.exceptions.js';
 import { getRate } from '../utils/helpers.utils.js';
 
@@ -19,7 +19,6 @@ class FamilyAccountService implements builder.ConvertRowDataToDTO{
 
   
 }
-
 
 const instance = new FamilyAccountService();
 export default instance;

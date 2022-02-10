@@ -1,5 +1,5 @@
 import fs from 'fs';
-
+import { ObjectAny, IValidationStringToFuncPointer } from './types.validations.js';
 //check that all keys on object
 function checkForRequiredFields(obj: ObjectAny, keys : string[]) : string[]{  
   const ans : string[] = []; 
@@ -89,41 +89,8 @@ function checkTuplesSumToMin(obj: ObjectAny, keys:string[], values:string[]) : s
   return ['true'];
 }
 
-export interface ValidationConfig {
-  routes : RouteConfig[]
-  validation_options : string[]
-}
 
-interface RouteConfig { 
-  route : string;
-  validation_functions : ValidationFuncConfig[]
-}
-
-interface ValidationFuncConfig {
-  func_name: string
-  params : string[],
-  params_values : string[],
-  // expected_result: string,
-  // failure_result: string
-}
-
-function initValidationConfig(): ValidationConfig {
-  return JSON.parse(
-    fs.readFileSync(process.cwd() + '/validation.json', 'utf-8'),
-  ) as ValidationConfig;
-}
-
-export const validationConfigObj = initValidationConfig();
-
-interface IValidationStringToFuncPointer {
-  [key : string] : (...args : any) => string[];
-}
-
-interface ObjectAny {
-  [key : string] : any
-}
-
-export const validationStringToFuncPointer : IValidationStringToFuncPointer = {
+export const inputValidationStringToFuncPointer : IValidationStringToFuncPointer = {
   'checkForRequiredFields': checkForRequiredFields,
   'checkForNonValidFields':checkForNonValidFields,
   'isDigitCountMatch' : isDigitCountMatch,
@@ -133,16 +100,6 @@ export const validationStringToFuncPointer : IValidationStringToFuncPointer = {
   'checkTuplesSumToMin': checkTuplesSumToMin,
 };
 
-export enum ValidationPerRoute {
-  createBusinessAccount = 'createBusinessAccount',
-  getBusinessAccountById = 'getBusinessAccountById',
-  createIndividualAccount = 'createIndividualAccount',
-  getIndividualAccountById = 'getIndividualAccountById',
-  createFamilyAccount = 'createFamilyAccount',
-  getFamilyAccountById = 'getFamilyAccountById',
-  transferB2B = 'transferB2B',
-  transferB2I = 'transferB2I',
-  transferF2B = 'transferF2B',
-}
+
 
 

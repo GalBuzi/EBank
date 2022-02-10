@@ -5,7 +5,6 @@ import { IRateResult } from '../types/models.types.js';
 export default function errorWrapper(routingFunc: RequestHandler):RequestHandler {
   return async function (req: Request, res: Response, next: NextFunction) {
     try {
-      const b = 1;
       await routingFunc(req, res, next);
     } catch (err) {
       next(err);
