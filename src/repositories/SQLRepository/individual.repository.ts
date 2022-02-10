@@ -9,7 +9,14 @@ export async function getIndividualAccountById(id : number) : Promise<RowDataInd
     'SELECT * FROM individual_account ia JOIN account a ON ia.account_id = a.account_id JOIN address ad ON ia.address_id =ad.address_id WHERE individual_account_id = ?', id,
   ) as RowDataPacket[];
   return account[0] as RowDataIndividual;
+}
 
+export async function getListOfIndividualsAccountsById(individualsId : number[]): Promise<RowDataIndividual[]>{
+  const str = individualsId.join(',')
+  const [individuals] = await db.query(
+    `SELECT * FROM individual_account ia JOIN address a ON ia.address_id = a.address_id WHERE individual_account_id IN (${str})`
+  ) as RowDataPacket[];
+  return individuals as RowDataIndividual[];
 }
 export async function createIndividualAccount(payload : IIndividualAccountRecord) : Promise<RowDataIndividual>{
   const [individual] = await db.query(

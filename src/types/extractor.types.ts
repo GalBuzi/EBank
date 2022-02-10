@@ -2,9 +2,10 @@ import {
   IAccountModel,
   IAddressModel,
   IBusinessAccountModel,
+  IFamilyAccountModel,
   IIndividualAccountModel,
 } from '../types/models.types.js';
-import { IBusinessAccountRecord, IIndividualAccountRecord } from '../types/dto_models.types.js';
+import { IBusinessAccountRecord, IFamilyAccountRecord, IIndividualAccountRecord } from '../types/dto_models.types.js';
 
 interface ExtractDataFromIndividualModel {
   accountToInsert: IAccountModel;
@@ -47,6 +48,36 @@ export function extractDataFromIndividualModel(
     individualToInsert,
   };
 
+  return res;
+}
+
+interface ExtractDataFromFamilyModel {
+  accountToInsert : IAccountModel,
+  familyToInsert : IFamilyAccountRecord,
+  ownersToInsert : number[]
+}
+
+export function extractDataFromFamilyModel(model : IFamilyAccountModel) : ExtractDataFromFamilyModel {
+  const accountToInsert: IAccountModel = {
+    currency: model.currency,
+    type_name: model.type_name,
+    balance: model.balance,
+    status_id: model.status_id,
+  };
+  const familyToInsert : IFamilyAccountRecord = {
+    account_id: -1,
+    context: model.context,
+  };
+  const ownersToInsert : number[] = model.owners.map((tuple) => {
+    const id = tuple[0];
+    return id;
+  });
+  
+  const res : ExtractDataFromFamilyModel = {
+    accountToInsert,
+    familyToInsert,
+    ownersToInsert,
+  };
   return res;
 }
 

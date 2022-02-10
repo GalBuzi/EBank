@@ -34,7 +34,7 @@ export interface IIndividualAccountModel extends IAccountModel {
   address: IAddressModel;
 }
 export interface IFamilyAccountModel extends IAccountModel {
-  owners: IIndividualAccountModel[];
+  owners: number[][];
   context: string;
 }
 
