@@ -1,10 +1,6 @@
 /**
  * Records to be inserted to the DB tables
  */
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/formattingProject
 export interface IAccountRecord {
   currency: string;
   balance: number;
@@ -33,11 +29,7 @@ export interface IFamilyAccountRecord {
   context: string;
 }
 
-<<<<<<< HEAD
-export interface IAddressRecord { 
-=======
 export interface IAddressRecord {
->>>>>>> upstream/formattingProject
   country_name: string;
   country_code: string;
   postal_code: number;
