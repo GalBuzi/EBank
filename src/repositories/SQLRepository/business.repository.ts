@@ -1,7 +1,7 @@
 import {  ResultSetHeader, RowDataPacket } from 'mysql2';
-import {  IBusinessAccountRecord } from '../../types/dto_models.types.js';
+import {  IBusinessAccountRecord } from '../../types/records.type.js';
 import { db } from '../../utils/initializer.utils.js';
-import { RowDataBusiness, RowDataIndividual } from '../../types/builder.types.js';
+import { RowDataBusiness, RowDataIndividual } from '../../types/rowData.types.js';
 
 
 export async function getBusinessAccountById(id: number):Promise<RowDataBusiness> {

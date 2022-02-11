@@ -22,24 +22,6 @@ class FamilyController {
     };
     res.status(response.status).json(response);
   }
-
-  async removeIndividualFromFamily(req : Request, res : Response){
-    const result = await family_service.removeIndividualFromFamily(req.params.family_account_id,req.body as IFamilyAccountModel);
-    const response: ISuccessResponse = {
-      status: 200,
-      message: `Individual with id ${req.params.individual_id} has been removed from account ${req.params.family_account_id}`,
-      data: result,
-    };
-    res.status(response.status).json(response);
-  }
 }
-
-// async deleteFamilyAccById(req: Request, res: Response) {}
-
-// async updateFamilyAccById(req: Request, res: Response) {}
-
-// async patchFamilyAccById(req: Request, res: Response) {}
-//}
-
 const familyController = new FamilyController();
 export default familyController;

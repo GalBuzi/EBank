@@ -28,7 +28,7 @@ export interface RowDataIndividual extends RowDataAccount, RowDataAddress {
   email: string;
 }
 
-export interface RowDataBusiness extends RowDataAccount,RowDataAddress {
+export interface RowDataBusiness extends RowDataAccount, RowDataAddress {
   business_account_id: number;
   company_id: number;
   company_name: string;
@@ -41,6 +41,6 @@ export interface RowDataFamily extends RowDataAccount {
   indiv_account_id: number;
 }
 
-export type RowDataAccountAll =| RowDataIndividual| RowDataBusiness| RowDataFamily;
+export type RowDataAccountAll = | RowDataIndividual | RowDataBusiness | RowDataFamily;
 
 

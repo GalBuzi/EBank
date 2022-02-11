@@ -1,5 +1,5 @@
 import { ValidationException } from '../../exceptions/ValidationException.excpetions.js';
-import { RowDataAccount, RowDataBusiness } from '../../types/builder.types.js';
+import { RowDataAccount, RowDataBusiness } from '../../types/rowData.types.js';
 import { IValidationStringToFuncPointer } from './types.validations.js';
 
 // export function isValidTypesB2B(sourceType: string, destinationType: string): void {

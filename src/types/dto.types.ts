@@ -51,4 +51,5 @@ export interface IAddressDTO {
   street_number: number;
 }
 
-export type IFamilyAccountDTO = IFamilyAccountDTOShort | IFamilyAccountDTOLong
+export type IFamilyAccountDTO = IFamilyAccountDTOShort | IFamilyAccountDTOLong;
+export type IGenericDTO = IFamilyAccounBaseDTO | IBusinessAccountDTO | IIndividualAccountDTO;

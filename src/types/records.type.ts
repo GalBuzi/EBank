@@ -1,7 +1,6 @@
 /**
  * Records to be inserted to the DB tables
  */
-
 export interface IAccountRecord {
   currency: string;
   balance: number;
@@ -28,4 +27,14 @@ export interface IBusinessAccountRecord {
 export interface IFamilyAccountRecord {
   account_id: number;
   context: string;
+}
+
+export interface IAddressRecord {
+  country_name: string;
+  country_code: string;
+  postal_code: number;
+  city: string;
+  region: string;
+  street_name: string;
+  street_number: number;
 }
