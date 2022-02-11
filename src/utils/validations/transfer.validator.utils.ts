@@ -5,6 +5,10 @@ import * as VALIDATOR from './validator.logic.utils.js';
 import { validationConfigObj } from '../initializer.utils.js';
 import { transferValidationStringToFuncPointer } from './validator.logic.utils.js';
 import { ValidationException } from '../../exceptions/ValidationException.excpetions.js';
+import { TransferValidationPerRoute } from './types.validations.js';
+import builderSQL from '../builder.utils.js';
+import { IBusinessAccountDTO, IIndividualAccountDTO } from '../../types/dto.types.js';
+
 // export async function validateTransferB2B(
 //   sourceId: number,
 //   destinationId: number,
@@ -49,11 +53,8 @@ function runValidationFunctions(validationTranserName:string, source : RowDataAc
   if (validationTransfer) {
     const validFunctionsObj = validationTransfer.validation_functions;
     validFunctionsObj.forEach(obj => {
-      console.log('function validating ', obj);
       const func = transferValidationStringToFuncPointer[obj];
-      const answers = func(source, destination, amount);
-      console.log('answers result ', answers);
-      
+      const answers = func(source, destination, amount);      
       validAnswers = validAnswers.concat(answers);
     });
   }
@@ -65,10 +66,10 @@ function runValidationFunctions(validationTranserName:string, source : RowDataAc
 }
 
 export async function validateTransferB2B(sourceId: number, destinationId: number, 
-  amount: number): Promise<{ source: RowDataBusiness; destination: RowDataBusiness }> {
-  const source = await getBusinessAccountById(sourceId);
-  const destination = await getBusinessAccountById(destinationId);
-  runValidationFunctions('validateTransferB2B', source, destination, amount);
+  amount: number): Promise<{ source: IBusinessAccountDTO; destination: IBusinessAccountDTO }> {
+  const source = await builderSQL.getBusinessAccountById(sourceId);
+  const destination = await builderSQL.getBusinessAccountById(destinationId);
+  runValidationFunctions(TransferValidationPerRoute.validateTransferB2B, source, destination, amount);
   return { source, destination };
 }
 
@@ -76,10 +77,10 @@ export async function validateTransferB2BFX(
   sourceId: number,
   destinationId: number,
   amount: number,
-): Promise<{ source: RowDataBusiness; destination: RowDataBusiness }> {
-  const source = await getBusinessAccountById(sourceId);
-  const destination = await getBusinessAccountById(destinationId);
-  runValidationFunctions('validateTransferB2BFX', source, destination, amount);
+): Promise<{ source: IBusinessAccountDTO; destination: IBusinessAccountDTO }> {
+  const source = await builderSQL.getBusinessAccountById(sourceId);
+  const destination = await builderSQL.getBusinessAccountById(destinationId);
+  runValidationFunctions(TransferValidationPerRoute.validateTransferB2BFX, source, destination, amount);
   return { source, destination };
 }
 
@@ -87,9 +88,9 @@ export async function validateTransferB2I(
   sourceId: number,
   destinationId: number,
   amount: number,
-): Promise<{ source: RowDataBusiness; destination: RowDataIndividual }> {
-  const source = await getBusinessAccountById(sourceId);
-  const destination = await getIndividualAccountById(destinationId);
-  runValidationFunctions('validateTransferB2I', source, destination, amount);
+): Promise<{ source: IBusinessAccountDTO; destination: IIndividualAccountDTO }> {
+  const source = await builderSQL.getBusinessAccountById(sourceId);
+  const destination = await builderSQL.getIndividualAccountById(destinationId);
+  runValidationFunctions(TransferValidationPerRoute.validateTransferB2I, source, destination, amount);
   return { source, destination };
 }
