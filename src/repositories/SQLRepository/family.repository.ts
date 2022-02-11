@@ -18,7 +18,7 @@ export async function createFamilyAccount(familyToInsert : IFamilyAccountRecord)
 
 
 // review the getFamilyAccountByIdDetailed + Shortened
-export async function getFamilyAccountByIdDetailed(id : number) : Promise<RowDataFamily[]> {
+export async function getFamilyAccountById(id : number) : Promise<RowDataFamily[]> {
   const [family] = await db.query(
     `SELECT * FROM family_account fa JOIN account a ON fa.account_id = a.account_id
     JOIN family_individual fi ON  fa.family_account_id = fi.fam_account_id
@@ -27,15 +27,6 @@ export async function getFamilyAccountByIdDetailed(id : number) : Promise<RowDat
   return family as RowDataFamily[];
 }
 
-export async function getFamilyAccountByIdShortend(id : number) : Promise<RowDataFamily> {
-  const [family] = await db.query(
-    `SELECT * FROM family_account fa JOIN account a ON fa.account_id = a.account_id
-    JOIN family_individual fi ON  fa.family_account_id = fi.fam_account_id
-    WHERE fa.family_account_id = ${id}`,
-  ) as RowDataPacket[];
-  console.log(family);
-  return family[0] as RowDataFamily;
-}
 
 
 export async function createOwners(ownersId : number[], familyAccountId : number) : Promise<number[]> {

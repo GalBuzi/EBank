@@ -28,7 +28,7 @@ class FamilyAccountService {
     let ownersFull : IIndividualAccountDTO[] = [];
     let ownersShort : number[] = [];
     let  familyDetailsArrWithOwners : IFamilyAccountDTO;
-    const familyRowsArray : RowDataFamily[] = await familyRepository.getFamilyAccountByIdDetailed(id);
+    const familyRowsArray : RowDataFamily[] = await familyRepository.getFamilyAccountById(id);
     const arrIDS = familyRowsArray.map((row)=>{
       return row.indiv_account_id;
     });
