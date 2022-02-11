@@ -26,18 +26,20 @@ export interface IBusinessAccountDTO extends IAccountDTO {
   address: IAddressDTO;
 }
 
-
 export interface IFamilyAccounBaseDTO extends IAccountDTO {
   context: string;
   family_account_id : number,
   account_id : number
 }
+
 export interface IFamilyAccountDTOShort extends IFamilyAccounBaseDTO {
   owners: number[];
 }
+
 export interface IFamilyAccountDTOLong extends IFamilyAccounBaseDTO {
   owners: IIndividualAccountDTO[];
 }
+
 export interface IAddressDTO {
   address_id: number;
   country_name: string;
@@ -48,13 +50,6 @@ export interface IAddressDTO {
   street_name: string;
   street_number: number;
 }
+
 export type IFamilyAccountDTO = IFamilyAccountDTOShort | IFamilyAccountDTOLong;
-
-
-
-
-
-
-
-
-
+export type IGenericDTO = IFamilyAccounBaseDTO | IBusinessAccountDTO | IIndividualAccountDTO;

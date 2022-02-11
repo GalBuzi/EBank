@@ -1,3 +1,6 @@
+/**
+ * Represents the data coming back from the sql query
+ */
 export interface RowDataAccount {
   account_id: number;
   currency: string;
@@ -38,7 +41,6 @@ export interface RowDataFamily extends RowDataAccount {
   indiv_account_id: number;
 }
 
-export type RowDataAccountAll =
-  | RowDataIndividual
-  | RowDataBusiness
-  | RowDataFamily;
+export type RowDataAccountAll = | RowDataIndividual | RowDataBusiness | RowDataFamily;
+
+

@@ -13,8 +13,6 @@ class FamilyController {
     res.status(response.status).json(response);
   }
 
-  // async getAllFamilysAcc(req: Request, res: Response) {}
-
   async getFamilyAccountById(req: Request, res: Response) {
     const result = await family_service.getFamilyAccountById(Number(req.params.id), req.query.detailed as string);
     const response: ISuccessResponse = {
@@ -25,13 +23,5 @@ class FamilyController {
     res.status(response.status).json(response);
   }
 }
-
-// async deleteFamilyAccById(req: Request, res: Response) {}
-
-// async updateFamilyAccById(req: Request, res: Response) {}
-
-// async patchFamilyAccById(req: Request, res: Response) {}
-//}
-
 const familyController = new FamilyController();
 export default familyController;

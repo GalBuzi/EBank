@@ -14,16 +14,6 @@ class IndividualController {
     res.status(response.status).json(response);
   }
 
-  // async getAllIndividualsAcc(req: Request, res: Response) {
-  //   const result = await individualService.getAllIndividualAcc();
-  //   const response: ISuccessResponse = {
-  //     status: 200,
-  //     message: 'All Individual accounts have been loaded!',
-  //     data: result,
-  //   };
-  //   res.status(response.status).json(response);
-  // }
-
   async getIndividualAccById(req: Request, res: Response) {
     const individual = await individualService.getIndividualById(Number(req.params.id));
     const response: ISuccessResponse = {

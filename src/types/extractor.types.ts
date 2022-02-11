@@ -1,12 +1,6 @@
-import {
-  IAccountModel,
-  IAddressModel,
-  IBusinessAccountModel,
-  IFamilyAccountModel,
-  IIndividualAccountModel,
-} from '../types/models.types.js';
-import { IBusinessAccountRecord, IFamilyAccountRecord, IIndividualAccountRecord } from '../types/records.type.js';
-
+import { IAccountModel, IAddressModel, IBusinessAccountModel, 
+  IFamilyAccountModel, IIndividualAccountModel } from '../types/models.types.js';
+import { IBusinessAccountRecord, IFamilyAccountRecord, IIndividualAccountRecord } from './records.type.js';
 interface ExtractDataFromIndividualModel {
   accountToInsert: IAccountModel;
   addressToInsert: IAddressModel;
