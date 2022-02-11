@@ -1,6 +1,5 @@
 /**
- * The models beloew represent the data coming from the request to build the models
- * that are inserted to the DB
+ * The models below represent the data coming from the request 
  */
 export interface IAddressModel {
   country_name: string;
@@ -38,27 +37,4 @@ export interface IFamilyAccountModel extends IAccountModel {
   context: string;
 }
 
-export interface ITransferDataModel {
-  id: number;
-  balance: number;
-  currency: string;
-}
 
-export interface ITransferResult {
-  sourceAccount: ITransferDataModel;
-  destinationAccount: ITransferDataModel;
-}
-
-export interface ITransferModel {
-  sourceAccount: number;
-  destinationAccount: number;
-  amount: number;
-}
-
-export interface IRateResult {
-  success: boolean;
-  timestamp: Date;
-  base: string;
-  date: Date;
-  rates: { [key: string]: string };
-}

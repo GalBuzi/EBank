@@ -13,13 +13,21 @@ class FamilyController {
     res.status(response.status).json(response);
   }
 
-  // async getAllFamilysAcc(req: Request, res: Response) {}
-
   async getFamilyAccountById(req: Request, res: Response) {
     const result = await family_service.getFamilyAccountById(Number(req.params.id), req.query.detailed as string);
     const response: ISuccessResponse = {
       status: 200,
       message: `Family account with id ${result.family_account_id} has been loaded!`,
+      data: result,
+    };
+    res.status(response.status).json(response);
+  }
+
+  async removeIndividualFromFamily(req : Request, res : Response){
+    const result = await family_service.removeIndividualFromFamily(req.params.family_account_id,req.body as IFamilyAccountModel);
+    const response: ISuccessResponse = {
+      status: 200,
+      message: `Individual with id ${req.params.individual_id} has been removed from account ${req.params.family_account_id}`,
       data: result,
     };
     res.status(response.status).json(response);

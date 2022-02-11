@@ -2,13 +2,13 @@ import { IIndividualAccountModel } from '../types/models.types.js';
 import * as accountRepository from '../repositories/SQLRepository/account.repository.js';
 import * as individualRepository from '../repositories/SQLRepository/individual.repository.js';
 import * as addressRepository from '../repositories/SQLRepository/address.repository.js';
-import { IIndividualAccountDTO } from '../types/dto_models.types.js';
+import { IIndividualAccountDTO } from '../types/dto.types.js';
 import { extractDataFromIndividualModel } from '../types/extractor.types.js';
 import * as builder from '../types/builder.types.js';
 import { ServerException } from '../exceptions/ServerExcpetion.exceptions.js';
 import { RowDataIndividual } from '../types/builder.types.js';
 
-class IndividualAccountService implements builder.ConvertRowDataToDTO{
+class IndividualAccountService {
 
   async createIndividualAcc(
     payload: IIndividualAccountModel,
@@ -61,13 +61,13 @@ class IndividualAccountService implements builder.ConvertRowDataToDTO{
       first_name: element.first_name,
       last_name: element.last_name,
       email: element.email,
-      address_id: element.address_id,
       account_id: element.account_id,
       currency: element.currency,
       balance: element.balance,
       status_id: element.status_id,
       type_name: element.type_name,
       address: {
+        address_id : element.address_id,
         street_name: element.street_name,
         street_number: element.street_number,
         postal_code: element.postal_code,

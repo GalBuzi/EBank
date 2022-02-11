@@ -18,6 +18,7 @@ export async function getFamilyAccountByIdNoOwners(id: number):Promise<RowDataFa
     return family[0] as RowDataFamily;
 }
 
+// review the getFamilyAccountByIdDetailed + Shortened
 export async function getFamilyAccountByIdDetailed(id : number) : Promise<RowDataFamily[]> {
   const [family] = await db.query(
     `SELECT * FROM family_account fa JOIN account a ON fa.account_id = a.account_id

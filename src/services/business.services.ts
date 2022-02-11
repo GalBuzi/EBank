@@ -1,5 +1,6 @@
-import { IBusinessAccountDTO } from '../types/dto_models.types.js';
-import { IBusinessAccountModel, ITransferResult } from '../types/models.types.js';
+import { IBusinessAccountDTO } from '../types/dto.types.js';
+import { IBusinessAccountModel} from '../types/models.types.js';
+import {ITransferResult} from '../types/transfers.type.js';
 import { extractDataFromBusinessModel } from '../types/extractor.types.js';
 import * as accountRepository from '../repositories/SQLRepository/account.repository.js';
 import * as addressRepository from '../repositories/SQLRepository/address.repository.js';
@@ -14,7 +15,7 @@ import {
 import { ServerException } from '../exceptions/ServerExcpetion.exceptions.js';
 import { getRate } from '../utils/helpers.utils.js';
 
-class BusinessAccountService implements builder.ConvertRowDataToDTO {
+class BusinessAccountService  {
   async createBusinessAccount(business_model: IBusinessAccountModel): Promise<IBusinessAccountDTO> {
     const { accountToInsert, addressToInsert, businessToInsert } =
       extractDataFromBusinessModel(business_model);
@@ -132,7 +133,6 @@ class BusinessAccountService implements builder.ConvertRowDataToDTO {
   formatToBusinessDTO(element: RowDataBusiness): IBusinessAccountDTO {
     const account: IBusinessAccountDTO = {
       business_account_id: element.business_account_id,
-      address_id: element.address_id,
       account_id: element.account_id,
       company_id: element.company_id,
       company_name: element.company_name,
@@ -142,6 +142,7 @@ class BusinessAccountService implements builder.ConvertRowDataToDTO {
       status_id: element.status_id,
       type_name: element.type_name,
       address: {
+        address_id : element.address_id,
         street_name: element.street_name,
         street_number: element.street_number,
         postal_code: element.postal_code,
