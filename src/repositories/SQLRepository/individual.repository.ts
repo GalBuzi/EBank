@@ -1,7 +1,7 @@
 import { ResultSetHeader, RowDataPacket } from 'mysql2';
-import { IIndividualAccountRecord } from '../../types/dto_models.types.js';
+import { IIndividualAccountRecord } from '../../types/records.type.js';
 import { db } from '../../utils/initializer.utils.js';
-import { RowDataIndividual } from '../../types/builder.types.js';
+import { RowDataIndividual } from '../../types/rowData.types.js';
 
 
 export async function getIndividualAccountById(id : number) : Promise<RowDataIndividual>{
@@ -12,10 +12,9 @@ export async function getIndividualAccountById(id : number) : Promise<RowDataInd
 }
 
 export async function getListOfIndividualsAccountsById(individualsId : number[]): Promise<RowDataIndividual[]>{
-  const str = individualsId.join(',')
+  const str = individualsId.join(',');
   const [individuals] = await db.query(
-    `SELECT * FROM individual_account ia JOIN address a ON ia.address_id = a.address_id WHERE individual_account_id IN (${str})`
-  ) as RowDataPacket[];
+    `SELECT * FROM individual_account ia JOIN address a ON ia.address_id = a.address_id WHERE individual_account_id IN (${str})`) as RowDataPacket[];
   return individuals as RowDataIndividual[];
 }
 export async function createIndividualAccount(payload : IIndividualAccountRecord) : Promise<RowDataIndividual>{

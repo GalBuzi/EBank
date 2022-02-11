@@ -1,16 +1,15 @@
-import { IFamilyAccountDTO, IIndividualAccountDTO } from '../types/dto_models.types.js';
+import { IFamilyAccountDTO, IIndividualAccountDTO } from '../types/dto.types.js';
 import { IFamilyAccountModel } from '../types/models.types.js';
 import { extractDataFromFamilyModel } from '../types/extractor.types.js';
 import * as accountRepository from '../repositories/SQLRepository/account.repository.js';
 import * as individualRepository from '../repositories/SQLRepository/individual.repository.js';
 import individualService from '../services/individual.services.js';
 import * as familyRepository from '../repositories/SQLRepository/family.repository.js';
-import * as builder from '../types/builder.types.js';
 import { ServerException } from '../exceptions/ServerExcpetion.exceptions.js';
 import { getRate } from '../utils/helpers.utils.js';
-import { RowDataFamily } from '../types/builder.types.js';
+import { RowDataFamily } from '../types/rowData.types.js';
 
-class FamilyAccountService implements builder.ConvertRowDataToDTO{
+class FamilyAccountService {
     
   async createFamilyAcc(
     family_model: IFamilyAccountModel,
@@ -27,24 +26,29 @@ class FamilyAccountService implements builder.ConvertRowDataToDTO{
   }
 
   async getFamilyAccountById(id: number, display : string) : Promise<IFamilyAccountDTO> {
-    let ownersFamily : IIndividualAccountDTO[] | number[];
+    let ownersFull : IIndividualAccountDTO[];
+    let ownersShort: number[];
+    let familyDetailsArrWithOwners : IFamilyAccountDTO;
     const familyRowsArray : RowDataFamily[] = await familyRepository.getFamilyAccountByIdDetailed(id);
     const arrIDS = familyRowsArray.map((row)=>{
       return row.indiv_account_id;
     });
+    const familyDetailsArr = this.convertRowsDataToDTO(familyRowsArray) as Omit<IFamilyAccountDTO, 'owners'>[];
+
     switch (display){
       case 'full':
-        ownersFamily = await individualService.getListOfIndividualsById(arrIDS);
+        ownersFull = await individualService.getListOfIndividualsById(arrIDS);
+        familyDetailsArrWithOwners = { ...familyDetailsArr[0], owners:ownersFull };
         break;
       case 'partial':
-        ownersFamily = arrIDS;
+        ownersShort = arrIDS;
+        familyDetailsArrWithOwners = { ...familyDetailsArr[0], owners:ownersShort };
         break;
       default:
-        ownersFamily = arrIDS;
+        ownersShort = arrIDS;
+        familyDetailsArrWithOwners = { ...familyDetailsArr[0], owners:ownersShort };
         break;
     }
-    const familyDetailsArr = this.convertRowsDataToDTO(familyRowsArray) as Omit<IFamilyAccountDTO, 'owners'>[];
-    const familyDetailsArrWithOwners : IFamilyAccountDTO = { ...familyDetailsArr[0], owners:ownersFamily };
     return familyDetailsArrWithOwners;
   }
     

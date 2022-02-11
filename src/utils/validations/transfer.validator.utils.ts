@@ -1,6 +1,6 @@
 import { getBusinessAccountById } from '../../repositories/SQLRepository/business.repository.js';
 import { getIndividualAccountById } from '../../repositories/SQLRepository/individual.repository.js';
-import { RowDataAccount, RowDataBusiness, RowDataIndividual } from '../../types/builder.types.js';
+import { RowDataAccount, RowDataBusiness, RowDataIndividual } from '../../types/rowData.types.js';
 import * as VALIDATOR from './validator.logic.utils.js';
 import { validationConfigObj } from '../initializer.utils.js';
 import { transferValidationStringToFuncPointer } from './validator.logic.utils.js';

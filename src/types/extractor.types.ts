@@ -5,7 +5,7 @@ import {
   IFamilyAccountModel,
   IIndividualAccountModel,
 } from '../types/models.types.js';
-import { IBusinessAccountRecord, IFamilyAccountRecord, IIndividualAccountRecord } from '../types/dto_models.types.js';
+import { IBusinessAccountRecord, IFamilyAccountRecord, IIndividualAccountRecord } from '../types/records.type.js';
 
 interface ExtractDataFromIndividualModel {
   accountToInsert: IAccountModel;

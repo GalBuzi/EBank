@@ -1,6 +1,6 @@
 import { IAccountModel } from '../types/models.types.js';
 import * as AccountRepositorySQL from '../repositories/SQLRepository/account.repository.js';
-import { IAccountDTO } from '../types/dto_models.types.js';
+import { IAccountDTO } from '../types/dto.types.js';
 
 export async function createAccount(payload: IAccountModel): Promise<IAccountDTO> {
   return AccountRepositorySQL.createAccount(payload);
