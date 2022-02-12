@@ -1,4 +1,4 @@
-import {IChangeStatus, IChangeStatusResponse } from '../types/models.types.js';
+import { IChangeStatus, IChangeStatusResponse } from '../types/models.types.js';
 
 import builderSQL from '../utils/builder.utils.js';
 // export async function createAccount(payload: IAccountModel): Promise<IAccountDTO> {

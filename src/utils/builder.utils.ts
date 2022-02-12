@@ -25,7 +25,7 @@ interface Builder {
 }
 
 class BuilderSQL implements Builder {
-   async getSecretByAccessKey(accessKey : string) : Promise<string> {
+  async getSecretByAccessKey(accessKey : string) : Promise<string> {
     const rowSecretKey = await generalRepository.getSecertKey(accessKey);
     const secretKey = (rowSecretKey[0] as ISecretKey).secret_key;
     return secretKey;

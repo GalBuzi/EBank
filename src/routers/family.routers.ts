@@ -12,7 +12,7 @@ class FamilyRouter {
 
   initRouting() {
     this._router.post('/', errorWrapper(familyController.createFamilyAccount));
-    this._router.get('/:id',errorWrapper(authenticate), errorWrapper(familyController.getFamilyAccountById));
+    this._router.get('/:id', errorWrapper(authenticate), errorWrapper(familyController.getFamilyAccountById));
     this._router.put('/removeIndividuals/:id', errorWrapper(familyController.removeIndividualsFromFamily));
     this._router.put('/close/:id', errorWrapper(familyController.closeFamilyAccount));
     this._router.put('/addIndividuals/:id', errorWrapper(familyController.addIndividuals));
