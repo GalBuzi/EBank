@@ -1,6 +1,8 @@
 import errorWrapper from '../utils/helpers.utils.js';
 import express from 'express';
 import individualController from '../controllers/individual.controllers.js';
+import { validateRoute } from '../middleware/validation.middleware.js';
+import { InputValidationPerRoute } from '../utils/validations/types.validations.js';
 class IndividualRouter {
   private _router = express.Router();
 
@@ -9,12 +11,13 @@ class IndividualRouter {
   }
 
   initRouting() {
-    this._router.post(
-      '/',
-      errorWrapper(individualController.createIndividualAcc),
-    );
-    //this._router.get('/', errorWrapper(individualController.getAllIndividualsAcc));
-    this._router.get('/:id', errorWrapper(individualController.getIndividualAccById));
+    this._router.post('/',
+      errorWrapper(validateRoute(InputValidationPerRoute.createIndividualAccount)),
+      errorWrapper(individualController.createIndividualAcc));
+
+    this._router.get('/:id',
+      errorWrapper(validateRoute(InputValidationPerRoute.getIndividualAccountById)),
+      errorWrapper(individualController.getIndividualAccById));
   }
 
   get router() {

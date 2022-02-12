@@ -7,49 +7,22 @@ import { transferValidationStringToFuncPointer } from './validator.logic.utils.j
 import { ValidationException } from '../../exceptions/ValidationException.excpetions.js';
 import { TransferValidationPerRoute } from './types.validations.js';
 import builderSQL from '../builder.utils.js';
-import { IBusinessAccountDTO, IIndividualAccountDTO } from '../../types/dto.types.js';
-
-// export async function validateTransferB2B(
-//   sourceId: number,
-//   destinationId: number,
-//   amount: number,
-//   flag?: string,
-// ): Promise<{ source: RowDataBusiness; destination: RowDataBusiness }> {
-//   const source = await getBusinessAccountById(sourceId);
-//   const destination = await getBusinessAccountById(destinationId);
-//   VALIDATOR.isActiveAccounts(source.status_id, destination.status_id);
-//   VALIDATOR.isValidTypesB2B(source.type_name, destination.type_name);
-//   if (flag === 'fx') {
-//     VALIDATOR.isDifferentCurrency(source.currency, destination.currency);
-//   } else {
-//     VALIDATOR.isSameCurrency(source.currency, destination.currency);
-//   }
-
-//   VALIDATOR.isValidBalanceB2B(source.balance, amount);
-//   VALIDATOR.isLimitValidB2B(source.company_id, destination.company_id, amount);
-//   return { source, destination };
-// }
-
-// export async function validateTransferB2I(
-//   sourceId: number,
-//   destinationId: number,
-//   amount: number,
-// ): Promise<{ source: RowDataBusiness; destination: RowDataIndividual }> {
-//   const source = await getBusinessAccountById(sourceId);
-//   const destination = await getIndividualAccountById(destinationId);
-//   VALIDATOR.isActiveAccounts(source.status_id, destination.status_id);
-//   VALIDATOR.isValidTypesB2I(source.type_name, destination.type_name);
-//   VALIDATOR.isSameCurrency(source.currency, destination.currency);
-//   VALIDATOR.isValidBalanceB2I(source.balance, destination.balance);
-//   VALIDATOR.isLimitValidB2I(amount);
-//   return { source, destination };
-// }
+import { IBusinessAccountDTO, IFamilyAccountDTO, IIndividualAccountDTO } from '../../types/dto.types.js';
+import { IFamilyAccountModel } from '../../types/models.types.js';
 
 function runValidationFunctions(validationTranserName:string, source : RowDataAccount, 
   destination: RowDataAccount, amount:number):void{
-  const validationTransfer = validationConfigObj.transfers.find(r => r.transfer_type === validationTranserName);
-  console.log(validationTransfer);
   let validAnswers : string[] = [];
+
+  //validate mutual functions
+  const mutual = validationConfigObj.transfers_mutual_validation;
+  mutual.forEach(funcName=>{
+    const func = transferValidationStringToFuncPointer[funcName];
+    const answers = func(source, destination, amount);      
+    validAnswers = validAnswers.concat(answers);
+  });
+  //validate per transfer type
+  const validationTransfer = validationConfigObj.transfers_individual_validation.find(r => r.transfer_type === validationTranserName);
   if (validationTransfer) {
     const validFunctionsObj = validationTransfer.validation_functions;
     validFunctionsObj.forEach(obj => {
@@ -57,9 +30,7 @@ function runValidationFunctions(validationTranserName:string, source : RowDataAc
       const answers = func(source, destination, amount);      
       validAnswers = validAnswers.concat(answers);
     });
-  }
-  console.log(validAnswers);
-  
+  }  
   const toNext = validAnswers.filter(ans => ans !== 'true');
   if (toNext.length > 0) throw new ValidationException(toNext.join(', '));
   else return;
@@ -93,4 +64,46 @@ export async function validateTransferB2I(
   const destination = await builderSQL.getIndividualAccountById(destinationId);
   runValidationFunctions(TransferValidationPerRoute.validateTransferB2I, source, destination, amount);
   return { source, destination };
+}
+
+export async function validateTransferF2B(
+  sourceId: number,
+  destinationId: number,
+  amount: number,
+): Promise<{ source: IFamilyAccountDTO; destination: IBusinessAccountDTO }> {
+  const source = await builderSQL.getFamilyAccountById(sourceId, 'full');
+  const destination = await builderSQL.getBusinessAccountById(destinationId);
+  runValidationFunctions(TransferValidationPerRoute.validateTransferF2B, source, destination, amount);
+  return { source, destination };
+}
+
+export async function validateFamilyAccountCreationOwners(familyModel : IFamilyAccountModel):Promise<IFamilyAccountModel>{
+  const sorted : number[][] = familyModel.owners.sort((a, b) => a[0] - b[0] ); //rows return in ascending order from sql
+  const ids = sorted.map(o => o[0]);
+  const contributions = sorted.map(o => o[1]);
+  const individuals = await builderSQL.getListOfIndividualsAccountsById(ids);
+  
+  console.log(ids);
+
+  const tuples : number[][] = [];
+  individuals.reduce( (acc, curr, i) => {  
+    if (curr.individual_account_id !== null &&   //all exist
+      curr.status_id === 1 &&                    //all active
+      curr.type_name === 'individual' &&        //all type individual
+      curr.currency === familyModel.currency && //same currency as defined
+      curr.balance - contributions[i] > 0){     //all can contribute      
+      tuples.push([ids[i], contributions[i]]);
+    }
+    return acc;
+  }, tuples);
+
+  const sum : number = tuples.reduce( (acc, curr) =>  acc += curr[1], 0);
+  console.log(sum);
+  
+  if (sum >= 5000) {
+    familyModel.owners = tuples;
+  } else {
+    familyModel.owners = [];
+  }
+  return familyModel;
 }

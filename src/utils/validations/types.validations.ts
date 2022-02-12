@@ -1,6 +1,7 @@
 export interface ValidationConfig {
   routes: RouteConfig[];
-  transfers: TransferConfig[];
+  transfers_mutual_validation : string[];
+  transfers_individual_validation: TransferConfig[];
   input_validation_options: string[];
   transfers_validation_options: string[];
 }
@@ -45,4 +46,6 @@ export enum TransferValidationPerRoute {
   validateTransferB2B = 'validateTransferB2B',
   validateTransferB2I = 'validateTransferB2I',
   validateTransferB2BFX = 'validateTransferB2BFX',
+  validateTransferF2B = 'validateTransferF2B',
+
 }

@@ -7,6 +7,8 @@ import { RowDataFamily } from '../types/rowData.types.js';
 import * as EXTRACTOR from '../utils/extraction.utils.js';
 import * as CONVERTER from '../utils/covnert.utils.js';
 import builderSQL from '../utils/builder.utils.js';
+import { validateFamilyAccountCreationOwners } from '../utils/validations/transfer.validator.utils.js';
+import { ValidationException } from '../exceptions/ValidationException.excpetions.js';
 
 
 class FamilyAccountService {
@@ -14,7 +16,11 @@ class FamilyAccountService {
   async createFamilyAcc(
     family_model: IFamilyAccountModel,
   ): Promise<IFamilyAccountDTO> {
-    const dtoFamily = await builderSQL.createFamilyAccount(family_model);
+    const filteredFamilyModel = await validateFamilyAccountCreationOwners(family_model);   
+    if (filteredFamilyModel.owners.length === 0){
+      throw new ValidationException('no valid owners were found to open family account');
+    } 
+    const dtoFamily = await builderSQL.createFamilyAccount(filteredFamilyModel);
     return dtoFamily;
   }
 

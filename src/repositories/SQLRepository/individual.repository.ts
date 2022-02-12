@@ -14,7 +14,7 @@ export async function getIndividualAccountById(id : number) : Promise<RowDataInd
 export async function getListOfIndividualsAccountsById(individualsId : number[]): Promise<RowDataIndividual[]>{
   const str = individualsId.join(',');
   const [individuals] = await db.query(
-    `SELECT * FROM individual_account ia JOIN address a ON ia.address_id = a.address_id WHERE individual_account_id IN (${str})`,
+    `SELECT * FROM individual_account ia JOIN account acc ON ia.account_id = acc.account_id JOIN address a ON ia.address_id = a.address_id WHERE individual_account_id IN (${str})`,
   ) as RowDataPacket[];
   return individuals as RowDataIndividual[];
 }

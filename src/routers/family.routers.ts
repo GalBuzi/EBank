@@ -1,6 +1,8 @@
 import errorWrapper from '../utils/helpers.utils.js';
 import familyController from '../controllers/family.controllers.js';
 import express from 'express';
+import { validateRoute } from '../middleware/validation.middleware.js';
+import { InputValidationPerRoute } from '../utils/validations/types.validations.js';
 
 class FamilyRouter {
   private _router = express.Router();
@@ -10,13 +12,13 @@ class FamilyRouter {
   }
 
   initRouting() {
-    this._router.post('/', errorWrapper(familyController.createFamilyAccount));
-    // this._router.get('/', errorWrapper(familyController.getAllFamilysAcc));
-    this._router.get('/:id', errorWrapper(familyController.getFamilyAccountById));
-    //this._router.delete('/', errorWrapper(familyController.removeIndividualFromFamily));
-    // this._router.delete('/:id', errorWrapper(familyController.deleteFamilyAccById));
-    // this._router.put('/:id', errorWrapper(familyController.updateFamilyAccById));
-    // this._router.patch('/:id', errorWrapper(familyController.patchFamilyAccById));
+    this._router.post('/',
+      errorWrapper(validateRoute(InputValidationPerRoute.createFamilyAccount)),
+      errorWrapper(familyController.createFamilyAccount));
+
+    this._router.get('/:id', 
+      errorWrapper(validateRoute(InputValidationPerRoute.getFamilyAccountById)),
+      errorWrapper(familyController.getFamilyAccountById));
   }
 
   get router() {

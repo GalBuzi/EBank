@@ -13,7 +13,7 @@ export async function createFamilyAccount(familyToInsert : IFamilyAccountRecord)
   const [family] = await db.query(
     'INSERT INTO family_account SET ?', familyToInsert) as ResultSetHeader[];
   const familyCreated = await getFamilyAccountByIdNoOwners(family.insertId);
-  return familyCreated ;
+  return familyCreated;
 }
 
 

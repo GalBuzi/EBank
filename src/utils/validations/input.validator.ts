@@ -17,7 +17,7 @@ function checkForNonValidFields(obj: ObjectAny, keys : string[]) : string[]{
   const ans : string[] = []; 
   keys.forEach(k => {
     if (k in obj){
-      ans.push(`${k} is not required`);
+      ans.push(`${k} is not supposed to be sent`);
     }
   });
   if (ans.length > 0) return ans;
@@ -29,9 +29,8 @@ function isNumeric(obj: ObjectAny, keys:string[], values:string[]) : string[]{
   const ans : string[] = [];
   keys.forEach( (key, i) => {
     const conv = Number(obj[key]);
-    console.log(conv);
-    if (isNaN(conv)){
-      ans.push(`${key} is not ${values[i]} numeric`);
+    if (isNaN(conv)){     
+      ans.push(`${key} is not numeric`);
     }
   });
   if (ans.length > 0) return ans;
@@ -39,10 +38,10 @@ function isNumeric(obj: ObjectAny, keys:string[], values:string[]) : string[]{
 }
 
 function isDigitCountMatch(obj: ObjectAny, keys:string[], values:string[]) : string[]{
-  const ans : string[] = [];
-  keys.forEach( (key, i) => {
-    if (isNumeric(obj, keys, values).every(c=>c === 'true') && 
-     obj[key].toString().length !== Number(values[i])){
+  const ans : string[] = [];  
+  keys.forEach( (key, i) => { 
+    if (!(isNumeric(obj, keys, values).every(c=>c === 'true')) ||
+     obj[key].toString().length !== Number(values[i])){      
       ans.push(`${key} is not ${values[i]} digits long`);
     }
   });
@@ -64,11 +63,15 @@ function isPositiveNumber(obj: ObjectAny, keys:string[]) : string[]{
 function validateTuplesStructure(obj: ObjectAny, keys:string[]) : string[]{
   const ans : string[] = []; 
   keys.forEach( (key) => {
-    const tuple = obj[key];
-    if (obj[key] && Array(tuple)){
-      if (tuple.length !== 2){
-        ans.push('found wrong tuple');
-      }
+    const tuples : number[][] = obj[key];        
+    if (tuples && Array(tuples)){
+      tuples.forEach( t => {
+        if (!(Array(t)) || t.length !== 2 || typeof t[0] !== 'number' || typeof t[1] !== 'number'){
+          ans.push('found wrong tuple');
+        }
+      });
+    } else { 
+      ans.push('no tuples found');
     }
   });
   if (ans.length > 0) return ans;
@@ -81,11 +84,16 @@ function checkTuplesSumToMin(obj: ObjectAny, keys:string[], values:string[]) : s
   let sum = 0;
   if (isTupleArr.toString() === 'true'){
     keys.forEach( (key) => {
-      const tuple = obj[key];
-      sum += Number(tuple[1]);
+      const tuples : number[][] = obj[key];
+      tuples.forEach(t=>{
+        if (t[1]) sum += Number(t[1]);
+      });
     });
-    if (sum < 5000) ans.push(`sum is less than ${values[0]}`);
+    if (sum < Number(values[0])) ans.push(`sum is less than ${values[0]}`);
   }
+  console.log(ans);
+  
+  if (ans.length > 0) return ans;
   return ['true'];
 }
 

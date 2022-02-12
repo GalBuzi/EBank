@@ -24,11 +24,11 @@ class BusinessController {
   }
 
   async transferB2B(req: Request, res: Response) {
-    const { sourceId, destinationId } = req.params;
+    const { sourceID, destinationID } = req.params;
     const { amount } = req.query;
     const result = await businessService.transferB2B(
-      Number(sourceId),
-      Number(destinationId),
+      Number(sourceID),
+      Number(destinationID),
       Number(amount),
     );
     const response: ISuccessResponse = {
@@ -40,11 +40,11 @@ class BusinessController {
   }
 
   async transferB2BFX(req: Request, res: Response) {
-    const { sourceId, destinationId } = req.params;
+    const { sourceID, destinationID } = req.params;
     const { amount } = req.query;
     const result = await businessService.transferB2BFX(
-      Number(sourceId),
-      Number(destinationId),
+      Number(sourceID),
+      Number(destinationID),
       Number(amount),
     );
     const response: ISuccessResponse = {
@@ -56,11 +56,11 @@ class BusinessController {
   }
 
   async transferB2I(req: Request, res: Response) {
-    const { sourceId, destinationId } = req.params;
+    const { sourceID, destinationID } = req.params;
     const { amount } = req.query;
     const result = await businessService.transferB2I(
-      Number(sourceId),
-      Number(destinationId),
+      Number(sourceID),
+      Number(destinationID),
       Number(amount),
     );
     const response: ISuccessResponse = {
