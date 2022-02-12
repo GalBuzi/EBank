@@ -7,6 +7,7 @@ export interface IAccountDTO {
   balance: number;
   status_id: number;
   type_name: string;
+  status_name : string
 }
 
 export interface IIndividualAccountDTO extends IAccountDTO {
@@ -49,6 +50,10 @@ export interface IAddressDTO {
   region: string;
   street_name: string;
   street_number: number;
+}
+
+export interface ISecretKey {
+  secret_key : string;
 }
 
 export type IFamilyAccountDTO = IFamilyAccountDTOShort | IFamilyAccountDTOLong;

@@ -1,14 +1,9 @@
 import { IBusinessAccountDTO } from '../types/dto.types.js';
 import { IBusinessAccountModel } from '../types/models.types.js';
 import { ITransferResult } from '../types/transfers.type.js';
-import * as accountRepository from '../repositories/SQLRepository/account.repository.js';
-import * as addressRepository from '../repositories/SQLRepository/address.repository.js';
 import * as businessRepository from '../repositories/SQLRepository/business.repository.js';
 import { validateTransferB2B, validateTransferB2I, validateTransferB2BFX } from '../utils/validations/transfer.validator.utils.js';
-import { ServerException } from '../exceptions/ServerExcpetion.exceptions.js';
 import { getRate } from '../utils/helpers.utils.js';
-import * as EXTRACTOR from '../utils/extraction.utils.js';
-import * as CONVERTER from '../utils/covnert.utils.js';
 import builderSQL from '../utils/builder.utils.js';
 class BusinessAccountService  {
   async createBusinessAccount(business_model: IBusinessAccountModel): Promise<IBusinessAccountDTO> {
@@ -25,7 +20,6 @@ class BusinessAccountService  {
     sourceId: number,
     destinationId: number,
     amount: number,
-    flag?: string,
   ): Promise<ITransferResult> {
     let toDeposit: number;
     const { source, destination } = await validateTransferB2B(

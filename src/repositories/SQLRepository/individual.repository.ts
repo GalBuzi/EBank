@@ -6,15 +6,22 @@ import { RowDataIndividual } from '../../types/rowData.types.js';
 
 export async function getIndividualAccountById(id : number) : Promise<RowDataIndividual>{
   const [account] = await db.query(
-    'SELECT * FROM individual_account ia JOIN account a ON ia.account_id = a.account_id JOIN address ad ON ia.address_id =ad.address_id WHERE individual_account_id = ?', id,
+    `SELECT * FROM individual_account ia JOIN account a ON ia.account_id = a.account_id 
+    JOIN address ad ON ia.address_id =ad.address_id 
+    JOIN status s ON s.status_id = a.status_id
+    WHERE individual_account_id = ?`, id,
   ) as RowDataPacket[];
   return account[0] as RowDataIndividual;
 }
 
 export async function getListOfIndividualsAccountsById(individualsId : number[]): Promise<RowDataIndividual[]>{
   const str = individualsId.join(',');
+  console.log(str);
   const [individuals] = await db.query(
-    `SELECT * FROM individual_account ia JOIN account acc ON ia.account_id = acc.account_id JOIN address a ON ia.address_id = a.address_id WHERE individual_account_id IN (${str})`,
+    `SELECT * FROM individual_account ia JOIN account a ON ia.account_id = a.account_id 
+    JOIN address ad ON ia.address_id = ad.address_id 
+    JOIN status s ON s.status_id = a.status_id
+    WHERE individual_account_id IN (${str})`,
   ) as RowDataPacket[];
   return individuals as RowDataIndividual[];
 }

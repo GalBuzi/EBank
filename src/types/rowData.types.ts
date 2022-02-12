@@ -6,6 +6,7 @@ export interface RowDataAccount {
   currency: string;
   balance: number;
   status_id: number;
+  status_name : string
   type_name: string;
 }
 

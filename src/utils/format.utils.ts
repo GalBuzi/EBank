@@ -15,6 +15,7 @@ export function formatToBusinessDTO(element: RowDataBusiness): IBusinessAccountD
     balance: element.balance,
     status_id: element.status_id,
     type_name: element.type_name,
+    status_name : element.status_name,
     address: {
       address_id : element.address_id,
       street_name: element.street_name,
@@ -35,6 +36,7 @@ export function formatDataToFamilyDTO(element : RowDataFamily) : IFamilyAccounBa
     currency : element.currency,
     balance : element.balance,
     status_id : element.status_id,
+    status_name : element.status_name,
     type_name : element.type_name,
     family_account_id : element.family_account_id,
   };
@@ -51,6 +53,7 @@ export function formatToIndividualDTO(element: RowDataIndividual): IIndividualAc
     currency: element.currency,
     balance: element.balance,
     status_id: element.status_id,
+    status_name : element.status_name,
     type_name: element.type_name,
     address: {
       address_id : element.address_id,
@@ -72,6 +75,7 @@ export function formatRowsDataToFamilyDTO(element : RowDataFamily) : IFamilyAcco
     currency : element.currency,
     balance : element.balance,
     status_id : element.status_id,
+    status_name : element.status_name,
     type_name : element.type_name,
     family_account_id : element.family_account_id,
   };

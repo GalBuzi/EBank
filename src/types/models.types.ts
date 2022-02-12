@@ -37,4 +37,18 @@ export interface IFamilyAccountModel extends IAccountModel {
   context: string;
 }
 
+export interface IChangeStatus {
+  ids : number[];
+  action : string;
+}
+
+export interface IChangeStatusResponse {
+  ids : number[],
+  status : string
+}
+
+export interface IModifyFamilyAccount {
+  individuals : number[][]
+}
+
 

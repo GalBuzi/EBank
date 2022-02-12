@@ -9,16 +9,10 @@ export async function getBusinessAccountById(id: number):Promise<RowDataBusiness
   const [business] = await db.query(
     `SELECT * FROM business_account ba JOIN account a ON ba.account_id = a.account_id
     JOIN address ad ON ad.address_id = ba.address_id
+    JOIN status s ON s.status_id = a.status_id 
     WHERE business_account_id = ${id}`) as RowDataPacket[];
   return business[0] as RowDataBusiness;
 }
-
-// export async function getAllBusinessAccount() : Promise<RowDataBusiness[]>{
-//   const [accounts] = await db.query(
-//     `SELECT * FROM business_account ba JOIN account a 
-//         ON ba.account_id = a.account_id JOIN address ad ON ba.address_id = ad.address_id`) as RowDataPacket[][];
-//   return accounts as RowDataBusiness[];
-// }
 
 export async function createBusinessAccount(payload : IBusinessAccountRecord) : Promise<RowDataBusiness>{
   const [business] = await db.query(
@@ -43,7 +37,6 @@ export async function transferB2I(sourceAccount:IBusinessAccountDTO, destination
   const [resultDestination] = await db.query(
     `UPDATE account a SET a.balance = a.balance + ${amount} WHERE a.account_id = ${destinationAccount.account_id}`,
   ); 
-  console.log(resultSource, resultDestination);
 }
 
 

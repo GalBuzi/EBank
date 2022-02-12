@@ -14,7 +14,6 @@ class BusinessRouter {
     this._router.post('/',
       errorWrapper(validateRoute(InputValidationPerRoute.createBusinessAccount)),
       errorWrapper(businessController.createBusinessAcc));
-    //this._router.get('/', errorWrapper(businessController.getAllBusinessesAcc));
   
     this._router.get('/:id', 
       errorWrapper(validateRoute(InputValidationPerRoute.getBusinessAccountById)),
