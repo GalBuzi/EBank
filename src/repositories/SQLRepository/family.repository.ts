@@ -2,7 +2,6 @@ import {  ResultSetHeader, RowDataPacket } from 'mysql2';
 import { IFamilyAccountRecord } from '../../types/records.type.js';
 import { db } from '../../utils/initializer.utils.js';
 import { RowDataFamily } from '../../types/rowData.types.js';
-import { IModifyFamilyAccount } from '../../types/models.types.js';
 import { IBusinessAccountDTO, IFamilyAccountDTO } from '../../types/dto.types.js';
 
 export async function getFamilyAccountByIdNoOwners(id: number):Promise<RowDataFamily> {

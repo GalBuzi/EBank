@@ -19,7 +19,7 @@ class BusinessAccountService  {
   async transferB2B(
     sourceId: number,
     destinationId: number,
-    amount: number
+    amount: number,
   ): Promise<ITransferResult> {
     let toDeposit: number;
     const { source, destination } = await validateTransferB2B(

@@ -18,14 +18,13 @@ class FamilyController {
     const response: ISuccessResponse = {
       status: 200,
       message: `Family account with id ${Number(req.params.id)} has been closed!`,
-      data : req.params.id
+      data : req.params.id,
     };
     res.status(response.status).json(response);
   }
 
   async getFamilyAccountById(req: Request, res: Response) {
-    const result = await family_service.getFamilyAccountById
-    (Number(req.params.id), req.query.detailed as string);
+    const result = await family_service.getFamilyAccountById(Number(req.params.id), req.query.detailed as string);
     const response: ISuccessResponse = {
       status: 200,
       message: `Family account with id ${result.family_account_id} has been loaded!`,
@@ -35,8 +34,7 @@ class FamilyController {
   }
 
   async removeIndividualsFromFamily(req : Request, res : Response) {
-    const result = await family_service.removeIndividualFromFamilyAccount
-    (Number(req.params.id),req.body as IModifyFamilyAccount,req.query.display as string);
+    const result = await family_service.removeIndividualFromFamilyAccount(Number(req.params.id), req.body as IModifyFamilyAccount, req.query.display as string);
     const response: ISuccessResponse = {
       status: 200,
       message: `Family account with id ${result.family_account_id} has been modified!`,
@@ -46,8 +44,7 @@ class FamilyController {
   }
 
   async addIndividuals(req : Request, res : Response) {
-    const result = await family_service.addIndividualsToFamilyAccount
-    (Number(req.params.id),req.body as IModifyFamilyAccount,req.query.display as string);
+    const result = await family_service.addIndividualsToFamilyAccount(Number(req.params.id), req.body as IModifyFamilyAccount, req.query.display as string);
     const response: ISuccessResponse = {
       status: 200,
       message: `Family account with id ${result.family_account_id} has been modified!`,

@@ -52,5 +52,9 @@ export interface IAddressDTO {
   street_number: number;
 }
 
+export interface ISecretKey {
+  secret_key : string;
+}
+
 export type IFamilyAccountDTO = IFamilyAccountDTOShort | IFamilyAccountDTOLong;
 export type IGenericDTO = IFamilyAccounBaseDTO | IBusinessAccountDTO | IIndividualAccountDTO;

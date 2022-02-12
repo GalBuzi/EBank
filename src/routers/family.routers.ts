@@ -1,6 +1,7 @@
 import errorWrapper from '../utils/helpers.utils.js';
 import familyController from '../controllers/family.controllers.js';
 import express from 'express';
+import { authenticate } from '../middleware/authentication.middleware.js';
 
 class FamilyRouter {
   private _router = express.Router();
@@ -11,10 +12,10 @@ class FamilyRouter {
 
   initRouting() {
     this._router.post('/', errorWrapper(familyController.createFamilyAccount));
-    this._router.get('/:id', errorWrapper(familyController.getFamilyAccountById));
+    this._router.get('/:id',errorWrapper(authenticate), errorWrapper(familyController.getFamilyAccountById));
     this._router.put('/removeIndividuals/:id', errorWrapper(familyController.removeIndividualsFromFamily));
     this._router.put('/close/:id', errorWrapper(familyController.closeFamilyAccount));
-    this._router.put('/addIndividuals/:id',errorWrapper(familyController.addIndividuals));
+    this._router.put('/addIndividuals/:id', errorWrapper(familyController.addIndividuals));
     this._router.put('/transferF2B/source/:sourceId/destination/:destinationId', errorWrapper(familyController.transferF2B));
   }
 

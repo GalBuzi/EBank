@@ -24,14 +24,14 @@ class FamilyAccountService {
     return dtoFamily;
   }
 
-  async removeIndividualFromFamilyAccount(family_accout_id : number,model : IModifyFamilyAccount, display: string) : Promise<IFamilyAccountDTO>{
-    const dtoFamily = await builderSQL.removeIndividualFromFamilyAccount(family_accout_id,model,display);
+  async removeIndividualFromFamilyAccount(family_accout_id : number, model : IModifyFamilyAccount, display: string) : Promise<IFamilyAccountDTO>{
+    const dtoFamily = await builderSQL.removeIndividualFromFamilyAccount(family_accout_id, model, display);
     return dtoFamily;
   }
 
-  async addIndividualsToFamilyAccount(family_accout_id : number,model : IModifyFamilyAccount, display: string) : Promise<IFamilyAccountDTO> {
-    const dtoFamily = await builderSQL.addIndividualsToFamilyAccount(family_accout_id,model,display);
-    return dtoFamily
+  async addIndividualsToFamilyAccount(family_accout_id : number, model : IModifyFamilyAccount, display: string) : Promise<IFamilyAccountDTO> {
+    const dtoFamily = await builderSQL.addIndividualsToFamilyAccount(family_accout_id, model, display);
+    return dtoFamily;
   }
 
   async closeFamilyAccount(id : number) : Promise<void> {
@@ -39,7 +39,7 @@ class FamilyAccountService {
 
   }
 
-  async transferF2B(sourceId: number,destinationId: number, amount: number) : Promise<void> {
+  async transferF2B(sourceId: number, destinationId: number, amount: number) : Promise<void> {
     // await familyRepository.transferF2B(sourceId, destinationId, amount);
     // CHANGE TO validateTransferF2B
     // const { source, destination } = await validateTransferB2BFX(sourceId, destinationId, amount);  
@@ -57,7 +57,7 @@ class FamilyAccountService {
     // };
     // return result;
       
-    }
+  }
   
 }
 

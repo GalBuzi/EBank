@@ -1,4 +1,4 @@
-import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTO, IIndividualAccountDTO } from '../types/dto.types.js';
+import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTO, IIndividualAccountDTO, ISecretKey } from '../types/dto.types.js';
 import { IAccountModel, IBusinessAccountModel, IChangeStatus, IChangeStatusResponse, IFamilyAccountModel, IIndividualAccountModel, IModifyFamilyAccount } from '../types/models.types.js';
 import * as accountRepository from '../repositories/SQLRepository/account.repository.js';
 import * as individualRepository from '../repositories/SQLRepository/individual.repository.js';
@@ -8,9 +8,10 @@ import * as familyRepository from '../repositories/SQLRepository/family.reposito
 import * as EXTRACTOR from '../utils/extraction.utils.js';
 import * as CONVERTER from '../utils/covnert.utils.js';
 import { ServerException } from '../exceptions/ServerExcpetion.exceptions.js';
-import { RowDataFamily, RowDataIndividual } from '../types/rowData.types.js';
+import { actionToStatusId } from '../utils/helpers.utils.js';
+import * as generalRepository from '../repositories/SQLRepository/general.repository.js';
 import { IAccountRecord } from '../types/records.type.js';
-import {actionToStatusId} from '../utils/helpers.utils.js';
+import { RowDataFamily, RowDataIndividual } from '../types/rowData.types.js';
 interface Builder {
   createAccount : (model : IAccountModel) => Promise<IAccountDTO>;
   createFamilyAccount : (model : IFamilyAccountModel) => Promise<IFamilyAccountDTO>;
@@ -20,9 +21,15 @@ interface Builder {
   getListOfIndividualsAccountsById : (ids : number[]) => Promise<IIndividualAccountDTO[]>;
   createBusinessAccount : (model: IBusinessAccountModel) => Promise<IBusinessAccountDTO>;
   getBusinessAccountById : (id: number) => Promise<IBusinessAccountDTO>;
+  getSecretByAccessKey : (accesskey : string) => Promise<string>;
 }
 
 class BuilderSQL implements Builder {
+   async getSecretByAccessKey(accessKey : string) : Promise<string> {
+    const rowSecretKey = await generalRepository.getSecertKey(accessKey);
+    const secretKey = (rowSecretKey[0] as ISecretKey).secret_key;
+    return secretKey;
+  }
 
   async createAccount(recrod : IAccountRecord) : Promise<IAccountDTO> {
     const createdAccount = await accountRepository.createAccount(recrod);
@@ -122,26 +129,26 @@ class BuilderSQL implements Builder {
   }
 
   async activateDeactivateAccounts(model : IChangeStatus) : Promise<IChangeStatusResponse> {
-    const status_id = actionToStatusId[model.action];
-    await accountRepository.activateDeactivateAccounts(model.ids,status_id);
+    const statusId = actionToStatusId[model.action];
+    await accountRepository.activateDeactivateAccounts(model.ids, statusId);
     const result : IChangeStatusResponse = {
       ids : model.ids,
-      status:model.action
+      status:model.action,
     };
     return result;
   }
   
-  async removeIndividualFromFamilyAccount(family_accout_id : number,model : IModifyFamilyAccount, display : string) : Promise<IFamilyAccountDTO> {
-    const ids = model.individuals.map((individual)=>{return individual[0]}).join(',');
-    await familyRepository.removeIndividualFromFamilyAccount(family_accout_id,ids);
-    const familyDTO = await this.getFamilyAccountById(family_accout_id,display);
+  async removeIndividualFromFamilyAccount(family_accout_id : number, model : IModifyFamilyAccount, display : string) : Promise<IFamilyAccountDTO> {
+    const ids = model.individuals.map((individual)=>{return individual[0];}).join(',');
+    await familyRepository.removeIndividualFromFamilyAccount(family_accout_id, ids);
+    const familyDTO = await this.getFamilyAccountById(family_accout_id, display);
     return familyDTO;
   }
 
-  async addIndividualsToFamilyAccount(family_accout_id : number,model : IModifyFamilyAccount, display : string) : Promise<IFamilyAccountDTO> {
-    const ids = model.individuals.map((individual)=>{return individual[0]});
-    await familyRepository.addIndividualsToFamilyAccount(family_accout_id,ids);
-    const familyDTO = await this.getFamilyAccountById(family_accout_id,display);
+  async addIndividualsToFamilyAccount(family_accout_id : number, model : IModifyFamilyAccount, display : string) : Promise<IFamilyAccountDTO> {
+    const ids = model.individuals.map((individual)=>{return individual[0];});
+    await familyRepository.addIndividualsToFamilyAccount(family_accout_id, ids);
+    const familyDTO = await this.getFamilyAccountById(family_accout_id, display);
     return familyDTO;
   }
 

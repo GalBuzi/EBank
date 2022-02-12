@@ -11,7 +11,7 @@ class AccountRouter {
   }
 
   initRouting() {
-    this._router.put('/activateDeactivateAccounts',accountController.activateDeactivateAccounts);
+    this._router.put('/activateDeactivateAccounts', accountController.activateDeactivateAccounts);
     this._router.use('/individual', individualRouter.router);
     this._router.use('/business', businessRouter.router);
     this._router.use('/family', familyRouter.router);
