@@ -1,5 +1,5 @@
-import { IBusinessAccountDTO, IFamilyAccountDTO, IIndividualAccountDTO } from '../types/dto.types.js';
-import { IBusinessAccountModel, IFamilyAccountModel, IIndividualAccountModel } from '../types/models.types.js';
+import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTO, IIndividualAccountDTO } from '../types/dto.types.js';
+import { IAccountModel, IBusinessAccountModel, IChangeStatus, IChangeStatusResponse, IFamilyAccountModel, IIndividualAccountModel, IModifyFamilyAccount } from '../types/models.types.js';
 import * as accountRepository from '../repositories/SQLRepository/account.repository.js';
 import * as individualRepository from '../repositories/SQLRepository/individual.repository.js';
 import * as addressRepository from '../repositories/SQLRepository/address.repository.js';
@@ -8,24 +8,33 @@ import * as familyRepository from '../repositories/SQLRepository/family.reposito
 import * as EXTRACTOR from '../utils/extraction.utils.js';
 import * as CONVERTER from '../utils/covnert.utils.js';
 import { ServerException } from '../exceptions/ServerExcpetion.exceptions.js';
-import { RowDataFamily } from '../types/rowData.types.js';
-
+import { RowDataFamily, RowDataIndividual } from '../types/rowData.types.js';
+import { IAccountRecord } from '../types/records.type.js';
+import {actionToStatusId} from '../utils/helpers.utils.js';
 interface Builder {
-  createFamilyAccount : (model : IFamilyAccountModel) => Promise<IFamilyAccountDTO>
-  getFamilyAccountById : (id : number, display : string) => Promise<IFamilyAccountDTO>
-  createIndividualAccount : (model : IIndividualAccountModel) => Promise<IIndividualAccountDTO>
-  getIndividualAccountById : (id : number) => Promise<IIndividualAccountDTO>
-  getListOfIndividualsAccountsById : (ids : number[]) => Promise<IIndividualAccountDTO[]>
-  createBusinessAccount : (model: IBusinessAccountModel) => Promise<IBusinessAccountDTO>
-  getBusinessAccountById : (id: number) => Promise<IBusinessAccountDTO>
+  createAccount : (model : IAccountModel) => Promise<IAccountDTO>;
+  createFamilyAccount : (model : IFamilyAccountModel) => Promise<IFamilyAccountDTO>;
+  getFamilyAccountById : (id : number, display : string) => Promise<IFamilyAccountDTO>;
+  createIndividualAccount : (model : IIndividualAccountModel) => Promise<IIndividualAccountDTO>;
+  getIndividualAccountById : (id : number) => Promise<IIndividualAccountDTO>;
+  getListOfIndividualsAccountsById : (ids : number[]) => Promise<IIndividualAccountDTO[]>;
+  createBusinessAccount : (model: IBusinessAccountModel) => Promise<IBusinessAccountDTO>;
+  getBusinessAccountById : (id: number) => Promise<IBusinessAccountDTO>;
 }
 
 class BuilderSQL implements Builder {
+
+  async createAccount(recrod : IAccountRecord) : Promise<IAccountDTO> {
+    const createdAccount = await accountRepository.createAccount(recrod);
+    return createdAccount;
+  }
+  
   async createFamilyAccount(model: IFamilyAccountModel) : Promise<IFamilyAccountDTO>{
     const accountToInsert = EXTRACTOR.extractAccountRecord(model);
+    const createdAccount = await this.createAccount(accountToInsert);
     const familyToInsert = EXTRACTOR.extractFamilyRecord(model);
     const ownersToInsert = EXTRACTOR.extractOwnersIds(model);
-    const createdAccount = await accountRepository.createAccount(accountToInsert);
+
     familyToInsert.account_id = createdAccount.account_id;
     const createdFamilyAccount = await familyRepository.createFamilyAccount(familyToInsert);
     await familyRepository.createOwners(ownersToInsert, createdFamilyAccount.family_account_id);
@@ -38,13 +47,16 @@ class BuilderSQL implements Builder {
     let ownersFull : IIndividualAccountDTO[] = [];
     let ownersShort : number[] = [];
     let  familyDetailsArrWithOwners : IFamilyAccountDTO;
+    let rowData : RowDataIndividual[] = [];
     const familyRowsArray : RowDataFamily[] = await familyRepository.getFamilyAccountById(id);
-    const arrIDS = familyRowsArray.map((row)=>{
-      return row.indiv_account_id;
+    let arrIDS = familyRowsArray.map((row)=>{
+      return row.indiv_account_id ? row.indiv_account_id : 0;
     });
+    arrIDS = arrIDS.filter((element)=> element !== 0);
+    if (arrIDS.length > 0) {
+      rowData = await individualRepository.getListOfIndividualsAccountsById(arrIDS); 
+    }
     const familyDetailsArr = CONVERTER.convertRowsDataToDTO([familyRowsArray[0]], CONVERTER.FormatterMapper.formatDataToFamilyDTO) as IFamilyAccountDTO[]; 
-    const rowData = await individualRepository.getListOfIndividualsAccountsById(arrIDS); 
-
     switch (display){
       case 'full':
         ownersFull = CONVERTER.convertRowsDataToDTO(rowData, CONVERTER.FormatterMapper.formatToIndividualDTO) as IIndividualAccountDTO[];
@@ -66,7 +78,7 @@ class BuilderSQL implements Builder {
     const accountToInsert = EXTRACTOR.extractAccountRecord(model);
     const addressToInsert = EXTRACTOR.extractAddressRecord(model);
     const individualToInsert = EXTRACTOR.extractIndividualRecord(model);
-    const createdAccount = await accountRepository.createAccount(accountToInsert);
+    const createdAccount = await this.createAccount(accountToInsert);
     const cretedAddress = await addressRepository.createAddress(addressToInsert);
     individualToInsert.account_id = createdAccount.account_id;
     individualToInsert.address_id = cretedAddress.address_id;
@@ -91,9 +103,9 @@ class BuilderSQL implements Builder {
 
   async createBusinessAccount(model: IBusinessAccountModel) : Promise<IBusinessAccountDTO>{
     const accountToInsert = EXTRACTOR.extractAccountRecord(model);
+    const createdAccount = await this.createAccount(accountToInsert);
     const addressToInsert = EXTRACTOR.extractAddressRecord(model);
     const businessToInsert = EXTRACTOR.extractBusinessRecord(model);
-    const createdAccount = await accountRepository.createAccount(accountToInsert);
     const createdAddress = await addressRepository.createAddress(addressToInsert);
     businessToInsert.account_id = createdAccount.account_id;
     businessToInsert.address_id = createdAddress.address_id;
@@ -104,10 +116,33 @@ class BuilderSQL implements Builder {
 
   async getBusinessAccountById(id: number) : Promise<IBusinessAccountDTO> {
     const businessObject = await businessRepository.getBusinessAccountById(id);
-    if (!businessObject)
-      throw new ServerException(`Business with id ${id} doesn't exists!`);
+    if (!businessObject) throw new ServerException(`Business with id ${id} doesn't exists!`);
     const businessDTOArr = CONVERTER.convertRowsDataToDTO([businessObject], CONVERTER.FormatterMapper.formatToBusinessDTO) as IBusinessAccountDTO[];
     return businessDTOArr[0];
+  }
+
+  async activateDeactivateAccounts(model : IChangeStatus) : Promise<IChangeStatusResponse> {
+    const status_id = actionToStatusId[model.action];
+    await accountRepository.activateDeactivateAccounts(model.ids,status_id);
+    const result : IChangeStatusResponse = {
+      ids : model.ids,
+      status:model.action
+    };
+    return result;
+  }
+  
+  async removeIndividualFromFamilyAccount(family_accout_id : number,model : IModifyFamilyAccount, display : string) : Promise<IFamilyAccountDTO> {
+    const ids = model.individuals.map((individual)=>{return individual[0]}).join(',');
+    await familyRepository.removeIndividualFromFamilyAccount(family_accout_id,ids);
+    const familyDTO = await this.getFamilyAccountById(family_accout_id,display);
+    return familyDTO;
+  }
+
+  async addIndividualsToFamilyAccount(family_accout_id : number,model : IModifyFamilyAccount, display : string) : Promise<IFamilyAccountDTO> {
+    const ids = model.individuals.map((individual)=>{return individual[0]});
+    await familyRepository.addIndividualsToFamilyAccount(family_accout_id,ids);
+    const familyDTO = await this.getFamilyAccountById(family_accout_id,display);
+    return familyDTO;
   }
 
 }

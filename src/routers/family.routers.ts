@@ -11,12 +11,11 @@ class FamilyRouter {
 
   initRouting() {
     this._router.post('/', errorWrapper(familyController.createFamilyAccount));
-    // this._router.get('/', errorWrapper(familyController.getAllFamilysAcc));
     this._router.get('/:id', errorWrapper(familyController.getFamilyAccountById));
-    //this._router.delete('/', errorWrapper(familyController.removeIndividualFromFamily));
-    // this._router.delete('/:id', errorWrapper(familyController.deleteFamilyAccById));
-    // this._router.put('/:id', errorWrapper(familyController.updateFamilyAccById));
-    // this._router.patch('/:id', errorWrapper(familyController.patchFamilyAccById));
+    this._router.put('/removeIndividuals/:id', errorWrapper(familyController.removeIndividualsFromFamily));
+    this._router.put('/close/:id', errorWrapper(familyController.closeFamilyAccount));
+    this._router.put('/addIndividuals/:id',errorWrapper(familyController.addIndividuals));
+    this._router.put('/transferF2B/source/:sourceId/destination/:destinationId', errorWrapper(familyController.transferF2B));
   }
 
   get router() {

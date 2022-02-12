@@ -1,6 +1,6 @@
-import { IBusinessAccountModel, IFamilyAccountModel, IIndividualAccountModel } from '../types/models.types.js';
+import { IAccountModel, IBusinessAccountModel, IFamilyAccountModel, IIndividualAccountModel } from '../types/models.types.js';
 import { IAccountRecord, IAddressRecord, IBusinessAccountRecord, IFamilyAccountRecord, IIndividualAccountRecord } from '../types/records.type.js';
-type ModelsWithAccounts = IIndividualAccountModel | IBusinessAccountModel | IFamilyAccountModel;
+type ModelsWithAccounts = IIndividualAccountModel | IBusinessAccountModel | IFamilyAccountModel | IAccountModel;
 type ModelsWithAddress = IIndividualAccountModel | IBusinessAccountModel;
 
 export function extractAccountRecord(model: ModelsWithAccounts): IAccountRecord {

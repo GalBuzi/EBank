@@ -17,3 +17,11 @@ export async function getRate(base: string, currency: string): Promise<number> {
   const result = (await response.json()) as IRateResult;
   return Number(Object.values(result.rates)[0]);
 }
+
+interface ActionToStatusId {
+  [key : string] : number
+}
+export const actionToStatusId : ActionToStatusId ={
+  'activate' : 1,
+  'deactivate' : 2
+};

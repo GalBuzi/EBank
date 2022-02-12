@@ -7,6 +7,7 @@ export interface IAccountDTO {
   balance: number;
   status_id: number;
   type_name: string;
+  status_name : string
 }
 
 export interface IIndividualAccountDTO extends IAccountDTO {
