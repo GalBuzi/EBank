@@ -28,7 +28,6 @@ export async function getFamilyAccountById(id : number) : Promise<RowDataFamily[
 }
 
 
-
 export async function createOwners(ownersId : number[], familyAccountId : number) : Promise<number[]> {
   for (const id of ownersId) {
     console.log(id);

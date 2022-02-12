@@ -9,26 +9,16 @@ import { ServerException } from '../exceptions/ServerExcpetion.exceptions.js';
 import { getRate } from '../utils/helpers.utils.js';
 import * as EXTRACTOR from '../utils/extraction.utils.js';
 import * as CONVERTER from '../utils/covnert.utils.js';
+import builderSQL from '../utils/builder.utils.js';
 class BusinessAccountService  {
   async createBusinessAccount(business_model: IBusinessAccountModel): Promise<IBusinessAccountDTO> {
-    const accountToInsert = EXTRACTOR.extractAccountRecord(business_model);
-    const addressToInsert = EXTRACTOR.extractAddressRecord(business_model);
-    const businessToInsert = EXTRACTOR.extractBusinessRecord(business_model);
-    const createdAccount = await accountRepository.createAccount(accountToInsert);
-    const createdAddress = await addressRepository.createAddress(addressToInsert);
-    businessToInsert.account_id = createdAccount.account_id;
-    businessToInsert.address_id = createdAddress.address_id;
-    const businessAccountCreated = await businessRepository.createBusinessAccount(businessToInsert);
-    const businessDTOArr = CONVERTER.convertRowsDataToDTO([businessAccountCreated], CONVERTER.FormatterMapper.formatToBusinessDTO) as IBusinessAccountDTO[];
-    return businessDTOArr[0];
+    const dtoBusi = await builderSQL.createBusinessAccount(business_model);
+    return dtoBusi;
   }
 
   async getBusinessAccountById(business_id: number): Promise<IBusinessAccountDTO> {
-    const businessObject = await businessRepository.getBusinessAccountById(business_id);
-    if (!businessObject)
-      throw new ServerException(`Business with id ${business_id} doesn't exists!`);
-    const businessDTOArr = CONVERTER.convertRowsDataToDTO([businessObject], CONVERTER.FormatterMapper.formatToBusinessDTO) as IBusinessAccountDTO[];
-    return businessDTOArr[0];
+    const dtoBusi = await builderSQL.getBusinessAccountById(business_id);
+    return dtoBusi;
   }
 
   async transferB2B(

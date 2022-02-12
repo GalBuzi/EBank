@@ -44,4 +44,5 @@ export enum InputValidationPerRoute {
 export enum TransferValidationPerRoute {
   validateTransferB2B = 'validateTransferB2B',
   validateTransferB2I = 'validateTransferB2I',
+  validateTransferB2BFX = 'validateTransferB2BFX',
 }

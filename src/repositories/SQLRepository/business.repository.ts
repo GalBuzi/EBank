@@ -2,6 +2,7 @@ import {  ResultSetHeader, RowDataPacket } from 'mysql2';
 import {  IBusinessAccountRecord } from '../../types/records.type.js';
 import { db } from '../../utils/initializer.utils.js';
 import { RowDataBusiness, RowDataIndividual } from '../../types/rowData.types.js';
+import { IBusinessAccountDTO, IIndividualAccountDTO } from '../../types/dto.types.js';
 
 
 export async function getBusinessAccountById(id: number):Promise<RowDataBusiness> {
@@ -12,12 +13,12 @@ export async function getBusinessAccountById(id: number):Promise<RowDataBusiness
   return business[0] as RowDataBusiness;
 }
 
-export async function getAllBusinessAccount() : Promise<RowDataBusiness[]>{
-  const [accounts] = await db.query(
-    `SELECT * FROM business_account ba JOIN account a 
-        ON ba.account_id = a.account_id JOIN address ad ON ba.address_id = ad.address_id`) as RowDataPacket[][];
-  return accounts as RowDataBusiness[];
-}
+// export async function getAllBusinessAccount() : Promise<RowDataBusiness[]>{
+//   const [accounts] = await db.query(
+//     `SELECT * FROM business_account ba JOIN account a 
+//         ON ba.account_id = a.account_id JOIN address ad ON ba.address_id = ad.address_id`) as RowDataPacket[][];
+//   return accounts as RowDataBusiness[];
+// }
 
 export async function createBusinessAccount(payload : IBusinessAccountRecord) : Promise<RowDataBusiness>{
   const [business] = await db.query(
@@ -26,7 +27,7 @@ export async function createBusinessAccount(payload : IBusinessAccountRecord) : 
   return businessCreated ;
 }
 
-export async function transferB2B(sourceAccount:RowDataBusiness, destinationAccount : RowDataBusiness, amount : number, toDeposit : number) : Promise<void> {
+export async function transferB2B(sourceAccount:IBusinessAccountDTO, destinationAccount : IBusinessAccountDTO, amount : number, toDeposit : number) : Promise<void> {
   await db.query(
     `UPDATE account a SET a.balance = a.balance - ${amount} WHERE a.account_id = ${sourceAccount.account_id}`,
   );
@@ -35,7 +36,7 @@ export async function transferB2B(sourceAccount:RowDataBusiness, destinationAcco
   ); 
 }
 
-export async function transferB2I(sourceAccount:RowDataBusiness, destinationAccount : RowDataIndividual, amount : number) : Promise<void> {
+export async function transferB2I(sourceAccount:IBusinessAccountDTO, destinationAccount : IIndividualAccountDTO, amount : number) : Promise<void> {
   const [resultSource] = await db.query(
     `UPDATE account a SET a.balance = a.balance - ${amount} WHERE a.account_id = ${sourceAccount.account_id}`,
   );

@@ -134,6 +134,21 @@
                     "params_values" : []
                 }
             ]
+        },
+        {
+            "route": "transferF2B",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["source_id", "destination_id","amount"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isPositiveNumber",
+                    "params": ["amount"],
+                    "params_values" : []
+                }
+            ]
         }
     ],
 
