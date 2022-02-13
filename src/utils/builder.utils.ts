@@ -1,5 +1,5 @@
 import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTO, IIndividualAccountDTO, ISecretKey } from '../types/dto.types.js';
-import { IAccountModel, IBusinessAccountModel, IChangeStatus, IChangeStatusAccounts, IChangeStatusResponse, IFamilyAccountModel, IIndividualAccountModel, IModifyFamilyAccount } from '../types/models.types.js';
+import { IAccountModel, IBusinessAccountModel, IChangeStatusAccounts, IChangeStatusResponse, IFamilyAccountModel, IIndividualAccountModel, IModifyFamilyAccount } from '../types/models.types.js';
 import accountRepository from '../repositories/SQLRepository/account.repository.js';
 import individualRepository from '../repositories/SQLRepository/individual.repository.js';
 import addressRepository from '../repositories/SQLRepository/address.repository.js';
@@ -12,7 +12,6 @@ import { actionToStatusId } from '../utils/helpers.utils.js';
 import * as generalRepository from '../repositories/SQLRepository/general.repository.js';
 import { IAccountRecord } from '../types/records.type.js';
 import { RowDataFamily, RowDataIndividual } from '../types/rowData.types.js';
-import { myMap } from '../utils/format.utils.js';
 import { FormatterMapper } from '../utils/covnert.utils.js';
 interface Builder {
   createAccount : (model : IAccountModel) => Promise<IAccountDTO>;
@@ -140,7 +139,7 @@ class BuilderSQL implements Builder {
   async activateDeactivateAccounts(model : IChangeStatusAccounts) : Promise<IChangeStatusResponse> {
     const statusId = actionToStatusId[model.action];
     const idsToAction : number[] = [...model.individuals.map(indiv => indiv.individual_account_id),
-      ...model.businesses.map(busi=> busi.business_account_id)];
+      ...model.businesses.map(busi => busi.business_account_id)];
     await accountRepository.activateDeactivateAccounts(idsToAction, statusId);
     const result : IChangeStatusResponse = {
       ids : idsToAction,

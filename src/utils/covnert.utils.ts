@@ -23,3 +23,4 @@ export enum FormatterMapper {
   formatToBusinessDTO = 'formatToBusinessDTO',
   formatDataToFamilyDTO = 'formatDataToFamilyDTO',
 }
+
