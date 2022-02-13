@@ -16,7 +16,7 @@ export async function createAddress(payload : IAddressModel) : Promise<IAddressD
   const [address] = await db.query(
     'INSERT INTO address SET ?', payload,
   ) as ResultSetHeader[];
-  if (address.changedRows === 0) throw new ServerException('artist was not created', 500);
+  if (address.changedRows === 0) throw new ServerException('address was not created', 500);
   const addressCreated = await getAddressById(address.insertId);        
   return addressCreated;
 } 
