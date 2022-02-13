@@ -46,8 +46,11 @@ class FamilyRepository {
 
   async closeFamilyAccount(id: number): Promise<void> {
     await db.query(
-      `UPDATE account SET status_id = ${2} WHERE account_id = (
-      SELECT account_id FROM family_account WHERE family_account_id = ${id})`,
+      `UPDATE account SET status_id = ${2} 
+      WHERE account_id = (
+                            SELECT account_id 
+                            FROM family_account 
+                            WHERE family_account_id = ${id})`,
     );
   }
 
