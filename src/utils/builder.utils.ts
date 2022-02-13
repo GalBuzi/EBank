@@ -41,7 +41,6 @@ class BuilderSQL implements Builder {
     const createdAccount = await this.createAccount(accountToInsert);
     const familyToInsert = EXTRACTOR.extractFamilyRecord(model);
     const ownersToInsert = EXTRACTOR.extractOwnersIds(model);
-
     familyToInsert.account_id = createdAccount.account_id;
     const createdFamilyAccount = await familyRepository.createFamilyAccount(familyToInsert);
     await familyRepository.createOwners(ownersToInsert, createdFamilyAccount.family_account_id);

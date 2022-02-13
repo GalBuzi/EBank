@@ -15,7 +15,7 @@ class IndividualRouter {
       errorWrapper(individualController.createIndividualAcc),
     );
     //this._router.get('/', errorWrapper(individualController.getAllIndividualsAcc));
-    this._router.get('/:id',errorWrapper(authenticate), errorWrapper(individualController.getIndividualAccById));
+    this._router.get('/:id', errorWrapper(authenticate), errorWrapper(individualController.getIndividualAccById));
   }
 
   get router() {

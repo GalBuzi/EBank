@@ -13,10 +13,10 @@ class AccountRouter {
   }
 
   initRouting() {
-    this._router.put('/activateDeactivateAccounts',errorWrapper(authenticate), accountController.activateDeactivateAccounts);
-    this._router.use('/individual',errorWrapper(authenticate), individualRouter.router);
-    this._router.use('/business',errorWrapper(authenticate), businessRouter.router);
-    this._router.use('/family',errorWrapper(authenticate), familyRouter.router);
+    this._router.put('/activateDeactivateAccounts', errorWrapper(authenticate), accountController.activateDeactivateAccounts);
+    this._router.use('/individual', errorWrapper(authenticate), individualRouter.router);
+    this._router.use('/business', errorWrapper(authenticate), businessRouter.router);
+    this._router.use('/family', errorWrapper(authenticate), familyRouter.router);
   }
 
   get router() {
