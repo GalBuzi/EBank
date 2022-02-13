@@ -1,6 +1,7 @@
 import errorWrapper from '../utils/helpers.utils.js';
 import express from 'express';
 import individualController from '../controllers/individual.controllers.js';
+import { authenticate } from '../middleware/authentication.middleware.js';
 class IndividualRouter {
   private _router = express.Router();
 
@@ -14,7 +15,7 @@ class IndividualRouter {
       errorWrapper(individualController.createIndividualAcc),
     );
     //this._router.get('/', errorWrapper(individualController.getAllIndividualsAcc));
-    this._router.get('/:id', errorWrapper(individualController.getIndividualAccById));
+    this._router.get('/:id',errorWrapper(authenticate), errorWrapper(individualController.getIndividualAccById));
   }
 
   get router() {
