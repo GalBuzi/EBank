@@ -1,3 +1,5 @@
+import { IBusinessAccountDTO, IIndividualAccountDTO } from './dto.types.js';
+
 /**
  * The models below represent the data coming from the request 
  */
@@ -37,8 +39,16 @@ export interface IFamilyAccountModel extends IAccountModel {
   context: string;
 }
 
+type TupleChangeStatus = [number, string];
+
 export interface IChangeStatus {
-  ids : number[];
+  ids : TupleChangeStatus[];
+  action : string;
+}
+
+export interface IChangeStatusAccounts {
+  individuals : IIndividualAccountDTO[];
+  businesses : IBusinessAccountDTO[];
   action : string;
 }
 

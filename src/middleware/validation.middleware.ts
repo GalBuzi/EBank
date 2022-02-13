@@ -13,10 +13,9 @@ export function validateRoute(validationRouteName: string) : RequestHandler {
       validFunctionsObj.forEach(obj => {
         const func = inputValidationStringToFuncPointer[obj.func_name];
         const answers = func(allParams, obj.params, obj.params_values);
-        validAnswers.concat(answers);
+        validAnswers.push(...answers);
       });
     }
-    console.log(validAnswers);
     const toNext = validAnswers.filter(ans => ans !== 'true');
     if (toNext.length === 0){
       next();

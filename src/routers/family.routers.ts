@@ -1,6 +1,8 @@
 import errorWrapper from '../utils/helpers.utils.js';
 import familyController from '../controllers/family.controllers.js';
 import express from 'express';
+import { validateRoute } from '../middleware/validation.middleware.js';
+import { InputValidationPerRoute } from '../utils/validations/types.validations.js';
 import { authenticate } from '../middleware/authentication.middleware.js';
 
 class FamilyRouter {
@@ -11,8 +13,12 @@ class FamilyRouter {
   }
 
   initRouting() {
-    this._router.post('/', errorWrapper(familyController.createFamilyAccount));
-    this._router.get('/:id', errorWrapper(authenticate), errorWrapper(familyController.getFamilyAccountById));
+    this._router.post('/', 
+      errorWrapper(validateRoute(InputValidationPerRoute.createFamilyAccount)),
+      errorWrapper(familyController.createFamilyAccount));
+    this._router.get('/:id', errorWrapper(authenticate), 
+      errorWrapper(validateRoute(InputValidationPerRoute.getFamilyAccountById)),
+      errorWrapper(familyController.getFamilyAccountById));
     this._router.put('/removeIndividuals/:id', errorWrapper(familyController.removeIndividualsFromFamily));
     this._router.put('/close/:id', errorWrapper(familyController.closeFamilyAccount));
     this._router.put('/addIndividuals/:id', errorWrapper(familyController.addIndividuals));

@@ -25,12 +25,12 @@
             "validation_functions": [
                 {
                     "func_name": "checkForRequiredFields",
-                    "params": ["primary_id"],
+                    "params": ["id"],
                     "params_values" : []
                 },
                 {
                     "func_name": "isNumeric",
-                    "params": ["primary_id"],
+                    "params": ["id"],
                     "params_values" : []
                 }
             ]
@@ -60,12 +60,12 @@
             "validation_functions": [
                 {
                     "func_name": "checkForRequiredFields",
-                    "params": ["primary_id"],
+                    "params": ["id"],
                     "params_values" : []
                 },
                 {
                     "func_name": "isNumeric",
-                    "params": ["primary_id"],
+                    "params": ["id"],
                     "params_values" : []
                 }
             ]
@@ -81,10 +81,10 @@
                 {
                     "func_name": "validateTuplesStructure",
                     "params": ["owners"],
-                    "params_values" : []
+                    "params_values" : ["number","number"]
                 },
                 {
-                    "func_name": "checkSumToMin",
+                    "func_name": "checkTuplesSumToMin",
                     "params": ["owners"],
                     "params_values" : ["5000"]
                 }
@@ -95,12 +95,12 @@
             "validation_functions": [
                 {
                     "func_name": "checkForRequiredFields",
-                    "params": ["primary_id"],
+                    "params": ["id"],
                     "params_values" : []
                 },
                 {
                     "func_name": "isNumeric",
-                    "params": ["primary_id"],
+                    "params": ["id"],
                     "params_values" : []
                 }
             ]
@@ -110,7 +110,7 @@
             "validation_functions": [
                 {
                     "func_name": "checkForRequiredFields",
-                    "params": ["source_id", "destination_id","amount"],
+                    "params": ["sourceID", "destinationID","amount"],
                     "params_values" : []
                 },
                 {
@@ -125,7 +125,7 @@
             "validation_functions": [
                 {
                     "func_name": "checkForRequiredFields",
-                    "params": ["source_id", "destination_id","amount"],
+                    "params": ["sourceID", "destinationID","amount"],
                     "params_values" : []
                 },
                 {
@@ -140,7 +140,7 @@
             "validation_functions": [
                 {
                     "func_name": "checkForRequiredFields",
-                    "params": ["source_id", "destination_id","amount"],
+                    "params": ["sourceID", "destinationID","amount"],
                     "params_values" : []
                 },
                 {
@@ -149,14 +149,72 @@
                     "params_values" : []
                 }
             ]
+        },
+        {
+            "route": "addIndividualToFamily",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["primaryID", "detailed", "tuplesToAdd"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "areTuplesContainNumericNonNegative",
+                    "params": ["tuplesToAdd"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "arraysNotEmpty",
+                    "params": ["tuplesToAdd"],
+                    "params_values" : []
+                }
+            ]
+        },
+        {
+            "route": "removeIndividualFromFamily",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["primaryID", "detailed", "tuplesToAdd"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "areTuplesContainNumericNonNegative",
+                    "params": ["tuplesToAdd"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "arraysNotEmpty",
+                    "params": ["tuplesToAdd"],
+                    "params_values" : []
+                }
+            ]
+        },
+        {
+            "route": "closeFamilyAccount",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["id"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isNumeric",
+                    "params": ["id"],
+                    "params_values" : []
+                }
+            ]
         }
     ],
+    
+    "transfers_mutual_validation":[
+        "isActiveAccounts"
+    ],
 
-    "transfers":[
+    "transfers_individual_validation":[
         {
             "transfer_type" : "validateTransferB2B",
             "validation_functions": [
-                "isActiveAccounts",
                 "isValidTypesB2B",
                 "isValidBalanceB2B",
                 "isLimitValidB2B",
@@ -166,7 +224,6 @@
         {
             "transfer_type" : "validateTransferB2BFX",
             "validation_functions": [
-                "isActiveAccounts",
                 "isValidTypesB2B",
                 "isValidBalanceB2B",
                 "isLimitValidB2B",
@@ -176,11 +233,20 @@
         {
             "transfer_type": "validateTransferB2I",
             "validation_functions" : [
-                "isActiveAccounts",
                 "isValidTypesB2I",
                 "isSameCurrency",
                 "isValidBalanceB2I",
                 "isLimitValidB2I"
+            ]
+        },
+        {
+            "transfer_type": "validateTransferF2B",
+            "validation_functions" : [
+                "isActiveAccountsF2B",
+                "isValidTypesF2B",
+                "isSameCurrencyF2B",
+                "isValidBalanceF2B",
+                "isLimitValidF2B"
             ]
         }
         
@@ -192,7 +258,10 @@
         "isDigitCountMatch",
         "isPositiveNumber",
         "isNumeric",
-        "validateTuplesStructureAndSumToMin"
+        "validateTuplesStructure",
+        "checkTuplesSumToMin",
+        "areTuplesContainNumericNonNegative"
+        
     ],
 
     "transfers_validation_options": [
@@ -204,6 +273,13 @@
         "isSameCurrency",
         "isValidBalanceB2I",
         "isLimitValidB2I",
-        "isDifferentCurrency"
+        "isDifferentCurrency",
+        "isActiveAccountsF2B",
+        "isValidTypesF2B",
+        "isSameCurrencyF2B",
+        "isValidBalanceF2B",
+        "isLimitValidF2B",
+        "isAllTypeGivenAccounts",
+        "isAllStatusGivenAccounts"
     ]
 }
