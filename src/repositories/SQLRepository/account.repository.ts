@@ -22,8 +22,15 @@ class AccountRepository {
   }
 
   async activateDeactivateAccounts(ids: number[], status_id: number): Promise<void> {
-    for (const account of ids) {
-      await db.query(`UPDATE account SET status_id = ${status_id} WHERE account_id = ${account}`);
+    await db.beginTransaction();
+    try {
+      for (const account of ids) {
+        await db.query(`UPDATE account SET status_id = ${status_id} WHERE account_id = ${account}`);
+      }
+      await db.commit();
+    } catch (err) {
+      await db.rollback();
+      throw err;
     }
   }
 
@@ -33,7 +40,7 @@ class AccountRepository {
     );
   }
 
-  async subtractAmountToAccountBalance(account_id: number, amount: number): Promise<void> {
+  async subtractAmountFromAccountBalance(account_id: number, amount: number): Promise<void> {
     await db.query(
       `UPDATE account a SET a.balance = a.balance - ${amount} WHERE a.account_id = ${account_id}`,
     );

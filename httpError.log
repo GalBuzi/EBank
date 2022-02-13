@@ -1,0 +1,374 @@
+d6f19f36-c002-4521-8b6a-9e764dee07a9 :: POST :: /account/family >> 1644782807280 
+d6f19f36-c002-4521-8b6a-9e764dee07a9 :: 500 :: No access key provided! :: 1644782807282 >> Error: No access key provided!
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:8:27)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5) 
+a553544d-531b-4e4c-a18b-6a27e0d8ea95 :: POST :: /account/family >> 1644782850755 
+a553544d-531b-4e4c-a18b-6a27e0d8ea95 :: 500 :: No access key provided! :: 1644782850755 >> Error: No access key provided!
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:8:27)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5) 
+6e17c066-a5d4-4838-99e2-9561760a5b8a :: POST :: /account/family >> 1644782873107 
+6e17c066-a5d4-4838-99e2-9561760a5b8a :: 500 :: No access key provided! :: 1644782873111 >> Error: No access key provided!
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:8:27)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5) 
+66b23b79-a038-4101-88e2-07baa831e046 :: POST :: /account/family >> 1644782954858 
+66b23b79-a038-4101-88e2-07baa831e046 :: undefined :: Table 'ebank.access_secret' doesn't exist :: 1644782955239 >> Error: Table 'ebank.access_secret' doesn't exist
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+c8d59627-ae6f-4420-8787-ffae6bd5e1d5 :: POST :: /account/family >> 1644783309324 
+c8d59627-ae6f-4420-8787-ffae6bd5e1d5 :: undefined :: Can't add new command when connection is in closed state :: 1644783309326 >> Error: Can't add new command when connection is in closed state
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+ca8a2802-125e-4a42-9374-0b58b96036a6 :: POST :: /account/family >> 1644783319648 
+ca8a2802-125e-4a42-9374-0b58b96036a6 :: undefined :: Can't add new command when connection is in closed state :: 1644783319648 >> Error: Can't add new command when connection is in closed state
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+42cce4a8-ac76-4812-be7d-69f957b0b03a :: POST :: /account/family >> 1644783335250 
+42cce4a8-ac76-4812-be7d-69f957b0b03a :: undefined :: Table 'ebank.access_secret' doesn't exist :: 1644783335260 >> Error: Table 'ebank.access_secret' doesn't exist
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+7a80fe8d-740a-449d-80ab-74558ca4e535 :: POST :: /account/family >> 1644783382512 
+7a80fe8d-740a-449d-80ab-74558ca4e535 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = "faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd44' at line 1 :: 1644783382540 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = "faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd44' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+996cf66f-5997-4894-ad0d-c64ba616356b :: GET :: /account/family/7?detailed=short >> 1644783429274 
+996cf66f-5997-4894-ad0d-c64ba616356b :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = "faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd44' at line 1 :: 1644783429285 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = "faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd44' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+7578fd4f-f8f1-4ab2-a441-eb5f6dce5d9a :: GET :: /account/family/7?detailed=short >> 1644783470292 
+7578fd4f-f8f1-4ab2-a441-eb5f6dce5d9a :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = "faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd44' at line 1 :: 1644783470296 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = "faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd44' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+6fc33796-d5bb-4ec8-8fec-5947b1948a58 :: POST :: /account/family >> 1644783478988 
+6fc33796-d5bb-4ec8-8fec-5947b1948a58 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = "faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd44' at line 1 :: 1644783478994 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = "faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd44' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+bb7e83c8-b4e1-4305-9f28-2d770cfee151 :: POST :: /account/family >> 1644783517187 
+bb7e83c8-b4e1-4305-9f28-2d770cfee151 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = "faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd44' at line 1 :: 1644783517192 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = "faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd44' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+b3f73fb6-e281-41f6-87ef-f2c4f0d15e50 :: GET :: /account/individual/7 >> 1644783670170 
+b3f73fb6-e281-41f6-87ef-f2c4f0d15e50 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = "faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd44' at line 1 :: 1644783670176 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = "faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd44' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+3ad60b3f-2a7e-4e88-915d-74328da96b2d :: GET :: /account/individual/7 >> 1644783717708 
+3ad60b3f-2a7e-4e88-915d-74328da96b2d :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445' at line 1 :: 1644783717724 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'keys WHERE access_key = faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+7d05e064-f57c-4694-82a0-b3651681595b :: GET :: /account/individual/7 >> 1644783818023 
+7d05e064-f57c-4694-82a0-b3651681595b :: undefined :: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause' :: 1644783818038 >> Error: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+d908842f-cbe2-4056-8737-52ef8f8c3b12 :: GET :: /account/individual/7 >> 1644783844467 
+d908842f-cbe2-4056-8737-52ef8f8c3b12 :: undefined :: Tablespace is missing for table `ebank`.`address`. :: 1644783844568 >> Error: Tablespace is missing for table `ebank`.`address`.
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.getIndividualAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:4:36)
+    at BuilderSQL.getIndividualAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:94:62)
+    at IndividualAccountService.getIndividualById (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:12:43)
+    at getIndividualAccById (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:13:52)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:25:13
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19 
+7374c122-8b1e-4b1c-9aec-427eeb2f800d :: GET :: /account/individual/7 >> 1644783915352 
+7374c122-8b1e-4b1c-9aec-427eeb2f800d :: undefined :: Tablespace is missing for table `ebank`.`address`. :: 1644783915368 >> Error: Tablespace is missing for table `ebank`.`address`.
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.getIndividualAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:4:36)
+    at BuilderSQL.getIndividualAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:94:62)
+    at IndividualAccountService.getIndividualById (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:12:43)
+    at getIndividualAccById (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:13:52)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:25:13
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19 
+86c9b028-9192-4d41-aecd-8a1273f39deb :: POST :: /account/family >> 1644783921921 
+86c9b028-9192-4d41-aecd-8a1273f39deb :: undefined :: Tablespace is missing for table `ebank`.`address`. :: 1644783921935 >> Error: Tablespace is missing for table `ebank`.`address`.
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.getListOfIndividualsAccountsById (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:13:40)
+    at BuilderSQL.getListOfIndividualsAccountsById (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:102:63)
+    at Module.validateFamilyAccountCreationOwners (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:74:42)
+    at FamilyAccountService.createFamilyAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:7:63)
+    at createFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:4:45)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:25:13 
+20da012a-9c28-4785-bb2f-b826b5e64d42 :: POST :: /account/individual >> 1644784741985 
+20da012a-9c28-4785-bb2f-b826b5e64d42 :: undefined :: Unknown database 'ebank' :: 1644784742057 >> Error: Unknown database 'ebank'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+23d7a6ce-8a60-4837-b762-9f413359a07d :: POST :: /account/individual >> 1644784834534 
+23d7a6ce-8a60-4837-b762-9f413359a07d :: undefined :: Unknown database 'ebank' :: 1644784834552 >> Error: Unknown database 'ebank'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+bdca193e-ffc2-46ac-b33d-ffecb5a9cec0 :: POST :: /account/individual >> 1644784850302 
+bdca193e-ffc2-46ac-b33d-ffecb5a9cec0 :: undefined :: Unknown database 'ebank' :: 1644784850306 >> Error: Unknown database 'ebank'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+5a941f54-64f5-486d-af1e-f2ba03dcd0f1 :: POST :: /account/individual >> 1644784916519 
+5a941f54-64f5-486d-af1e-f2ba03dcd0f1 :: undefined :: Unknown database 'ebank' :: 1644784916525 >> Error: Unknown database 'ebank'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+f95c3c0a-770b-48b2-84a5-03f30bd6844a :: POST :: /account/individual >> 1644784955327 
+f95c3c0a-770b-48b2-84a5-03f30bd6844a :: undefined :: Table 'ebanking.access_keys' doesn't exist :: 1644784955342 >> Error: Table 'ebanking.access_keys' doesn't exist
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+0c5c1b59-d890-4f0e-872d-73f4ba427432 :: POST :: /account/individual >> 1644784991733 
+0c5c1b59-d890-4f0e-872d-73f4ba427432 :: undefined :: Table 'ebanking.access_keys' doesn't exist :: 1644784991740 >> Error: Table 'ebanking.access_keys' doesn't exist
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getSecertKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:3:37)
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:54)
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:40)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10) 
+55d676e9-f9bc-4ac3-ab4a-bb7f53129534 :: POST :: /account/individual >> 1644785028046 
+55d676e9-f9bc-4ac3-ab4a-bb7f53129534 :: undefined :: Cannot read property 'secret_key' of undefined :: 1644785028071 >> TypeError: Cannot read property 'secret_key' of undefined
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:15:43)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:23)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+24a61690-9977-4db7-bfc1-9d774d453396 :: POST :: /account/individual >> 1644785071485 
+24a61690-9977-4db7-bfc1-9d774d453396 :: undefined :: Cannot read property 'secret_key' of undefined :: 1644785071496 >> TypeError: Cannot read property 'secret_key' of undefined
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:15:43)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:23)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+a39b218b-a36e-4265-bcd4-8a9aad6ec04b :: POST :: /account/individual >> 1644785273400 
+a39b218b-a36e-4265-bcd4-8a9aad6ec04b :: undefined :: Cannot read property 'secret_key' of undefined :: 1644785273404 >> TypeError: Cannot read property 'secret_key' of undefined
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:15:43)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:23)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+99749547-2a95-4d84-be06-da887dca22e3 :: POST :: /account/individual >> 1644785275880 
+99749547-2a95-4d84-be06-da887dca22e3 :: undefined :: Cannot read property 'secret_key' of undefined :: 1644785275889 >> TypeError: Cannot read property 'secret_key' of undefined
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:15:43)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:23)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+a9149ec1-7ff3-4496-8066-91f6e738548e :: POST :: /account/individual >> 1644785281611 
+a9149ec1-7ff3-4496-8066-91f6e738548e :: undefined :: Cannot read property 'secret_key' of undefined :: 1644785281615 >> TypeError: Cannot read property 'secret_key' of undefined
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:15:43)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:23)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+cd79b8ed-a901-4b88-884e-e33550d0dad6 :: POST :: /account/individual >> 1644785338203 
+cd79b8ed-a901-4b88-884e-e33550d0dad6 :: undefined :: Cannot read property 'secret_key' of undefined :: 1644785338214 >> TypeError: Cannot read property 'secret_key' of undefined
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:15:43)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:23)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+c17d9998-eb59-47fb-8efd-976df248d098 :: POST :: /account/individual >> 1644785413630 
+c17d9998-eb59-47fb-8efd-976df248d098 :: undefined :: Cannot read property 'secret_key' of undefined :: 1644785413644 >> TypeError: Cannot read property 'secret_key' of undefined
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:15:43)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:23)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+305db9de-54ce-4473-975f-d1fad3170e40 :: POST :: /account/individual >> 1644785442686 
+305db9de-54ce-4473-975f-d1fad3170e40 :: undefined :: Cannot read property 'secret_key' of undefined :: 1644785442698 >> TypeError: Cannot read property 'secret_key' of undefined
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:15:43)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:23)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+cf59a749-4df8-461f-a38e-cd85438a5394 :: POST :: /account/individual >> 1644785480119 
+cf59a749-4df8-461f-a38e-cd85438a5394 :: 404 :: individual_id is required, individual_id is not 7 digits long :: 1644785480130 >> Error: individual_id is required, individual_id is not 7 digits long
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:28:18
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:174:3) 
+9bc4aa2a-4d7b-44bc-bb1b-26622648ff1a :: POST :: /account/individual >> 1644785506485 
+9bc4aa2a-4d7b-44bc-bb1b-26622648ff1a :: undefined :: Cannot add or update a child row: a foreign key constraint fails (`ebanking`.`account`, CONSTRAINT `fk_account_status` FOREIGN KEY (`status_id`) REFERENCES `status` (`status_id`) ON DELETE CASCADE) :: 1644785506611 >> Error: Cannot add or update a child row: a foreign key constraint fails (`ebanking`.`account`, CONSTRAINT `fk_account_status` FOREIGN KEY (`status_id`) REFERENCES `status` (`status_id`) ON DELETE CASCADE)
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at AccountRepository.createAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/account.repository.js:12:36)
+    at BuilderSQL.createAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:56)
+    at BuilderSQL.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:83:43)
+    at IndividualAccountService.createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:4:43)
+    at createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:4:48)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:25:13 
+941e753e-5558-48ca-91dc-3c06c8faffcd :: POST :: /account/individual >> 1644785608318 
+261f1b4d-f450-40ed-89ff-6993548ae9b7 :: POST :: /account/individual >> 1644785633354 
+fe80cb3d-b860-4bf6-997a-040b3625ec73 :: POST :: /account/individual >> 1644785637419 
+31e30087-5f26-47a0-b8d4-d9199dcb9beb :: POST :: /account/family >> 1644785649105 
+a162fbb6-4bbb-4df7-8fa5-fddae62d70cf :: POST :: /account/individual >> 1644786868418 
+a162fbb6-4bbb-4df7-8fa5-fddae62d70cf :: undefined :: Duplicate entry '7777779' for key 'individual_account.individual_id_UNIQUE' :: 1644786868511 >> Error: Duplicate entry '7777779' for key 'individual_account.individual_id_UNIQUE'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:20:39)
+    at BuilderSQL.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:87:62)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:4:26)
+    at async createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:4:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+882b7780-3043-4bee-8600-e7452dc5598e :: POST :: /account/individual >> 1644786874782 

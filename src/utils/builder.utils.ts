@@ -46,7 +46,8 @@ class BuilderSQL implements Builder {
     const ownersToInsert = EXTRACTOR.extractOwnersIds(model);
     familyToInsert.account_id = createdAccount.account_id;
     const createdFamilyAccount = await familyRepository.createFamilyAccount(familyToInsert);
-    await familyRepository.createOwners(ownersToInsert, createdFamilyAccount.family_account_id);
+    console.log(createdFamilyAccount);
+    const ownersIDS = await familyRepository.createOwners(ownersToInsert, createdFamilyAccount.family_account_id);
     const familyDTOArr = CONVERTER.convertRowsDataToDTO([createdFamilyAccount], FormatterMapper.formatDataToFamilyDTO) as IFamilyAccountDTO[];
     familyDTOArr[0].owners = ownersToInsert;
     return familyDTOArr[0];
@@ -144,7 +145,7 @@ class BuilderSQL implements Builder {
     await accountRepository.activateDeactivateAccounts(idsToAction, statusId);
     const result : IChangeStatusResponse = {
       ids : idsToAction,
-      status:model.action,
+      status: model.action,
     };
     return result;
   }

@@ -10,5 +10,5 @@
     "DB_SQL_PORT" : 3308,
     "DB_SQL_USER":"root",
     "DB_SQL_PWD":"qwerty",
-    "DB_SQL_NAME":"ebank"
+    "DB_SQL_NAME":"ebanking"
 }
