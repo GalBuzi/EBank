@@ -7,7 +7,7 @@ import { RowDataFamily } from '../types/rowData.types.js';
 import * as EXTRACTOR from '../utils/extraction.utils.js';
 import * as CONVERTER from '../utils/covnert.utils.js';
 import builderSQL from '../utils/builder.utils.js';
-import { validateFamilyAccountCreationOwners } from '../utils/validations/transfer.validator.utils.js';
+import { additionIndividualsToFamily, validateFamilyAccountCreationOwners, validateTransferF2B } from '../utils/validations/services.validator.utils.js';
 import { ValidationException } from '../exceptions/ValidationException.excpetions.js';
 import { ITransferResult } from '../types/transfers.type.js';
 
@@ -31,38 +31,43 @@ class FamilyAccountService {
   }
 
   async removeIndividualFromFamilyAccount(family_accout_id : number, model : IModifyFamilyAccount, display: string) : Promise<IFamilyAccountDTO>{
+    //logic validations
+    
     const dtoFamily = await builderSQL.removeIndividualFromFamilyAccount(family_accout_id, model, display);
     return dtoFamily;
   }
 
   async addIndividualsToFamilyAccount(family_accout_id : number, model : IModifyFamilyAccount, display: string) : Promise<IFamilyAccountDTO> {
-    const dtoFamily = await builderSQL.addIndividualsToFamilyAccount(family_accout_id, model, display);
+    const filteredByConstraints = await additionIndividualsToFamily(family_accout_id, model);
+    const dtoFamily = await builderSQL.addIndividualsToFamilyAccount(family_accout_id, filteredByConstraints, display);
     return dtoFamily;
   }
 
   async closeFamilyAccount(id : number) : Promise<void> {
+    /**
+     * The family account should have no assigned individual accounts
+      Change family account status to inactive
+     */
     await familyRepository.closeFamilyAccount(id);
 
   }
 
-  async transferF2B(sourceId: number, destinationId: number, amount: number) : Promise<void> {
-    // await familyRepository.transferF2B(sourceId, destinationId, amount);
-    // CHANGE TO validateTransferF2B
-    // const { source, destination } = await validateTransferB2BFX(sourceId, destinationId, amount);  
-    // const result: ITransferResult = {
-    //   sourceAccount: {
-    //     id: source.business_account_id,
-    //     balance: source.balance - amount,
-    //     currency: source.currency,
-    //   },
-    //   destinationAccount: {
-    //     id: destination.business_account_id,
-    //     balance: destination.balance + toDeposit,
-    //     currency: destination.currency,
-    //   },
-    // };
-    // return result;
-      
+  async transferF2B(sourceId: number, destinationId: number, amount: number) : Promise<ITransferResult> {
+    const { source, destination } = await validateTransferF2B(sourceId, destinationId, amount);
+    await familyRepository.transferF2B(source, destination, amount);
+    const result: ITransferResult = {
+      sourceAccount: {
+        id: source.family_account_id,
+        balance: source.balance - amount,
+        currency: source.currency,
+      },
+      destinationAccount: {
+        id: destination.business_account_id,
+        balance: destination.balance + amount,
+        currency: destination.currency,
+      },
+    };
+    return result;      
   }
   
 }

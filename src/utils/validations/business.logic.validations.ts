@@ -1,5 +1,7 @@
 import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTO, IFamilyAccountDTOLong } from '../../types/dto.types.js';
 import { IValidationStringToFuncPointer } from './types.validations.js';
+import { actionToStatusId } from '../../utils/helpers.utils.js';
+
 
 //types
 export function isValidTypesB2B(source: IAccountDTO, destination: IAccountDTO): string[] {
@@ -30,6 +32,26 @@ export function isValidTypesF2B(source: IAccountDTO, destination: IAccountDTO): 
     }
   });
   if (errors.length > 0) return errors;
+  return ['true'];
+}
+
+export function isNotGivenType(accounts: IAccountDTO[], type:string): string[] {
+  const errors : string[] = [];
+  for (const acc of accounts) {
+    if (acc.type_name === type){
+      errors.push(`account type must not be ${type}`);
+    }
+  }
+  return ['true'];
+}
+
+export function isAllGivenType(accounts: IAccountDTO[], type:string): string[] {
+  const errors : string[] = [];
+  for (const acc of accounts) {
+    if (acc.type_name !== type){
+      errors.push(`account type must not be ${type}`);
+    }
+  }
   return ['true'];
 }
 
@@ -122,6 +144,17 @@ export function isActiveAccountsF2B(source: IAccountDTO,
   return ['true'];
 }
 
+export function isAllStatusGivenAccounts(accounts: IAccountDTO[], action:string): string[] {
+  const errors : string[] = [];
+  const statusIdGiven = actionToStatusId[action];
+  for (const acc of accounts) {
+    if (acc.status_id !== statusIdGiven){
+      errors.push(`account status must be ${statusIdGiven}`);
+    }
+  }
+  return ['true'];
+}
+
 //valid limit
 
 export function isLimitValidB2B(source: IAccountDTO, 
@@ -154,7 +187,7 @@ export function isLimitValidF2B(source: IAccountDTO,
 }
 
 
-export const transferValidationStringToFuncPointer : IValidationStringToFuncPointer = {
+export const ValidationStringToFuncPointer : IValidationStringToFuncPointer = {
   'isValidTypesB2B': isValidTypesB2B,
   'isSameCurrency':isSameCurrency,
   'isDifferentCurrency' : isDifferentCurrency,
@@ -169,4 +202,7 @@ export const transferValidationStringToFuncPointer : IValidationStringToFuncPoin
   'isSameCurrencyF2B' : isSameCurrencyF2B,
   'isValidBalanceF2B' : isValidBalanceF2B,
   'isLimitValidF2B' : isLimitValidF2B,
+  'isAllGivenType' : isAllGivenType,
+  'isAllStatusGivenAccounts' : isAllStatusGivenAccounts,
+  'isNotGivenType' : isNotGivenType,
 };

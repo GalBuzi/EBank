@@ -27,4 +27,3 @@ function initValidationConfig(): ValidationConfig {
   ) as ValidationConfig;
 }
 export const validationConfigObj = initValidationConfig();
-console.log(validationConfigObj);

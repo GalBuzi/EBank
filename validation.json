@@ -81,7 +81,7 @@
                 {
                     "func_name": "validateTuplesStructure",
                     "params": ["owners"],
-                    "params_values" : []
+                    "params_values" : ["number","number"]
                 },
                 {
                     "func_name": "checkTuplesSumToMin",
@@ -149,6 +149,61 @@
                     "params_values" : []
                 }
             ]
+        },
+        {
+            "route": "addIndividualToFamily",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["primaryID", "detailed", "tuplesToAdd"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "areTuplesContainNumericNonNegative",
+                    "params": ["tuplesToAdd"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "arraysNotEmpty",
+                    "params": ["tuplesToAdd"],
+                    "params_values" : []
+                }
+            ]
+        },
+        {
+            "route": "removeIndividualFromFamily",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["primaryID", "detailed", "tuplesToAdd"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "areTuplesContainNumericNonNegative",
+                    "params": ["tuplesToAdd"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "arraysNotEmpty",
+                    "params": ["tuplesToAdd"],
+                    "params_values" : []
+                }
+            ]
+        },
+        {
+            "route": "closeFamilyAccount",
+            "validation_functions": [
+                {
+                    "func_name": "checkForRequiredFields",
+                    "params": ["id"],
+                    "params_values" : []
+                },
+                {
+                    "func_name": "isNumeric",
+                    "params": ["id"],
+                    "params_values" : []
+                }
+            ]
         }
     ],
     
@@ -203,7 +258,10 @@
         "isDigitCountMatch",
         "isPositiveNumber",
         "isNumeric",
-        "validateTuplesStructureAndSumToMin"
+        "validateTuplesStructure",
+        "checkTuplesSumToMin",
+        "areTuplesContainNumericNonNegative"
+        
     ],
 
     "transfers_validation_options": [
@@ -220,6 +278,8 @@
         "isValidTypesF2B",
         "isSameCurrencyF2B",
         "isValidBalanceF2B",
-        "isLimitValidF2B"
+        "isLimitValidF2B",
+        "isAllTypeGivenAccounts",
+        "isAllStatusGivenAccounts"
     ]
 }

@@ -2,7 +2,7 @@ import { IBusinessAccountDTO } from '../types/dto.types.js';
 import { IBusinessAccountModel } from '../types/models.types.js';
 import { ITransferResult } from '../types/transfers.type.js';
 import * as businessRepository from '../repositories/SQLRepository/business.repository.js';
-import { validateTransferB2B, validateTransferB2I, validateTransferB2BFX } from '../utils/validations/transfer.validator.utils.js';
+import { validateTransferB2B, validateTransferB2I, validateTransferB2BFX } from '../utils/validations/services.validator.utils.js';
 import { getRate } from '../utils/helpers.utils.js';
 import builderSQL from '../utils/builder.utils.js';
 class BusinessAccountService  {

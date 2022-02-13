@@ -1,12 +1,10 @@
-import { IChangeStatus, IChangeStatusResponse } from '../types/models.types.js';
+import { IChangeStatus, IChangeStatusAccounts, IChangeStatusResponse } from '../types/models.types.js';
 
 import builderSQL from '../utils/builder.utils.js';
-// export async function createAccount(payload: IAccountModel): Promise<IAccountDTO> {
-//   return await accountRepositorySQL.createAccount(payload);
-// }
+import { validateActivateDeactivateAccounts } from '../utils/validations/services.validator.utils.js';
 
 export async function activateDeactivateAccounts(payload : IChangeStatus) :Promise<IChangeStatusResponse> {
-  // CHECK IF NO ONE IS FAMILY
-  const result = await builderSQL.activateDeactivateAccounts(payload);
+  const validationRes : IChangeStatusAccounts = await validateActivateDeactivateAccounts(payload);
+  const result = await builderSQL.activateDeactivateAccounts(validationRes);
   return result;
 }

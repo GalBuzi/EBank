@@ -27,6 +27,19 @@ export async function activateDeactivateAccounts(ids : number[], status_id : num
       `UPDATE account SET status_id = ${status_id} WHERE account_id = ${account}`,
     );
   }
-
 }
+
+export async function addAmountToAccountBalance(account_id: number, amount:number) : Promise<void>{
+  await db.query(
+    `UPDATE account a SET a.balance = a.balance + ${amount} WHERE a.account_id = ${account_id}`,
+  ); 
+}
+
+export async function subtractAmountToAccountBalance(account_id: number, amount:number): Promise<void>{
+  await db.query(
+    `UPDATE account a SET a.balance = a.balance - ${amount} WHERE a.account_id = ${account_id}`,
+  ); 
+}
+
+
 

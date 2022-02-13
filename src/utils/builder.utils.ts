@@ -1,5 +1,5 @@
 import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTO, IIndividualAccountDTO, ISecretKey } from '../types/dto.types.js';
-import { IAccountModel, IBusinessAccountModel, IChangeStatus, IChangeStatusResponse, IFamilyAccountModel, IIndividualAccountModel, IModifyFamilyAccount } from '../types/models.types.js';
+import { IAccountModel, IBusinessAccountModel, IChangeStatus, IChangeStatusAccounts, IChangeStatusResponse, IFamilyAccountModel, IIndividualAccountModel, IModifyFamilyAccount } from '../types/models.types.js';
 import * as accountRepository from '../repositories/SQLRepository/account.repository.js';
 import * as individualRepository from '../repositories/SQLRepository/individual.repository.js';
 import * as addressRepository from '../repositories/SQLRepository/address.repository.js';
@@ -22,6 +22,7 @@ interface Builder {
   createBusinessAccount : (model: IBusinessAccountModel) => Promise<IBusinessAccountDTO>;
   getBusinessAccountById : (id: number) => Promise<IBusinessAccountDTO>;
   getSecretByAccessKey : (accesskey : string) => Promise<string>;
+  getListOfBusinessesAccountsById: (ids : number[]) => Promise<IBusinessAccountDTO[]>
 }
 
 class BuilderSQL implements Builder {
@@ -108,6 +109,13 @@ class BuilderSQL implements Builder {
     return formattedAccount;
   }
 
+  async getListOfBusinessesAccountsById(ids : number[]) : Promise<IBusinessAccountDTO[]>{
+    const businessAccounts = await businessRepository.getListOfBusinessesAccountsById(ids);
+    if (!businessAccounts) throw new ServerException('One of the individuals doesn\'t exist!');
+    const formattedAccount = CONVERTER.convertRowsDataToDTO(businessAccounts, CONVERTER.FormatterMapper.formatToIndividualDTO) as IBusinessAccountDTO[];
+    return formattedAccount;
+  }
+
   async createBusinessAccount(model: IBusinessAccountModel) : Promise<IBusinessAccountDTO>{
     const accountToInsert = EXTRACTOR.extractAccountRecord(model);
     const createdAccount = await this.createAccount(accountToInsert);
@@ -128,26 +136,34 @@ class BuilderSQL implements Builder {
     return businessDTOArr[0];
   }
 
-  async activateDeactivateAccounts(model : IChangeStatus) : Promise<IChangeStatusResponse> {
+  async activateDeactivateAccounts(model : IChangeStatusAccounts) : Promise<IChangeStatusResponse> {
     const statusId = actionToStatusId[model.action];
-    await accountRepository.activateDeactivateAccounts(model.ids, statusId);
+    const idsToAction : number[] = [...model.individuals.map(indiv => indiv.individual_account_id),
+      ...model.businesses.map(busi=> busi.business_account_id)];
+    await accountRepository.activateDeactivateAccounts(idsToAction, statusId);
     const result : IChangeStatusResponse = {
-      ids : model.ids,
+      ids : idsToAction,
       status:model.action,
     };
     return result;
   }
   
   async removeIndividualFromFamilyAccount(family_accout_id : number, model : IModifyFamilyAccount, display : string) : Promise<IFamilyAccountDTO> {
-    const ids = model.individuals.map((individual)=>{return individual[0];}).join(',');
-    await familyRepository.removeIndividualFromFamilyAccount(family_accout_id, ids);
+    const sorted : number[][] = model.individuals.sort((a, b) => a[0] - b[0] ); //rows return in ascending order from sql
+    const ids = sorted.map(o => o[0]);
+    const amounts = sorted.map(o => o[1]);
+    const sumToSubtractFromFamilyAccount = model.individuals.reduce( (acc, curr) => acc + curr[1], 0);
+    await familyRepository.removeIndividualFromFamilyAccount(family_accout_id, ids, amounts, sumToSubtractFromFamilyAccount);
     const familyDTO = await this.getFamilyAccountById(family_accout_id, display);
     return familyDTO;
   }
 
   async addIndividualsToFamilyAccount(family_accout_id : number, model : IModifyFamilyAccount, display : string) : Promise<IFamilyAccountDTO> {
-    const ids = model.individuals.map((individual)=>{return individual[0];});
-    await familyRepository.addIndividualsToFamilyAccount(family_accout_id, ids);
+    const sorted : number[][] = model.individuals.sort((a, b) => a[0] - b[0] ); //rows return in ascending order from sql
+    const ids = sorted.map(o => o[0]);
+    const amounts = sorted.map(o => o[1]);
+    const sumToAddToFamilyAccount = model.individuals.reduce( (acc, curr) => acc + curr[1], 0);
+    await familyRepository.addIndividualsToFamilyAccount(family_accout_id, ids, amounts, sumToAddToFamilyAccount);
     const familyDTO = await this.getFamilyAccountById(family_accout_id, display);
     return familyDTO;
   }

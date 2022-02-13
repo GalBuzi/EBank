@@ -3,6 +3,8 @@ import { IFamilyAccountRecord } from '../../types/records.type.js';
 import { db } from '../../utils/initializer.utils.js';
 import { RowDataFamily } from '../../types/rowData.types.js';
 import { IBusinessAccountDTO, IFamilyAccountDTO } from '../../types/dto.types.js';
+import * as individualRepository from './individual.repository.js';
+import * as accountRepository from './account.repository.js';
 
 export async function getFamilyAccountByIdNoOwners(id: number):Promise<RowDataFamily> {
   const [family] = await db.query(
@@ -27,7 +29,6 @@ export async function getFamilyAccountById(id : number) : Promise<RowDataFamily[
   return family as RowDataFamily[];
 }
 
-
 export async function createOwners(ownersId : number[], familyAccountId : number) : Promise<number[]> {
   for (const id of ownersId) {
     await db.query(
@@ -45,28 +46,75 @@ export async function closeFamilyAccount(id : number) : Promise<void>{
   );
 }
 
-export async function removeIndividualFromFamilyAccount(family_account_id : number, indiv_ids : string) : Promise<void> {
-  await db.query(
-    `DELETE FROM family_individual WHERE indiv_account_id IN(${indiv_ids}) AND fam_account_id = ${family_account_id}`,
-  );
-}
-
-export async function addIndividualsToFamilyAccount(family_account_id : number, indiv_ids : number[]) : Promise<void> {
-  for (const id of indiv_ids) {
+export async function removeIndividualFromFamilyAccount(family_account_id : number, indiv_ids : number[],
+  amounts: number[], sumToSubtractFromFamilyAccount:number) : Promise<void> {
+  await db.beginTransaction();
+  try {
+    //delete rows from family_individual - connection between family account to owners account 
     await db.query(
-      `INSERT INTO family_individual (fam_account_id,indiv_account_id)
-      VALUES (${family_account_id},${id})`,
+      `DELETE FROM family_individual WHERE indiv_account_id IN(${indiv_ids.join(',')}) AND fam_account_id = ${family_account_id}`,
     );
+
+    const individualsFullDetails = await individualRepository.getListOfIndividualsAccountsById(indiv_ids);
+    
+    // add amount to each individual account which removed from familt account
+    for (const [i, person] of individualsFullDetails.entries()) {
+      await accountRepository.addAmountToAccountBalance(person.account_id, amounts[i]);
+    } 
+
+    //subtract from family account all the amounts
+    const familyDetails = await getFamilyAccountById(family_account_id);
+    await accountRepository.subtractAmountToAccountBalance(familyDetails[0].account_id, sumToSubtractFromFamilyAccount);
+
+    await db.commit();
+  } catch (err){
+    await db.rollback();
+    throw err;
   }
 }
 
+export async function addIndividualsToFamilyAccount(family_account_id : number, indiv_ids : number[],
+  amounts: number[], sumToAddToFamilyAccount:number) : Promise<void> {
+  
+  await db.beginTransaction();
+  try {
+    //add individuals to be owners of family
+    for (const id of indiv_ids) {
+      await db.query(
+        `INSERT INTO family_individual (fam_account_id,indiv_account_id)
+        VALUES (${family_account_id},${id})`,
+      );
+    }
+
+    const individualsFullDetails = await individualRepository.getListOfIndividualsAccountsById(indiv_ids);
+    // subtract amount from each individual account which removed from familt account
+    for (const [i, person] of individualsFullDetails.entries()) {
+      await accountRepository.subtractAmountToAccountBalance(person.account_id, amounts[i]);
+    } 
+
+    //add to family account all the amounts
+    const familyDetails = await getFamilyAccountById(family_account_id);
+    await accountRepository.subtractAmountToAccountBalance(familyDetails[0].account_id, sumToAddToFamilyAccount);
+    
+    await db.commit();
+  } catch (err){
+    await db.rollback();
+    throw err;
+  }
+  
+}
+
 export async function transferF2B(sourceAccount:IFamilyAccountDTO, destinationAccount : IBusinessAccountDTO, amount : number) : Promise<void> {
-  await db.query(
-    `UPDATE account a SET a.balance = a.balance - ${amount} WHERE a.account_id = ${sourceAccount.account_id}`,
-  );
-  await db.query(
-    `UPDATE account a SET a.balance = a.balance + ${amount} WHERE a.account_id = ${destinationAccount.account_id}`,
-  ); 
+  await db.beginTransaction();
+  try {
+    await accountRepository.subtractAmountToAccountBalance(sourceAccount.account_id, amount);
+    await accountRepository.addAmountToAccountBalance(destinationAccount.account_id, amount);
+    await db.commit();
+  } catch (err){
+    await db.rollback();
+    throw err;
+  }
+  
 }
 
 

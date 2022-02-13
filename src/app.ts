@@ -7,6 +7,9 @@ import * as ErrorsMiddlwewares from './middleware/errors.middleware.js';
 import * as Loggers from './middleware/loggers.middleware.js';
 import { connect } from './utils/initializer.utils.js';
 import { ConfigJson } from '../typings.js';
+import { logHttpRequestMW } from './middleware/loggers.middleware.js';
+import { addIDToRequest } from './middleware/req.middleware.js';
+
 
 class App {
   private readonly app: Express;
@@ -22,6 +25,11 @@ class App {
     this.app.use(cors());
     this.app.use(morgan('dev'));
     this.app.use(express.json());
+    //add id to every request
+    this.app.use(addIDToRequest);
+    //add request logger
+    this.app.use(logHttpRequestMW(process.cwd() + '/httpError.log'));
+
   }
 
   initRouting(): void {
@@ -30,7 +38,7 @@ class App {
 
   initErrorHandling(): void {
     this.app.use(ErrorsMiddlwewares.NotFound);
-    this.app.use(Loggers.logHttpError);
+    this.app.use(Loggers.logHttpError(process.cwd() + '/httpError.log'));
     this.app.use(ErrorsMiddlwewares.ErrorResponse);
   }
 

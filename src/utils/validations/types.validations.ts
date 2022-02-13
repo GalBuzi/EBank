@@ -2,6 +2,7 @@ export interface ValidationConfig {
   routes: RouteConfig[];
   transfers_mutual_validation : string[];
   transfers_individual_validation: TransferConfig[];
+  activation : string[]
   input_validation_options: string[];
   transfers_validation_options: string[];
 }
@@ -40,12 +41,14 @@ export enum InputValidationPerRoute {
   transferB2B = 'transferB2B',
   transferB2I = 'transferB2I',
   transferF2B = 'transferF2B',
+  addIndividualToFamily = 'addIndividualToFamily',
+  removeIndividualFromFamily = 'removeIndividualFromFamily',
 }
 
-export enum TransferValidationPerRoute {
+export enum LogicValidationPerRoute {
   validateTransferB2B = 'validateTransferB2B',
   validateTransferB2I = 'validateTransferB2I',
   validateTransferB2BFX = 'validateTransferB2BFX',
   validateTransferF2B = 'validateTransferF2B',
-
+  activateDeactivate = 'activateDeactivate',
 }
