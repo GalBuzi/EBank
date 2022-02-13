@@ -1,17 +1,19 @@
 import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTO, IIndividualAccountDTO, ISecretKey } from '../types/dto.types.js';
 import { IAccountModel, IBusinessAccountModel, IChangeStatus, IChangeStatusAccounts, IChangeStatusResponse, IFamilyAccountModel, IIndividualAccountModel, IModifyFamilyAccount } from '../types/models.types.js';
-import * as accountRepository from '../repositories/SQLRepository/account.repository.js';
-import * as individualRepository from '../repositories/SQLRepository/individual.repository.js';
-import * as addressRepository from '../repositories/SQLRepository/address.repository.js';
-import * as businessRepository from '../repositories/SQLRepository/business.repository.js';
-import * as familyRepository from '../repositories/SQLRepository/family.repository.js';
-import * as EXTRACTOR from '../utils/extraction.utils.js';
-import * as CONVERTER from '../utils/covnert.utils.js';
+import accountRepository from '../repositories/SQLRepository/account.repository.js';
+import individualRepository from '../repositories/SQLRepository/individual.repository.js';
+import addressRepository from '../repositories/SQLRepository/address.repository.js';
+import businessRepository from '../repositories/SQLRepository/business.repository.js';
+import familyRepository from '../repositories/SQLRepository/family.repository.js';
+import EXTRACTOR from '../utils/extraction.utils.js';
+import CONVERTER from '../utils/covnert.utils.js';
 import { ServerException } from '../exceptions/ServerExcpetion.exceptions.js';
 import { actionToStatusId } from '../utils/helpers.utils.js';
 import * as generalRepository from '../repositories/SQLRepository/general.repository.js';
 import { IAccountRecord } from '../types/records.type.js';
 import { RowDataFamily, RowDataIndividual } from '../types/rowData.types.js';
+import { myMap } from '../utils/format.utils.js';
+import { FormatterMapper } from '../utils/covnert.utils.js';
 interface Builder {
   createAccount : (model : IAccountModel) => Promise<IAccountDTO>;
   createFamilyAccount : (model : IFamilyAccountModel) => Promise<IFamilyAccountDTO>;
@@ -45,7 +47,7 @@ class BuilderSQL implements Builder {
     familyToInsert.account_id = createdAccount.account_id;
     const createdFamilyAccount = await familyRepository.createFamilyAccount(familyToInsert);
     await familyRepository.createOwners(ownersToInsert, createdFamilyAccount.family_account_id);
-    const familyDTOArr = CONVERTER.convertRowsDataToDTO([createdFamilyAccount], CONVERTER.FormatterMapper.formatDataToFamilyDTO) as IFamilyAccountDTO[];
+    const familyDTOArr = CONVERTER.convertRowsDataToDTO([createdFamilyAccount], FormatterMapper.formatDataToFamilyDTO) as IFamilyAccountDTO[];
     familyDTOArr[0].owners = ownersToInsert;
     return familyDTOArr[0];
   }
@@ -63,10 +65,10 @@ class BuilderSQL implements Builder {
     if (arrIDS.length > 0) {
       rowData = await individualRepository.getListOfIndividualsAccountsById(arrIDS); 
     }
-    const familyDetailsArr = CONVERTER.convertRowsDataToDTO([familyRowsArray[0]], CONVERTER.FormatterMapper.formatDataToFamilyDTO) as IFamilyAccountDTO[]; 
+    const familyDetailsArr = CONVERTER.convertRowsDataToDTO([familyRowsArray[0]], FormatterMapper.formatDataToFamilyDTO) as IFamilyAccountDTO[]; 
     switch (display){
       case 'full':
-        ownersFull = CONVERTER.convertRowsDataToDTO(rowData, CONVERTER.FormatterMapper.formatToIndividualDTO) as IIndividualAccountDTO[];
+        ownersFull = CONVERTER.convertRowsDataToDTO(rowData, FormatterMapper.formatToIndividualDTO) as IIndividualAccountDTO[];
         familyDetailsArrWithOwners = { ...familyDetailsArr[0], owners:ownersFull };
         break;
       case 'partial':
@@ -90,28 +92,28 @@ class BuilderSQL implements Builder {
     individualToInsert.account_id = createdAccount.account_id;
     individualToInsert.address_id = cretedAddress.address_id;
     const individualAccount = await individualRepository.createIndividualAccount(individualToInsert);
-    const individualDTOArr = CONVERTER.convertRowsDataToDTO([individualAccount], CONVERTER.FormatterMapper.formatToIndividualDTO) as IIndividualAccountDTO[];
+    const individualDTOArr = CONVERTER.convertRowsDataToDTO([individualAccount], FormatterMapper.formatToIndividualDTO) as IIndividualAccountDTO[];
     return individualDTOArr[0];
   }
 
   async getIndividualAccountById(id: number) : Promise<IIndividualAccountDTO> {
     const individualAccount = await individualRepository.getIndividualAccountById(id);
     if (!individualAccount) throw new ServerException(`Individual account with id ${id} not found`);
-    const formattedAccount = CONVERTER.convertRowsDataToDTO([individualAccount], CONVERTER.FormatterMapper.formatToIndividualDTO) as IIndividualAccountDTO[];
+    const formattedAccount = CONVERTER.convertRowsDataToDTO([individualAccount], FormatterMapper.formatToIndividualDTO) as IIndividualAccountDTO[];
     return formattedAccount[0];
   }
 
   async getListOfIndividualsAccountsById(ids : number[]) : Promise<IIndividualAccountDTO[]>{
     const individualAccounts = await individualRepository.getListOfIndividualsAccountsById(ids);
     if (!individualAccounts) throw new ServerException('One of the individuals doesn\'t exist!');
-    const formattedAccount = CONVERTER.convertRowsDataToDTO(individualAccounts, CONVERTER.FormatterMapper.formatToIndividualDTO) as IIndividualAccountDTO[];
+    const formattedAccount = CONVERTER.convertRowsDataToDTO(individualAccounts, FormatterMapper.formatToIndividualDTO) as IIndividualAccountDTO[];
     return formattedAccount;
   }
 
   async getListOfBusinessesAccountsById(ids : number[]) : Promise<IBusinessAccountDTO[]>{
     const businessAccounts = await businessRepository.getListOfBusinessesAccountsById(ids);
     if (!businessAccounts) throw new ServerException('One of the individuals doesn\'t exist!');
-    const formattedAccount = CONVERTER.convertRowsDataToDTO(businessAccounts, CONVERTER.FormatterMapper.formatToIndividualDTO) as IBusinessAccountDTO[];
+    const formattedAccount = CONVERTER.convertRowsDataToDTO(businessAccounts, FormatterMapper.formatToIndividualDTO) as IBusinessAccountDTO[];
     return formattedAccount;
   }
 
@@ -124,14 +126,14 @@ class BuilderSQL implements Builder {
     businessToInsert.account_id = createdAccount.account_id;
     businessToInsert.address_id = createdAddress.address_id;
     const businessAccountCreated = await businessRepository.createBusinessAccount(businessToInsert);
-    const businessDTOArr = CONVERTER.convertRowsDataToDTO([businessAccountCreated], CONVERTER.FormatterMapper.formatToBusinessDTO) as IBusinessAccountDTO[];
+    const businessDTOArr = CONVERTER.convertRowsDataToDTO([businessAccountCreated], FormatterMapper.formatToBusinessDTO) as IBusinessAccountDTO[];
     return businessDTOArr[0];
   }
 
   async getBusinessAccountById(id: number) : Promise<IBusinessAccountDTO> {
     const businessObject = await businessRepository.getBusinessAccountById(id);
     if (!businessObject) throw new ServerException(`Business with id ${id} doesn't exists!`);
-    const businessDTOArr = CONVERTER.convertRowsDataToDTO([businessObject], CONVERTER.FormatterMapper.formatToBusinessDTO) as IBusinessAccountDTO[];
+    const businessDTOArr = CONVERTER.convertRowsDataToDTO([businessObject], FormatterMapper.formatToBusinessDTO) as IBusinessAccountDTO[];
     return businessDTOArr[0];
   }
 

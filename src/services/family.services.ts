@@ -1,15 +1,10 @@
-import { IIndividualAccountDTO, IFamilyAccountDTO } from '../types/dto.types.js';
 import { IFamilyAccountModel, IModifyFamilyAccount } from '../types/models.types.js';
-import * as accountRepository from '../repositories/SQLRepository/account.repository.js';
-import individualService from '../services/individual.services.js';
-import * as familyRepository from '../repositories/SQLRepository/family.repository.js';
-import { RowDataFamily } from '../types/rowData.types.js';
-import * as EXTRACTOR from '../utils/extraction.utils.js';
-import * as CONVERTER from '../utils/covnert.utils.js';
+import familyRepository from '../repositories/SQLRepository/family.repository.js';
 import builderSQL from '../utils/builder.utils.js';
 import { additionIndividualsToFamily, validateFamilyAccountCreationOwners, validateTransferF2B } from '../utils/validations/services.validator.utils.js';
 import { ValidationException } from '../exceptions/ValidationException.excpetions.js';
 import { ITransferResult } from '../types/transfers.type.js';
+import { IFamilyAccountDTO } from '../types/dto.types.js';
 
 
 class FamilyAccountService {
