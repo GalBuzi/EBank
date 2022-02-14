@@ -56,5 +56,11 @@ export interface ISecretKey {
   secret_key : string;
 }
 
+export interface IIdempotancyRecord {
+  access_key : string;
+  idem_key: string;
+  response: string;
+}
+
 export type IFamilyAccountDTO = IFamilyAccountDTOShort | IFamilyAccountDTOLong;
 export type IGenericDTO = IFamilyAccounBaseDTO | IBusinessAccountDTO | IIndividualAccountDTO;

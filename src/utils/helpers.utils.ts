@@ -1,10 +1,10 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction, RequestHandler } from 'express';
 import fetch from 'node-fetch';
 import { IRateResult } from '../types/transfers.type.js';
 
 type AsyncReqHandler = (req: Request, res: Response, next: NextFunction) => Promise<void>;
 
-export default function errorWrapper(routingFunc: AsyncReqHandler):AsyncReqHandler {
+export default function errorWrapper(routingFunc: AsyncReqHandler | RequestHandler):AsyncReqHandler {
   return async function (req: Request, res: Response, next: NextFunction) {
     try {
       await routingFunc(req, res, next);
@@ -28,7 +28,17 @@ export async function getRate(base: string, currency: string): Promise<number> {
 interface ActionToStatusId {
   [key : string] : number
 }
+
 export const actionToStatusId : ActionToStatusId = {
   'activate' : 1,
   'deactivate' : 2,
+};
+
+interface ActionToStatusName {
+  [key : string] : string
+}
+
+export const actionToStatusName : ActionToStatusName = {
+  'activate' : 'ACTIVE',
+  'deactivate' : 'INACTIVE',
 };
