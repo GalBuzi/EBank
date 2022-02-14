@@ -1590,7 +1590,7 @@ describe('testing validation functions used to validate business logic of source
       });
     });
 
-    context('#isLimitValidB2I', ()=> {
+    context('#isLimitValidF2B', ()=> {
   
       it('should be true for transfer from family to business transfer less than 5000', ()=> {
         const source: IAccountDTO = {

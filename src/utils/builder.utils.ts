@@ -1,4 +1,4 @@
-import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTO, IIndividualAccountDTO, ISecretKey } from '../types/dto.types.js';
+import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTO, IIdempotancyRecord, IIndividualAccountDTO, ISecretKey } from '../types/dto.types.js';
 import { IAccountModel, IBusinessAccountModel, IChangeStatusAccounts, IChangeStatusResponse, IFamilyAccountModel, IIndividualAccountModel, IModifyFamilyAccount } from '../types/models.types.js';
 import accountRepository from '../repositories/SQLRepository/account.repository.js';
 import individualRepository from '../repositories/SQLRepository/individual.repository.js';
@@ -28,13 +28,16 @@ interface Builder {
 
 class BuilderSQL implements Builder {
 
-  // async getResponseByIdemKeyAccessKey(access: string, idem : string) : Promise<string>{
+  async getResponseByIdemKeyAccessKey(access: string, idem : string) : Promise<IIdempotancyRecord[]>{
+    const idempotancyData = await generalRepository.getResponseByIdemKeyAccessKey(access, idem);   
+    return idempotancyData;
+  }
 
-  // }
-
-  // async insertResponseToDB(access: string, idem : string, responseToUser: string) : Promise<string>{
-    
-  // }
+  async insertResponseToDB(access: string, idem : string, responseToUser: string, allParams : string) : Promise<string>{    
+    console.log('insertResponseToDB');
+    await generalRepository.insertResponseToDB(access, idem, responseToUser, allParams);
+    return 'success';
+  }
 
   async getSecretByAccessKey(accessKey : string) : Promise<string> {
     const rowSecretKey = await generalRepository.getSecertKey(accessKey);

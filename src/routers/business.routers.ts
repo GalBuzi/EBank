@@ -3,6 +3,7 @@ import express from 'express';
 import businessController from '../controllers/business.controllers.js';
 import { validateRoute } from '../middleware/validation.middleware.js';
 import { InputValidationPerRoute } from '../utils/validations/types.validations.js';
+import { findIdemKey } from '../middleware/idempotancy.middleware.js';
 class BusinessRouter {
   private _router = express.Router();
 
@@ -11,7 +12,7 @@ class BusinessRouter {
   }
 
   initRouting() {
-    this._router.post('/',
+    this._router.post('/', errorWrapper(findIdemKey),
       errorWrapper(validateRoute(InputValidationPerRoute.createBusinessAccount)),
       errorWrapper(businessController.createBusinessAcc));
   
