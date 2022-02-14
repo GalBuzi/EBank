@@ -11,6 +11,7 @@ import * as individualMock from './individual.mock.js';
 import * as businessMock from './business.mock.js';
 import * as familyMock from './family.mock.js';
 import familyRepository from '../../src/repositories/SQLRepository/family.repository.js';
+
 describe("Testing creating individual account , business account, family account", () =>{
     afterEach(()=>restore())
     it("Should create a new individual account and return the DTO", async ()=>{
@@ -36,11 +37,16 @@ describe("Testing creating individual account , business account, family account
         expect(created_account).to.deep.equal(businessMock.businessDto);
     })
 
-    // it("should create a new family account and return the DTO", async ()=>{
-    //     sinon.stub(EXTRACTOR,'extractAccountRecord').returns(familyMock.accountToInsertFamily);
-    //     sinon.stub(EXTRACTOR,'extractFamilyRecord').returns(familyMock.familyRecord);
-    //     sinon.stub(EXTRACTOR,'extractOwnersIds').returns([1,2,3]);
-    //     sinon.stub(accountRepository,'createAccount').resolves(familyMock.familyAccountDto);
-    //     sinon.stub(familyRepository,'createFamilyAccount').resolves(familyMock.familyDto);
-    // })
+    it("should create a new family account and return the DTO", async ()=>{
+        sinon.stub(EXTRACTOR,'extractAccountRecord').returns(familyMock.accountToInsertFamily);
+        sinon.stub(EXTRACTOR,'extractFamilyRecord').returns(familyMock.familyRecord);
+        sinon.stub(EXTRACTOR,'extractOwnersIds').returns(familyMock.owners);
+        sinon.stub(accountRepository,'createAccount').resolves(familyMock.familyAccountDto);
+        sinon.stub(familyRepository,'createFamilyAccount').resolves(familyMock.rowDataFamilyNoOwners);
+        sinon.stub(familyRepository,'createOwners').resolves(familyMock.owners);
+        sinon.stub(CONVERTER,'convertRowsDataToDTO').returns([familyMock.familyDto]);
+        const createdAccount = await builderSQL.createFamilyAccount(familyMock.familyModel);
+        expect(createdAccount).to.deep.equal(familyMock.familyDto);
+    })
+
 })
