@@ -23,6 +23,7 @@ class IndividualController {
     };
     res.status(response.status).json(response);
   }
+
   async transferI2F(req: Request, res : Response){
     const { sourceId, destinationId } = req.params;
     const { amount } = req.query;
