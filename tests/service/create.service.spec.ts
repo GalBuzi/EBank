@@ -36,11 +36,11 @@ describe("Testing creating individual account , business account, family account
         expect(created_account).to.deep.equal(businessMock.businessDto);
     })
 
-    it("should create a new family account and return the DTO", async ()=>{
-        sinon.stub(EXTRACTOR,'extractAccountRecord').returns(familyMock.accountToInsertFamily);
-        sinon.stub(EXTRACTOR,'extractFamilyRecord').returns(familyMock.familyRecord);
-        sinon.stub(EXTRACTOR,'extractOwnersIds').returns([1,2,3]);
-        sinon.stub(accountRepository,'createAccount').resolves(familyMock.familyAccountDto);
-        sinon.stub(familyRepository,'createFamilyAccount').resolves(familyMock.familyDto);
-    })
+    // it("should create a new family account and return the DTO", async ()=>{
+    //     sinon.stub(EXTRACTOR,'extractAccountRecord').returns(familyMock.accountToInsertFamily);
+    //     sinon.stub(EXTRACTOR,'extractFamilyRecord').returns(familyMock.familyRecord);
+    //     sinon.stub(EXTRACTOR,'extractOwnersIds').returns([1,2,3]);
+    //     sinon.stub(accountRepository,'createAccount').resolves(familyMock.familyAccountDto);
+    //     sinon.stub(familyRepository,'createFamilyAccount').resolves(familyMock.familyDto);
+    // })
 })

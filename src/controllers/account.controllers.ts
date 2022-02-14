@@ -1,7 +1,7 @@
 import { IChangeStatus } from '../types/models.types';
 import { ISuccessResponse } from '../types/responses.typings';
 import { Request, Response } from 'express';
-import * as accountService from '../services/account.services.js';
+import accountService from '../services/account.services.js';
 class AccountController {
   async activateDeactivateAccounts(req : Request, res : Response){
     const result = await accountService.activateDeactivateAccounts(req.body as IChangeStatus);
