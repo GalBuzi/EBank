@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import individualService from '../services/individual.services.js';
 import { IIndividualAccountModel } from '../types/models.types.js';
 import { ISuccessResponse } from '../types/responses.typings.js';
+import * as IdempotancyService from '../services/idempotancy.services.js';
 class IndividualController {
 
   async createIndividualAcc(req: Request, res: Response) {
@@ -11,6 +12,12 @@ class IndividualController {
       message: `Individual account with id ${result.individual_account_id} has been created!`,
       data: result,
     };
+    //save idempotancy details
+    const allParams = JSON.stringify({ ...req.params, ...req.query, ...req.body });
+    //take from req the response and save in db by idem_key
+    await IdempotancyService.insertResponseToDB(req.headers['x-access-key'] as string,
+      req.headers['x-idem-key'] as string, JSON.stringify(response), allParams);
+
     res.status(response.status).json(response);
   }
 
@@ -23,7 +30,7 @@ class IndividualController {
     };
     res.status(response.status).json(response);
   }
-
+  
   async transferI2F(req: Request, res : Response){
     const { sourceId, destinationId } = req.params;
     const { amount } = req.query;

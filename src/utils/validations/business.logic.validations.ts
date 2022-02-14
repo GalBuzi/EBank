@@ -1,4 +1,4 @@
-import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTO, IFamilyAccountDTOLong } from '../../types/dto.types.js';
+import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTOLong } from '../../types/dto.types.js';
 import { IValidationStringToFuncPointer } from './types.validations.js';
 import { actionToStatusId } from '../../utils/helpers.utils.js';
 
@@ -16,8 +16,8 @@ export function isValidTypesB2B(source: IAccountDTO, destination: IAccountDTO): 
 export function isValidTypesB2I(source: IAccountDTO, 
   destination: IAccountDTO): string[] {
   const errors : string[] = [];
-  if (source.type_name !== 'business') errors.push('source type has to be business!');
-  if (destination.type_name !== 'individual') errors.push('destination type has to be individual!');
+  if (source.type_name !== 'business') errors.push('source type has to be business');
+  if (destination.type_name !== 'individual') errors.push('destination type has to be individual');
   if (errors.length > 0) return errors;
   return ['true'];
 }
@@ -28,33 +28,23 @@ export function isValidTypesF2B(source: IAccountDTO, destination: IAccountDTO): 
   if (destination.type_name !== 'business') errors.push('destination type must be business');
   (source as IFamilyAccountDTOLong).owners.forEach(o=>{
     if (o.type_name !== 'individual'){
-      errors.push('found owner which is not individual!');
+      errors.push('found owner which is not individual');
     }
   });
   if (errors.length > 0) return errors;
   return ['true'];
 }
 
-export function isNotGivenType(accounts: IAccountDTO[], type:string): string[] {
-  const errors : string[] = [];
-  for (const acc of accounts) {
-    if (acc.type_name === type){
-      errors.push(`account type must not be ${type}`);
-    }
-  }
-  return ['true'];
-}
-
 export function isAllGivenType(accounts: IAccountDTO[], type:string): string[] {
   const errors : string[] = [];
-  for (const acc of accounts) {
+  for (const acc of accounts) {   
     if (acc.type_name !== type){
-      errors.push(`account type must not be ${type}`);
+      errors.push(`account type must be ${type}`);
     }
   }
+  if (errors.length > 0) return errors;
   return ['true'];
 }
-
 
 //currency
 export function isSameCurrency(source: IAccountDTO, destination: IAccountDTO): string[] {
@@ -78,7 +68,7 @@ export function isSameCurrencyF2B(source: IAccountDTO, destination: IAccountDTO)
   if (!(source.currency === destination.currency))
     errors.push('currency must be the same');
   (source as IFamilyAccountDTOLong).owners.forEach(o=>{
-    if (o.currency !== source.currency || o.currency !== destination.currency ){
+    if (o.currency !== source.currency){
       errors.push('found owner with different currency');
     }
   });
@@ -90,21 +80,20 @@ export function isSameCurrencyF2B(source: IAccountDTO, destination: IAccountDTO)
 
 export function isValidBalanceB2B(source: IAccountDTO, 
   destination: IAccountDTO, amount: number): string[] {
-  
+
   const errors : string[] = [];
   if (source.balance - amount < 10000)
     errors.push(`${source.type_name} source account must remain with at least 10000 after transfer to ${destination.type_name} account`);
   if (errors.length > 0) return errors;
   return ['true'];  
-
 }
 
 export function isValidBalanceB2I(source: IAccountDTO, 
   destination: IAccountDTO, amount: number): string[] {
   
   const errors : string[] = [];
-  if (source.balance - amount < 0)
-    errors.push(`${source.type_name} source account must remain  with some money after transfer to ${destination.type_name} account`);
+  if (source.balance - amount < 10000)
+    errors.push(`${source.type_name} source account must remain with at least 10000 after transfer to ${destination.type_name} account`);
   if (errors.length > 0) return errors;
   return ['true'];
 }
@@ -113,8 +102,8 @@ export function isValidBalanceF2B(source: IAccountDTO,
   destination: IAccountDTO, amount: number): string[] {
   
   const errors : string[] = [];
-  if (source.balance - amount < 0)
-    errors.push(`${source.type_name} source account must remain with some money after transfer to ${destination.type_name} account`);
+  if (source.balance - amount < 5000)
+    errors.push(`${source.type_name} source account must remain with at least 5000 after transfer to ${destination.type_name} account`);
   if (errors.length > 0) return errors;
   return ['true'];
 }
@@ -124,8 +113,8 @@ export function isValidBalanceF2B(source: IAccountDTO,
 export function isActiveAccounts(source: IAccountDTO, 
   destination: IAccountDTO): string[] {
   const errors : string[] = [];
-  if (source.status_id !== 1) errors.push('source status must be active!');
-  if (destination.status_id !== 1) errors.push('destination status must be active!');
+  if (source.status_id !== 1) errors.push('source status must be active');
+  if (destination.status_id !== 1) errors.push('destination status must be active');
   if (errors.length > 0) return errors;
   return ['true'];
 }
@@ -148,10 +137,11 @@ export function isAllStatusGivenAccounts(accounts: IAccountDTO[], action:string)
   const errors : string[] = [];
   const statusIdGiven = actionToStatusId[action];
   for (const acc of accounts) {
-    if (acc.status_id !== statusIdGiven){
-      errors.push(`account status must be ${statusIdGiven}`);
+    if (acc.status_id === statusIdGiven){
+      errors.push(`can not perform ${action} on ${acc.status_name} account`);
     }
   }
+  if (errors.length > 0) return errors;
   return ['true'];
 }
 
@@ -162,9 +152,9 @@ export function isLimitValidB2B(source: IAccountDTO,
   const errors : string[] = [];
   
   if ((source as IBusinessAccountDTO).company_id === (destination as IBusinessAccountDTO).company_id && amount > 10000)
-    errors.push('Amount must be under or equal to 10000 for same company!');
+    errors.push('Amount must be under or equal to 10000 for same company');
   if ((source as IBusinessAccountDTO).company_id !== (destination as IBusinessAccountDTO).company_id && amount > 1000)
-    errors.push('Amount must be under or equal to 1000 for different companies!');
+    errors.push('Amount must be under or equal to 1000 for different companies');
 
   if (errors.length > 0) return errors;
   return ['true'];
@@ -173,7 +163,7 @@ export function isLimitValidB2B(source: IAccountDTO,
 export function isLimitValidB2I(source: IAccountDTO, 
   destination: IAccountDTO, amount: number): string[] {
   const errors : string[] = [];
-  if (amount > 1000) errors.push(`Amount must be under or equal to 1000 while transfring from ${source.type_name}  account to ${destination.type_name} account`);
+  if (amount > 1000) errors.push(`Amount must be under or equal to 1000 while transfring from ${source.type_name} account to ${destination.type_name} account`);
   if (errors.length > 0) return errors;
   return ['true'];
 }
@@ -181,7 +171,7 @@ export function isLimitValidB2I(source: IAccountDTO,
 export function isLimitValidF2B(source: IAccountDTO, 
   destination: IAccountDTO, amount: number): string[] {
   const errors : string[] = [];
-  if (amount > 5000) errors.push(`Amount must be under or equal to 5000 while transfring from ${source.type_name}  account to ${destination.type_name} account`);
+  if (amount > 5000) errors.push(`Amount must be under or equal to 5000 while transfring from ${source.type_name} account to ${destination.type_name} account`);
   if (errors.length > 0) return errors;
   return ['true'];
 }
@@ -204,5 +194,4 @@ export const ValidationStringToFuncPointer : IValidationStringToFuncPointer = {
   'isLimitValidF2B' : isLimitValidF2B,
   'isAllGivenType' : isAllGivenType,
   'isAllStatusGivenAccounts' : isAllStatusGivenAccounts,
-  'isNotGivenType' : isNotGivenType,
 };

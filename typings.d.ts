@@ -4,6 +4,7 @@ declare global {
     interface Request {
       request_id: string;
       user_id: string;
+      responseToUser: string;
     }
   }
 }

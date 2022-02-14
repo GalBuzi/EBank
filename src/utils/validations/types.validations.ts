@@ -43,6 +43,7 @@ export enum InputValidationPerRoute {
   transferF2B = 'transferF2B',
   addIndividualToFamily = 'addIndividualToFamily',
   removeIndividualFromFamily = 'removeIndividualFromFamily',
+  closeFamilyAccount = 'closeFamilyAccount',
 }
 
 export enum LogicValidationPerRoute {

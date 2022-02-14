@@ -376,6 +376,409 @@ a162fbb6-4bbb-4df7-8fa5-fddae62d70cf :: undefined :: Duplicate entry '7777779' f
 =======
 0b6e937c-c5eb-4cf4-80de-7a64670f40df :: GET :: /account/individual/27 >> 1644783555869 
 >>>>>>> testingBranch
+<<<<<<< HEAD
+e02e71cb-5d20-4169-b058-9539fa07d2bc :: GET :: /account/family/23434?detailed=short >> 1644834115914 
+e02e71cb-5d20-4169-b058-9539fa07d2bc :: 500 :: No access key provided! :: 1644834115918 >> Error: No access key provided!
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:8:27)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5) 
+9f44246a-483b-4e24-a441-57f90375bb6d :: GET :: /account/family/23434?detailed=short >> 1644834141028 
+9f44246a-483b-4e24-a441-57f90375bb6d :: undefined :: Cannot read property 'account_id' of undefined :: 1644834141252 >> TypeError: Cannot read property 'account_id' of undefined
+    at formatDataToFamilyDTO (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/format.utils.js:29:33)
+    at Convert.convertRowsDataToDTO (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/covnert.utils.js:8:25)
+    at BuilderSQL.getFamilyAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:51:44)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.getFamilyAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:15:27)
+    at async getFamilyAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:22:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+42610028-70f6-4775-bfcc-169da7898ee3 :: GET :: /account/family/7?detailed=short >> 1644834214854 
+42610028-70f6-4775-bfcc-169da7898ee3 :: undefined :: Cannot read property 'account_id' of undefined :: 1644834214890 >> TypeError: Cannot read property 'account_id' of undefined
+    at formatDataToFamilyDTO (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/format.utils.js:29:33)
+    at Convert.convertRowsDataToDTO (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/covnert.utils.js:8:25)
+    at BuilderSQL.getFamilyAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:51:44)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.getFamilyAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:15:27)
+    at async getFamilyAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:22:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+7bc2ead5-33b1-4b8f-bde7-a9d0afdca907 :: GET :: /account/family/1?detailed=short >> 1644834222465 
+886fbe87-96c6-4d58-b21f-637dbb8a6c97 :: POST :: /account/individual >> 1644859899871 
+886fbe87-96c6-4d58-b21f-637dbb8a6c97 :: 500 :: Denied! :: 1644859899919 >> Error: Denied!
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:11:39)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+354f84a7-88ab-44f4-9543-ddbe05e3d429 :: POST :: /account/individual >> 1644859961069 
+354f84a7-88ab-44f4-9543-ddbe05e3d429 :: 500 :: Denied! :: 1644859961081 >> Error: Denied!
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:11:39)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+cda379bd-1463-44c2-a747-27d0e7a9f4f9 :: POST :: /account/individual >> 1644859975388 
+cda379bd-1463-44c2-a747-27d0e7a9f4f9 :: 500 :: Denied! :: 1644859975394 >> Error: Denied!
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:11:39)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+3626ef83-4eec-4165-9578-c47a2d7495a5 :: POST :: /account/individual >> 1644860211366 
+96a01329-db35-4fd0-bf04-2900c521c2a6 :: POST :: /account/individual >> 1644860298020 
+25c43836-f37f-4643-827e-2a52a7501177 :: POST :: /account/individual >> 1644860466729 
+25c43836-f37f-4643-827e-2a52a7501177 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '://localhost:3000/account/individual{"type_name":"individual","currency":"EUR","' at line 1 :: 1644860466753 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '://localhost:3000/account/individual{"type_name":"individual","currency":"EUR","' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:9:42)
+    at BuilderSQL.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:57)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:19:43)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22 
+cd4d20ab-af51-4f84-9a84-082a8080c0a2 :: POST :: /account/individual >> 1644860529037 
+cd4d20ab-af51-4f84-9a84-082a8080c0a2 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '://localhost:3000/account/individual{"type_name":"individual","currency":"EUR","' at line 1 :: 1644860529075 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '://localhost:3000/account/individual{"type_name":"individual","currency":"EUR","' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:9:42)
+    at BuilderSQL.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:57)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:19:43)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22 
+049da841-8632-4260-bdda-dc16d2ca0794 :: POST :: /account/individual >> 1644860709857 
+049da841-8632-4260-bdda-dc16d2ca0794 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '://localhost:3000/account/individual{"type_name":"individual","currency":"EUR","' at line 1 :: 1644860709885 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '://localhost:3000/account/individual{"type_name":"individual","currency":"EUR","' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:9:42)
+    at BuilderSQL.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:57)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:20:43)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22 
+465995a2-fe88-4e95-b33b-0b3d0f5889ab :: POST :: /account/individual >> 1644861277158 
+465995a2-fe88-4e95-b33b-0b3d0f5889ab :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '://localhost:3000/account/individual{"type_name":"individual","currency":"EUR","' at line 1 :: 1644861277196 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '://localhost:3000/account/individual{"type_name":"individual","currency":"EUR","' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:9:42)
+    at BuilderSQL.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:57)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:19:43)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22 
+8e59e412-748c-4ebe-a6e9-b6bf437ae9ae :: POST :: /account/individual >> 1644861658025 
+8e59e412-748c-4ebe-a6e9-b6bf437ae9ae :: undefined :: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause' :: 1644861658100 >> Error: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:9:42)
+    at BuilderSQL.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:57)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:19:43)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22 
+5785317c-7886-44a3-a9ce-2d02ad119934 :: POST :: /account/individual >> 1644861720047 
+5785317c-7886-44a3-a9ce-2d02ad119934 :: undefined :: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause' :: 1644861720084 >> Error: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:9:42)
+    at BuilderSQL.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:57)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:19:43)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22 
+c93dd1e9-9db4-4e3c-8088-60a328e2dd14 :: POST :: /account/individual >> 1644862135160 
+c93dd1e9-9db4-4e3c-8088-60a328e2dd14 :: undefined :: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause' :: 1644862135230 >> Error: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:9:42)
+    at BuilderSQL.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:57)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:18:43)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22 
+62f26638-394f-4a7f-80e7-a12af8938149 :: POST :: /account/individual >> 1644862457278 
+62f26638-394f-4a7f-80e7-a12af8938149 :: undefined :: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause' :: 1644862457312 >> Error: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:9:42)
+    at BuilderSQL.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:57)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:18:43)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22 
+5645a4df-993f-4185-9ccc-2ca28fcc9704 :: POST :: /account/individual >> 1644862695214 
+5645a4df-993f-4185-9ccc-2ca28fcc9704 :: undefined :: Cannot read property 'secret_key' of undefined :: 1644862695232 >> TypeError: Cannot read property 'secret_key' of undefined
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:24:43)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:10:23)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+cfc54c6f-7285-4e43-be78-831379f3c5fa :: POST :: /account/individual >> 1644862740886 
+cfc54c6f-7285-4e43-be78-831379f3c5fa :: undefined :: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause' :: 1644862740897 >> Error: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:9:42)
+    at BuilderSQL.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:57)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:18:43)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22 
+9495c329-3401-4e61-a1c2-ceac8154bbd3 :: POST :: /account/individual >> 1644863005625 
+9495c329-3401-4e61-a1c2-ceac8154bbd3 :: undefined :: Unexpected token u in JSON at position 0 :: 1644863005660 >> SyntaxError: Unexpected token u in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:20:53)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+15c9c87e-e6b7-4661-9ac3-9c245499a3e0 :: POST :: /account/individual >> 1644863085516 
+15c9c87e-e6b7-4661-9ac3-9c245499a3e0 :: undefined :: Unexpected token u in JSON at position 0 :: 1644863085533 >> SyntaxError: Unexpected token u in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:20:53)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+c6d301be-f34f-42ec-a9ca-9737c87a1bec :: POST :: /account/individual >> 1644863176491 
+c6d301be-f34f-42ec-a9ca-9737c87a1bec :: undefined :: Unexpected token u in JSON at position 0 :: 1644863176513 >> SyntaxError: Unexpected token u in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:21:53)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+d77c377a-db37-4649-8379-15370647d59e :: POST :: /account/individual >> 1644863372388 
+d77c377a-db37-4649-8379-15370647d59e :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1 :: 1644863372507 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:16:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:34:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+eb94421c-c39b-420a-a67c-2038efad2c91 :: POST :: /account/individual >> 1644863409190 
+eb94421c-c39b-420a-a67c-2038efad2c91 :: undefined :: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause' :: 1644863409210 >> Error: Unknown column 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' in 'where clause'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:9:42)
+    at BuilderSQL.getResponseByIdemKeyAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:14:57)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:18:43)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22 
+fa122cc8-b00d-4105-8810-25841679ca75 :: POST :: /account/individual >> 1644863424780 
+fa122cc8-b00d-4105-8810-25841679ca75 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1 :: 1644863424828 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:16:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:34:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+be0923c2-c262-4780-ad4e-ef95591b77cd :: POST :: /account/individual >> 1644863459214 
+be0923c2-c262-4780-ad4e-ef95591b77cd :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1 :: 1644863459258 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:16:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:34:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+0cc498c0-4b23-4d90-886b-56d416a58a6d :: POST :: /account/individual >> 1644863462454 
+0cc498c0-4b23-4d90-886b-56d416a58a6d :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1 :: 1644863462536 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:16:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:34:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+98693081-f52c-48f1-bbb5-b168b90fb4f1 :: POST :: /account/individual >> 1644863478584 
+98693081-f52c-48f1-bbb5-b168b90fb4f1 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1 :: 1644863478658 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:16:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:34:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+fe468c25-94ee-4383-b249-0d3c9d3cd4bb :: POST :: /account/individual >> 1644863527901 
+fe468c25-94ee-4383-b249-0d3c9d3cd4bb :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1 :: 1644863527968 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:16:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:34:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+633a17eb-96ff-4e99-b534-faf7e3e553a7 :: POST :: /account/individual >> 1644863538555 
+633a17eb-96ff-4e99-b534-faf7e3e553a7 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1 :: 1644863538655 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:16:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:34:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+e47fb8b2-d887-47c2-90c1-89ec2222560f :: POST :: /account/individual >> 1644863658744 
+e47fb8b2-d887-47c2-90c1-89ec2222560f :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1 :: 1644863658803 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09'' at line 1
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:16:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:36:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+6c4e7e59-d832-437a-b451-11cf8d64ded7 :: POST :: /account/individual >> 1644863875116 
+6c4e7e59-d832-437a-b451-11cf8d64ded7 :: undefined :: Column 'params' cannot be null :: 1644863875199 >> Error: Column 'params' cannot be null
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:16:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:36:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+b61b1cce-e4a6-4570-8bfb-14a913030269 :: POST :: /account/individual >> 1644863942195 
+b61b1cce-e4a6-4570-8bfb-14a913030269 :: undefined :: Column 'response' cannot be null :: 1644863942246 >> Error: Column 'response' cannot be null
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:16:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:36:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+d581791c-0531-4070-b97d-976b42cfc6ca :: POST :: /account/individual >> 1644863948063 
+d581791c-0531-4070-b97d-976b42cfc6ca :: undefined :: Column 'response' cannot be null :: 1644863948158 >> Error: Column 'response' cannot be null
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:16:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:36:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+d1d8fda1-e0c2-4b4d-b50c-8bb7b318834c :: POST :: /account/individual >> 1644864001263 
+d1d8fda1-e0c2-4b4d-b50c-8bb7b318834c :: undefined :: Column 'response' cannot be null :: 1644864001313 >> Error: Column 'response' cannot be null
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:18:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:36:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+93334a14-6761-4eb3-b1a4-cf2b12bc0af6 :: POST :: /account/individual >> 1644864094656 
+93334a14-6761-4eb3-b1a4-cf2b12bc0af6 :: undefined :: Column 'response' cannot be null :: 1644864094726 >> Error: Column 'response' cannot be null
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:18:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:36:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+baee5184-0410-4102-89bf-6de36bbd7ac1 :: POST :: /account/individual >> 1644864198366 
+baee5184-0410-4102-89bf-6de36bbd7ac1 :: undefined :: Column 'response' cannot be null :: 1644864198414 >> Error: Column 'response' cannot be null
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:18:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:36:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+ec2f7a9e-4fea-477a-9f65-74d500a62a0d :: POST :: /account/individual >> 1644864617795 
+ec2f7a9e-4fea-477a-9f65-74d500a62a0d :: undefined :: Column 'response' cannot be null :: 1644864617862 >> Error: Column 'response' cannot be null
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:18:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:36:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+ef194740-036f-43b2-b011-2898b8b1ac2f :: POST :: /account/individual >> 1644864669239 
+ef194740-036f-43b2-b011-2898b8b1ac2f :: undefined :: Column 'response' cannot be null :: 1644864669296 >> Error: Column 'response' cannot be null
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:18:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:36:26)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+95962c80-50e1-46a2-bdcd-b4335cfb6e68 :: POST :: /account/individual >> 1644864940929 
+e40c7508-9c71-4097-8ad1-c722d7a37ae4 :: POST :: /account/individual >> 1644864979772 
+e40c7508-9c71-4097-8ad1-c722d7a37ae4 :: undefined :: Duplicate entry '9999999' for key 'individual_account.individual_id_UNIQUE' :: 1644864979826 >> Error: Duplicate entry '9999999' for key 'individual_account.individual_id_UNIQUE'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:20:39)
+    at BuilderSQL.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:96:62)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:4:26)
+    at async createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:5:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+ee414abc-8354-4c68-813a-13c816cc78d9 :: POST :: /account/individual >> 1644865105518 
+ee414abc-8354-4c68-813a-13c816cc78d9 :: undefined :: Duplicate entry '9999999' for key 'individual_account.individual_id_UNIQUE' :: 1644865105577 >> Error: Duplicate entry '9999999' for key 'individual_account.individual_id_UNIQUE'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:20:39)
+    at BuilderSQL.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:96:62)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:4:26)
+    at async createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:5:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+a38b51e3-ac81-4057-9c28-057fa2506d58 :: POST :: /account/individual >> 1644865109751 
+5c7cc16d-278e-4f8a-9af5-5588e1e60d52 :: POST :: /account/individual >> 1644865113509 
+5c7cc16d-278e-4f8a-9af5-5588e1e60d52 :: undefined :: Duplicate entry '9999995' for key 'individual_account.individual_id_UNIQUE' :: 1644865113656 >> Error: Duplicate entry '9999995' for key 'individual_account.individual_id_UNIQUE'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:20:39)
+    at BuilderSQL.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:96:62)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:4:26)
+    at async createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:5:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+f20ace2d-3805-41dd-9f56-68803a51ff31 :: POST :: /account/individual >> 1644865189411 
+d36d70f9-fe9c-49b6-9944-1f4bfc83157d :: POST :: /account/individual >> 1644865243032 
+402f3e5a-674f-49be-92c9-47658fcd1ec1 :: POST :: /account/individual >> 1644865263479 
+402f3e5a-674f-49be-92c9-47658fcd1ec1 :: undefined :: Duplicate entry '9999555' for key 'individual_account.individual_id_UNIQUE' :: 1644865263607 >> Error: Duplicate entry '9999555' for key 'individual_account.individual_id_UNIQUE'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:20:39)
+    at BuilderSQL.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:96:62)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:4:26)
+    at async createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:5:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+71e2fdfd-b81a-4596-922f-1070e9142be6 :: POST :: /account/individual >> 1644865364980 
+71e2fdfd-b81a-4596-922f-1070e9142be6 :: undefined :: Cannot read property 'length' of undefined :: 1644865365017 >> TypeError: Cannot read property 'length' of undefined
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:23:33)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+75ad96f9-a3ae-4e01-8b21-8102915092e5 :: POST :: /account/individual >> 1644865488849 
+75ad96f9-a3ae-4e01-8b21-8102915092e5 :: 412 :: precondition failed :: 1644865488886 >> Error: precondition failed
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:31:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+d310affd-be71-45e5-975d-78ebeae825f8 :: POST :: /account/individual >> 1644865537984 
+d310affd-be71-45e5-975d-78ebeae825f8 :: 412 :: precondition failed :: 1644865538004 >> Error: precondition failed
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:32:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+5ea6d1a0-758f-4712-a676-caea093298f6 :: POST :: /account/individual >> 1644865598855 
+5ea6d1a0-758f-4712-a676-caea093298f6 :: 412 :: precondition failed :: 1644865598879 >> Error: precondition failed
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:32:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+c97fea42-47a3-4b9b-b181-f6fea2a572b1 :: POST :: /account/individual >> 1644865602625 
+c97fea42-47a3-4b9b-b181-f6fea2a572b1 :: 412 :: precondition failed :: 1644865602646 >> Error: precondition failed
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:32:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+4c344826-828b-4cb3-98ca-d9660c4a2d8a :: POST :: /account/individual >> 1644865611441 
+4c344826-828b-4cb3-98ca-d9660c4a2d8a :: 412 :: precondition failed :: 1644865611501 >> Error: precondition failed
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:32:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+9b06378d-ad9f-4518-8aaf-633ebfca0d56 :: POST :: /account/individual >> 1644865624179 
+9b06378d-ad9f-4518-8aaf-633ebfca0d56 :: 412 :: precondition failed :: 1644865624206 >> Error: precondition failed
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:32:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+983eb028-b23a-40cb-a28b-fdc2607700bb :: POST :: /account/individual >> 1644865709155 
+983eb028-b23a-40cb-a28b-fdc2607700bb :: 412 :: precondition failed :: 1644865709221 >> Error: precondition failed
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:34:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+0e81fc2f-5a1e-4d00-aa1c-9bd6d3596e40 :: POST :: /account/individual >> 1644865768170 
+=======
 fd9d5452-c450-4fe4-a650-e8a9c2c6c795 :: GET :: /account/individual/27 >> 1644851747639 
 3b8da95a-4a45-4f22-9dd5-78b068d692d7 :: GET :: /account/individual/27 >> 1644851766518 
 9e2a8226-0c38-4555-b1f0-73540e050913 :: GET :: /account/individual/27 >> 1644851770313 
@@ -404,3 +807,4 @@ e0678e90-fbba-44e9-b615-2b4dad0cd7e2 :: 404 :: /account/business/transferB2B/sou
     at Function.process_params (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:341:12)
     at next (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:275:10)
     at Function.handle (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:174:3) 
+>>>>>>> upstream/main

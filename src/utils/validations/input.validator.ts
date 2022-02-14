@@ -23,9 +23,9 @@ function checkForNonValidFields(obj: ObjectAny, keys: string[]): string[] {
   return ['true'];
 }
 
-function isNumeric(obj: ObjectAny, keys: string[], values: string[]): string[] {
+function isNumeric(obj: ObjectAny, keys: string[]): string[] {
   const ans: string[] = [];
-  keys.forEach((key, i) => {
+  keys.forEach((key) => {
     const conv = Number(obj[key]);
     if (isNaN(conv)) {
       ans.push(`${key} is not numeric`);
@@ -39,7 +39,7 @@ function isDigitCountMatch(obj: ObjectAny, keys: string[], values: string[]): st
   const ans: string[] = [];
   keys.forEach((key, i) => {
     if (
-      !isNumeric(obj, keys, values).every(c => c === 'true') ||
+      !isNumeric(obj, keys).every(c => c === 'true') ||
       obj[key].toString().length !== Number(values[i])
     ) {
       ans.push(`${key} is not ${values[i]} digits long`);
@@ -93,9 +93,7 @@ function validateTuplesStructure(obj: ObjectAny, keys: string[], values: string[
 
 function checkTuplesSumToMin(obj: ObjectAny, keys: string[], values: string[]): string[] {
   const ans: string[] = [];
-  // const isTupleArr = validateTuplesStructure(obj, keys, values);
   let sum = 0;
-  // if (isTupleArr.toString() === 'true'){
   keys.forEach(key => {
     const tuples: number[][] = obj[key];
     tuples.forEach(t => {
@@ -103,12 +101,11 @@ function checkTuplesSumToMin(obj: ObjectAny, keys: string[], values: string[]): 
     });
   });
   if (sum < Number(values[0])) ans.push(`sum is less than ${values[0]}`);
-  // }
   if (ans.length > 0) return ans;
   return ['true'];
 }
 
-function arraysNotEmpty(obj: ObjectAny, keys: string[], values: string[]): string[] {
+function arraysNotEmpty(obj: ObjectAny, keys: string[]): string[] {
   keys.forEach(key=>{
     if (obj[key].length === 0){
       return ['found an empty list'];
