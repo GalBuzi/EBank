@@ -1,7 +1,10 @@
-import { Request, Response, NextFunction, RequestHandler } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import fetch from 'node-fetch';
 import { IRateResult } from '../types/transfers.type.js';
-export default function errorWrapper(routingFunc: RequestHandler):RequestHandler {
+
+type AsyncReqHandler = (req: Request, res: Response, next: NextFunction) => Promise<void>;
+
+export default function errorWrapper(routingFunc: AsyncReqHandler):AsyncReqHandler {
   return async function (req: Request, res: Response, next: NextFunction) {
     try {
       await routingFunc(req, res, next);

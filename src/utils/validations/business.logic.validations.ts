@@ -1,4 +1,4 @@
-import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTO, IFamilyAccountDTOLong } from '../../types/dto.types.js';
+import { IAccountDTO, IBusinessAccountDTO, IFamilyAccountDTOLong } from '../../types/dto.types.js';
 import { IValidationStringToFuncPointer } from './types.validations.js';
 import { actionToStatusId } from '../../utils/helpers.utils.js';
 
@@ -68,7 +68,7 @@ export function isSameCurrencyF2B(source: IAccountDTO, destination: IAccountDTO)
   if (!(source.currency === destination.currency))
     errors.push('currency must be the same');
   (source as IFamilyAccountDTOLong).owners.forEach(o=>{
-    if (o.currency !== source.currency || o.currency !== destination.currency ){
+    if (o.currency !== source.currency){
       errors.push('found owner with different currency');
     }
   });
@@ -80,21 +80,20 @@ export function isSameCurrencyF2B(source: IAccountDTO, destination: IAccountDTO)
 
 export function isValidBalanceB2B(source: IAccountDTO, 
   destination: IAccountDTO, amount: number): string[] {
-  
+
   const errors : string[] = [];
   if (source.balance - amount < 10000)
     errors.push(`${source.type_name} source account must remain with at least 10000 after transfer to ${destination.type_name} account`);
   if (errors.length > 0) return errors;
   return ['true'];  
-
 }
 
 export function isValidBalanceB2I(source: IAccountDTO, 
   destination: IAccountDTO, amount: number): string[] {
   
   const errors : string[] = [];
-  if (source.balance - amount < 0)
-    errors.push(`${source.type_name} source account must remain  with some money after transfer to ${destination.type_name} account`);
+  if (source.balance - amount < 10000)
+    errors.push(`${source.type_name} source account must remain with at least 10000 after transfer to ${destination.type_name} account`);
   if (errors.length > 0) return errors;
   return ['true'];
 }
@@ -103,8 +102,8 @@ export function isValidBalanceF2B(source: IAccountDTO,
   destination: IAccountDTO, amount: number): string[] {
   
   const errors : string[] = [];
-  if (source.balance - amount < 0)
-    errors.push(`${source.type_name} source account must remain with some money after transfer to ${destination.type_name} account`);
+  if (source.balance - amount < 5000)
+    errors.push(`${source.type_name} source account must remain with at least 5000 after transfer to ${destination.type_name} account`);
   if (errors.length > 0) return errors;
   return ['true'];
 }
@@ -138,10 +137,11 @@ export function isAllStatusGivenAccounts(accounts: IAccountDTO[], action:string)
   const errors : string[] = [];
   const statusIdGiven = actionToStatusId[action];
   for (const acc of accounts) {
-    if (acc.status_id !== statusIdGiven){
-      errors.push(`account status must be ${statusIdGiven}`);
+    if (acc.status_id === statusIdGiven){
+      errors.push(`can not perform ${action} on ${acc.status_name} account`);
     }
   }
+  if (errors.length > 0) return errors;
   return ['true'];
 }
 
@@ -163,7 +163,7 @@ export function isLimitValidB2B(source: IAccountDTO,
 export function isLimitValidB2I(source: IAccountDTO, 
   destination: IAccountDTO, amount: number): string[] {
   const errors : string[] = [];
-  if (amount > 1000) errors.push(`Amount must be under or equal to 1000 while transfring from ${source.type_name}  account to ${destination.type_name} account`);
+  if (amount > 1000) errors.push(`Amount must be under or equal to 1000 while transfring from ${source.type_name} account to ${destination.type_name} account`);
   if (errors.length > 0) return errors;
   return ['true'];
 }
@@ -171,7 +171,7 @@ export function isLimitValidB2I(source: IAccountDTO,
 export function isLimitValidF2B(source: IAccountDTO, 
   destination: IAccountDTO, amount: number): string[] {
   const errors : string[] = [];
-  if (amount > 5000) errors.push(`Amount must be under or equal to 5000 while transfring from ${source.type_name}  account to ${destination.type_name} account`);
+  if (amount > 5000) errors.push(`Amount must be under or equal to 5000 while transfring from ${source.type_name} account to ${destination.type_name} account`);
   if (errors.length > 0) return errors;
   return ['true'];
 }

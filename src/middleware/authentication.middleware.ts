@@ -4,7 +4,7 @@ import { Request, Response, NextFunction } from 'express';
 import { ServerException } from '../exceptions/ServerExcpetion.exceptions.js';
 
 export async function authenticate(req : Request, res : Response, next : NextFunction) : Promise<void>{
-  const completeUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}${JSON.stringify(req.body)}`;
+  const completeUrl = `${req.protocol}://${req.get('host') as string}${req.originalUrl}${JSON.stringify(req.body)}`;
   const accessKey = req.headers['x-access-key'] as string;
   const givenHashed = req.headers['x-hashed'];
   if (!accessKey) throw new ServerException('No access key provided!', 500);

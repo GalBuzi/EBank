@@ -46,7 +46,7 @@ class BuilderSQL implements Builder {
     familyToInsert.account_id = createdAccount.account_id;
     const createdFamilyAccount = await familyRepository.createFamilyAccount(familyToInsert);
     console.log(createdFamilyAccount);
-    const ownersIDS = await familyRepository.createOwners(ownersToInsert, createdFamilyAccount.family_account_id);
+    await familyRepository.createOwners(ownersToInsert, createdFamilyAccount.family_account_id);
     const familyDTOArr = CONVERTER.convertRowsDataToDTO([createdFamilyAccount], FormatterMapper.formatDataToFamilyDTO) as IFamilyAccountDTO[];
     familyDTOArr[0].owners = ownersToInsert;
     return familyDTOArr[0];

@@ -1,4 +1,3 @@
-import { RowDataAccount, RowDataBusiness, RowDataIndividual } from '../../types/rowData.types.js';
 import { validationConfigObj } from '../initializer.utils.js';
 import {
   isAllStatusGivenAccounts,
@@ -211,8 +210,6 @@ export async function validateAdditionIndividualsToFamily(
     }
     return acc;
   }, tuples);
-
-  const sum: number = tuples.reduce((acc, curr) => (acc += curr[1]), 0);
 
   model.individuals = tuples;
   return model;
