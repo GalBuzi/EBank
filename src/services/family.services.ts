@@ -1,7 +1,7 @@
 import { IFamilyAccountModel, IModifyFamilyAccount } from '../types/models.types.js';
 import familyRepository from '../repositories/SQLRepository/family.repository.js';
 import builderSQL from '../utils/builder.utils.js';
-import { additionIndividualsToFamily, validateFamilyAccountCreationOwners, validateTransferF2B } from '../utils/validations/services.validator.utils.js';
+import * as ValidationFunctions  from '../utils/validations/services.validator.utils.js';
 import { ValidationException } from '../exceptions/ValidationException.excpetions.js';
 import { ITransferResult } from '../types/transfers.type.js';
 import { IFamilyAccountDTO } from '../types/dto.types.js';
@@ -12,7 +12,7 @@ class FamilyAccountService {
   async createFamilyAcc(
     family_model: IFamilyAccountModel,
   ): Promise<IFamilyAccountDTO> {
-    const filteredFamilyModel = await validateFamilyAccountCreationOwners(family_model);   
+    const filteredFamilyModel = await ValidationFunctions.validateFamilyAccountCreationOwners(family_model);   
     if (filteredFamilyModel.owners.length === 0){
       throw new ValidationException('no valid owners were found to open family account');
     } 
@@ -26,29 +26,25 @@ class FamilyAccountService {
   }
 
   async removeIndividualFromFamilyAccount(family_accout_id : number, model : IModifyFamilyAccount, display: string) : Promise<IFamilyAccountDTO>{
-    //logic validations
-    
+    await ValidationFunctions.validateRemovalIndividualsFromFamily(family_accout_id, model);
     const dtoFamily = await builderSQL.removeIndividualFromFamilyAccount(family_accout_id, model, display);
     return dtoFamily;
   }
 
   async addIndividualsToFamilyAccount(family_accout_id : number, model : IModifyFamilyAccount, display: string) : Promise<IFamilyAccountDTO> {
-    const filteredByConstraints = await additionIndividualsToFamily(family_accout_id, model);
-    const dtoFamily = await builderSQL.addIndividualsToFamilyAccount(family_accout_id, filteredByConstraints, display);
+    await ValidationFunctions.validateAdditionIndividualsToFamily(family_accout_id, model);
+    const dtoFamily = await builderSQL.addIndividualsToFamilyAccount(family_accout_id, model, display);
     return dtoFamily;
   }
 
   async closeFamilyAccount(id : number) : Promise<void> {
-    /**
-     * The family account should have no assigned individual accounts
-      Change family account status to inactive
-     */
+    await ValidationFunctions.validateCloseFamilyAccount(id);
     await familyRepository.closeFamilyAccount(id);
 
   }
 
   async transferF2B(sourceId: number, destinationId: number, amount: number) : Promise<ITransferResult> {
-    const { source, destination } = await validateTransferF2B(sourceId, destinationId, amount);
+    const { source, destination } = await ValidationFunctions.validateTransferF2B(sourceId, destinationId, amount);
     await familyRepository.transferF2B(source, destination, amount);
     const result: ITransferResult = {
       sourceAccount: {

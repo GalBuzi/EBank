@@ -45,8 +45,8 @@ class BusinessRepository {
   ): Promise<void> {
     await db.beginTransaction();
     try {
-      await accountRepository.subtractAmountToAccountBalance(sourceAccount.account_id, amount);
-      await accountRepository.addAmountToAccountBalance(destinationAccount.account_id, amount);
+      await accountRepository.subtractAmountFromAccountBalance(sourceAccount.account_id, amount);
+      await accountRepository.addAmountToAccountBalance(destinationAccount.account_id, toDeposit);
       await db.commit();
     } catch (err) {
       await db.rollback();
@@ -61,7 +61,7 @@ class BusinessRepository {
   ): Promise<void> {
     await db.beginTransaction();
     try {
-      await accountRepository.subtractAmountToAccountBalance(sourceAccount.account_id, amount);
+      await accountRepository.subtractAmountFromAccountBalance(sourceAccount.account_id, amount);
       await accountRepository.addAmountToAccountBalance(destinationAccount.account_id, amount);
       await db.commit();
     } catch (err) {

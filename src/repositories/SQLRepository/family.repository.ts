@@ -1,28 +1,29 @@
 import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import { IFamilyAccountRecord } from '../../types/records.type.js';
 import { db } from '../../utils/initializer.utils.js';
-import { RowDataFamily } from '../../types/rowData.types.js';
+import { RowDataFamily, RowDataFamilyNoOwners } from '../../types/rowData.types.js';
 import { IBusinessAccountDTO, IFamilyAccountDTO } from '../../types/dto.types.js';
 import individualRepository from './individual.repository.js';
 import accountRepository from './account.repository.js';
 
 class FamilyRepository {
-  async getFamilyAccountByIdNoOwners(id: number): Promise<RowDataFamily> {
+  async getFamilyAccountByIdNoOwners(id: number): Promise<RowDataFamilyNoOwners> {
     const [family] = (await db.query(
       `SELECT * FROM family_account fa JOIN account a ON fa.account_id = a.account_id
      JOIN status s ON s.status_id = a.status_id
      WHERE fa.family_account_id = ${id}`,
     )) as RowDataPacket[];
-    return family[0] as RowDataFamily;
+    return family[0] as RowDataFamilyNoOwners;
   }
 
-  async createFamilyAccount(familyToInsert: IFamilyAccountRecord): Promise<RowDataFamily> {
+  async createFamilyAccount(familyToInsert: IFamilyAccountRecord): Promise<RowDataFamilyNoOwners> {
     const [family] = (await db.query(
       'INSERT INTO family_account SET ?',
       familyToInsert,
     )) as ResultSetHeader[];
     const familyCreated = await this.getFamilyAccountByIdNoOwners(family.insertId);
     return familyCreated;
+
   }
 
   async getFamilyAccountById(id: number): Promise<RowDataFamily[]> {
@@ -46,8 +47,11 @@ class FamilyRepository {
 
   async closeFamilyAccount(id: number): Promise<void> {
     await db.query(
-      `UPDATE account SET status_id = ${2} WHERE account_id = (
-      SELECT account_id FROM family_account WHERE family_account_id = ${id})`,
+      `UPDATE account SET status_id = ${2} 
+      WHERE account_id = (
+                            SELECT account_id 
+                            FROM family_account 
+                            WHERE family_account_id = ${id})`,
     );
   }
 
@@ -77,7 +81,7 @@ class FamilyRepository {
 
       //subtract from family account all the amounts
       const familyDetails = await this.getFamilyAccountById(family_account_id);
-      await accountRepository.subtractAmountToAccountBalance(
+      await accountRepository.subtractAmountFromAccountBalance(
         familyDetails[0].account_id,
         sumToSubtractFromFamilyAccount,
       );
@@ -110,12 +114,12 @@ class FamilyRepository {
       );
       // subtract amount from each individual account which removed from familt account
       for (const [i, person] of individualsFullDetails.entries()) {
-        await accountRepository.subtractAmountToAccountBalance(person.account_id, amounts[i]);
+        await accountRepository.subtractAmountFromAccountBalance(person.account_id, amounts[i]);
       }
 
       //add to family account all the amounts
       const familyDetails = await this.getFamilyAccountById(family_account_id);
-      await accountRepository.subtractAmountToAccountBalance(
+      await accountRepository.subtractAmountFromAccountBalance(
         familyDetails[0].account_id,
         sumToAddToFamilyAccount,
       );
@@ -134,7 +138,7 @@ class FamilyRepository {
   ): Promise<void> {
     await db.beginTransaction();
     try {
-      await accountRepository.subtractAmountToAccountBalance(sourceAccount.account_id, amount);
+      await accountRepository.subtractAmountFromAccountBalance(sourceAccount.account_id, amount);
       await accountRepository.addAmountToAccountBalance(destinationAccount.account_id, amount);
       await db.commit();
     } catch (err) {
