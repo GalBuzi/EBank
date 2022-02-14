@@ -5,25 +5,25 @@ import { RowDataIndividual } from "../../src/types/rowData.types"
 
 export const individualDto : IIndividualAccountDTO =  {
     "individual_account_id" : 31,
-    "individual_id": 14,
+    "individual_id": 65,
     "first_name": "gal",
-    "last_name": "hara",
-    "email": "hara",
-    "account_id": 91,
+    "last_name": "barkan",
+    "email": "gal@gmail.com",
+    "account_id": 1,
     "currency": "ILS",
-    "balance": 3000,
+    "balance": 10000,
     "status_id": 1,
-    "status_name": "INACTIVE",
+    "status_name": "ACTIVE",
     "type_name": "individual",
     "address": {
-        "address_id": 42,
-        "street_name": "hara",
+        "address_id": 5,
+        "street_name": "Ehad Haam",
         "street_number": 123,
         "postal_code": 45,
-        "country_code": "hara",
-        "country_name": "hara",
-        "city": "hara",
-        "region": "hara"
+        "country_code": "ISR",
+        "country_name": "Israel",
+        "city": "Petah Tikva",
+        "region": "Merkaz"
     }
 }
 export const addressIndividualDto : IAddressDTO = {
@@ -50,16 +50,16 @@ export const individualModel : IIndividualAccountModel = {
     "currency" : "ILS",
     "balance" : 10000,
     "status_id" : 1,
-    "individual_id" : 66,
+    "individual_id" : 65,
     "first_name" : "gal",
-    "last_name" : "brakan",
-    "email" : "hgal@gmail.com",
+    "last_name" : "barkan",
+    "email" : "gal@gmail.com",
     "address" : addressModel
 }
 
 export const individualAccountDto : IAccountDTO = {
     "account_id" : 1,
-    "status_name" : "active",
+    "status_name" : "ACTIVE",
     "currency": "ILS",
     "balance": 10000,
     "status_id": 1,
@@ -69,7 +69,7 @@ export const individualAccountDto : IAccountDTO = {
 export const individualRow : RowDataIndividual = {
     "individual_id" : 65,
     "type_name" : "individual",
-    "status_name" : "active",
+    "status_name" : "ACTIVE",
     "status_id" : 1,
     "account_id" : 1,
     "individual_account_id" : 31,
@@ -80,11 +80,11 @@ export const individualRow : RowDataIndividual = {
     "balance" : 10000,
     "address_id" : 5,
     "postal_code" : 45,
-    "region" : "hara",
-    "street_name" : "hara",
+    "region" : "Merkaz",
+    "street_name" : "Ehad Haam",
     "street_number" : 123,
     "first_name": "gal",
-    "last_name": "brakan",
+    "last_name": "barkan",
     "email": "gal@gmail.com",
 }
 
@@ -99,15 +99,24 @@ export const addressToInsert : IAddressRecord = {
     "country_code" : "ISR",
     "country_name" : "Israel",
     "postal_code" : 45,
-    "region" : "hara",
+    "region" : "Merkaz",
     "street_name" : "Ehad Haam",
     "street_number" : 1
 }
 export const individualToInsert : IIndividualAccountRecord = {
     "first_name": "gal",
-    "last_name": "brakan",
+    "last_name": "barkan",
     "email": "gal@gmail.com",
     "individual_id" : 65,
     "account_id" : 1,
     "address_id" : 5
+}
+
+export const individualToInsertNoIds : IIndividualAccountRecord = {
+    "first_name": "gal",
+    "last_name": "barkan",
+    "email": "gal@gmail.com",
+    "individual_id" : 65,
+    "account_id" : -1,
+    "address_id" : -1
 }

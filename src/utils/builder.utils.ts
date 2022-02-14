@@ -8,7 +8,7 @@ import familyRepository from '../repositories/SQLRepository/family.repository.js
 import EXTRACTOR from '../utils/extraction.utils.js';
 import CONVERTER from '../utils/covnert.utils.js';
 import { ServerException } from '../exceptions/ServerExcpetion.exceptions.js';
-import { actionToStatusId } from '../utils/helpers.utils.js';
+import { actionToStatusId, actionToStatusName } from '../utils/helpers.utils.js';
 import * as generalRepository from '../repositories/SQLRepository/general.repository.js';
 import { IAccountRecord } from '../types/records.type.js';
 import { RowDataFamily, RowDataIndividual } from '../types/rowData.types.js';
@@ -27,6 +27,7 @@ interface Builder {
 }
 
 class BuilderSQL implements Builder {
+  
   async getSecretByAccessKey(accessKey : string) : Promise<string> {
     const rowSecretKey = await generalRepository.getSecertKey(accessKey);
     const secretKey = (rowSecretKey[0] as ISecretKey).secret_key;
@@ -143,7 +144,7 @@ class BuilderSQL implements Builder {
     await accountRepository.activateDeactivateAccounts(idsToAction, statusId);
     const result : IChangeStatusResponse = {
       ids : idsToAction,
-      status: model.action,
+      status: actionToStatusName[model.action],
     };
     return result;
   }

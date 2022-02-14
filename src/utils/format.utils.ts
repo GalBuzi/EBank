@@ -76,20 +76,6 @@ class Formatter {
     };
     return account;
   }
-
-  formatRowsDataToFamilyDTO(element: RowDataFamily): IFamilyAccounBaseDTO {
-    const account: IFamilyAccounBaseDTO = {
-      account_id: element.account_id,
-      context: element.context,
-      currency: element.currency,
-      balance: element.balance,
-      status_id: element.status_id,
-      status_name: element.status_name,
-      type_name: element.type_name,
-      family_account_id: element.family_account_id,
-    };
-    return account;
-  }
 }
 
 const instance = new Formatter();

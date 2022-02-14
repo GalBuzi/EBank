@@ -78,11 +78,11 @@ export const businessAddressdto : IAddressDTO = {
     "address_id" : 5,
     "country_name" : "Israel",
     "country_code" : "ISR",
-    "postal_code" : 45,
+    "postal_code" : 50,
     "city" : "Petah Tikva",
     "region" : "Merkaz",
     "street_name" : "Ehad Haam",
-    "street_number" : 1
+    "street_number" : 5
 }
 
 export const businessDto : IBusinessAccountDTO = {
@@ -97,4 +97,12 @@ export const businessDto : IBusinessAccountDTO = {
     "balance": 10000,
     "status_id": 1,
     "type_name": "business",
+}
+
+export const businessToInsertNoIds : IBusinessAccountRecord = {
+    "company_id" : 1,
+    "company_name" : "Rapyd",
+    "account_id" : -1,
+    "context" : "Fintech",
+    "address_id" : -1,
 }
