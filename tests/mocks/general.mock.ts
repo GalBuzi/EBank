@@ -1,6 +1,6 @@
 import { IChangeStatusAccounts, IChangeStatusResponse } from "../../src/types/models.types";
-import * as individualMock from '../builder/individual.mock.js';
-import * as businessMock from '../builder/business.mock.js';
+import * as individualMock from './individual.mock.js';
+import * as businessMock from './business.mock.js';
 export const changeStatusAccounts : IChangeStatusAccounts = {
     "action" : "deactivate",
     "individuals" : [individualMock.individualDto],

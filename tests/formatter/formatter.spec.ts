@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 import FORMATTER from '../../src/utils/format.utils.js';
-import {individualRow,individualDto} from '../builder/individual.mock.js';
-import {businessDto,buisnessRow} from '../builder/business.mock.js';
-import * as familyMock from '../builder/family.mock.js';
-import {familyRow} from '../builder/family.mock.js';
+import {individualRow,individualDto} from '../mocks/individual.mock.js';
+import {businessDto,buisnessRow} from '../mocks/business.mock.js';
+import * as familyMock from '../mocks/family.mock.js';
+import {familyRow} from '../mocks/family.mock.js';
 describe("Testing the formatter class", ()=>{
     context("#formatToIndividualDTO()", ()=>{
         it("Should format the given individual row to individual account dto",  ()=>{

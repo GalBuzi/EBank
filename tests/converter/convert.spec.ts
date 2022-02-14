@@ -1,6 +1,6 @@
-import * as individualMock from '../builder/individual.mock.js';
-import * as businessMock from '../builder/business.mock.js';
-import * as familyMock from '../builder/family.mock.js';
+import * as individualMock from '../mocks/individual.mock.js';
+import * as businessMock from '../mocks/business.mock.js';
+import * as familyMock from '../mocks/family.mock.js';
 import CONVERTER, { FormatterMapper } from '../../src/utils/covnert.utils.js';
 import { expect } from 'chai';
 describe("Testing the convert function",()=>{

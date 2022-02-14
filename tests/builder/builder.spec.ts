@@ -7,11 +7,11 @@ import individualRepository from '../../src/repositories/SQLRepository/individua
 import EXTRACTOR from '../../src/utils/extraction.utils.js';
 import CONVERTER from '../../src/utils/covnert.utils.js';
 import businessRepository from '../../src/repositories/SQLRepository/business.repository';
-import * as individualMock from './individual.mock.js';
-import * as businessMock from './business.mock.js';
-import * as familyMock from './family.mock.js';
+import * as individualMock from '../mocks/individual.mock.js';
+import * as businessMock from '../mocks/business.mock.js';
+import * as familyMock from '../mocks/family.mock.js';
 import familyRepository from '../../src/repositories/SQLRepository/family.repository.js';
-import * as generalMock from './general.mock.js';
+import * as generalMock from '../mocks/general.mock.js';
 describe("Testing creating individual account , business account, family account", () =>{
     afterEach(()=>restore())
     context("#createIndividualAccount()",async ()=>{
