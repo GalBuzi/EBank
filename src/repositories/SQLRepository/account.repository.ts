@@ -1,7 +1,7 @@
 import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import { ServerException } from '../../exceptions/ServerExcpetion.exceptions.js';
 import { IAccountDTO } from '../../types/dto.types.js';
-import { IAccountModel, IChangeStatus, IChangeStatusResponse } from '../../types/models.types.js';
+import { IAccountModel} from '../../types/models.types.js';
 import { db } from '../../utils/initializer.utils.js';
 
 class AccountRepository {

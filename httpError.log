@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 d6f19f36-c002-4521-8b6a-9e764dee07a9 :: POST :: /account/family >> 1644782807280 
 d6f19f36-c002-4521-8b6a-9e764dee07a9 :: 500 :: No access key provided! :: 1644782807282 >> Error: No access key provided!
     at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:8:27)
@@ -372,3 +373,6 @@ a162fbb6-4bbb-4df7-8fa5-fddae62d70cf :: undefined :: Duplicate entry '7777779' f
     at async createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:4:24)
     at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
 882b7780-3043-4bee-8600-e7452dc5598e :: POST :: /account/individual >> 1644786874782 
+=======
+0b6e937c-c5eb-4cf4-80de-7a64670f40df :: GET :: /account/individual/27 >> 1644783555869 
+>>>>>>> testingBranch
