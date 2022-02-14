@@ -1,6 +1,10 @@
 import { IIndividualAccountModel } from '../types/models.types.js';
 import { IIndividualAccountDTO } from '../types/dto.types.js';
 import builderSQL from '../utils/builder.utils.js';
+import { ITransferResult } from '../types/transfers.type.js';
+import individualRepository from '../repositories/SQLRepository/individual.repository.js';
+import * as ValidationFunctions  from '../utils/validations/services.validator.utils.js';
+
 class IndividualAccountService {
 
   async createIndividualAcc(
@@ -18,6 +22,24 @@ class IndividualAccountService {
   async getIndividualById(id: number): Promise<IIndividualAccountDTO> {
     const dtoIndiv = await builderSQL.getIndividualAccountById(id);
     return dtoIndiv;
+  }
+
+  async transferI2F(sourceId : number, destinationId : number, amount : number) : Promise<ITransferResult>{
+    const { source, destination } = await ValidationFunctions.validateTransferI2F(sourceId, destinationId, amount);
+    await individualRepository.transferI2F(source, destination, amount);
+    const result: ITransferResult = {
+      sourceAccount: {
+        id: source.individual_account_id,
+        balance: source.balance - amount,
+        currency: source.currency,
+      },
+      destinationAccount: {
+        id: destination.family_account_id,
+        balance: destination.balance + amount,
+        currency: destination.currency,
+      },
+    };
+    return result;      
   }
 }
 const instance = new IndividualAccountService();

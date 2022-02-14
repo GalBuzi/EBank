@@ -11,6 +11,7 @@ import {
   IAccountDTO,
   IBusinessAccountDTO,
   IFamilyAccountDTO,
+  IFamilyAccountDTOLong,
   IFamilyAccountDTOShort,
   IIndividualAccountDTO,
 } from '../../types/dto.types.js';
@@ -20,6 +21,7 @@ import {
   IFamilyAccountModel,
   IModifyFamilyAccount,
 } from '../../types/models.types.js';
+import { ServerException } from '../../exceptions/ServerExcpetion.exceptions.js';
 
 function runTransferValidationFunctions(
   validationTranserName: string,
@@ -260,4 +262,36 @@ export async function validateCloseFamilyAccount(family_accout_id: number): Prom
     throw new ValidationException('cant close family account because there are more owners related to it');
   }
 
+}
+
+export async function validateTransferI2F(sourceId : number, destinationId : number, amount : number) :
+Promise<{ source: IIndividualAccountDTO; destination: IFamilyAccountDTOLong }> {
+  const source = await builderSQL.getIndividualAccountById(sourceId);
+  const destination = await builderSQL.getFamilyAccountById(destinationId, 'full') as IFamilyAccountDTOLong;
+  const errors : string[] = [];
+  // check both accounts are active
+  if (source.status_id !== 1 || destination.status_id !== 1){
+    errors.push('one of the account is not active');
+  }
+  // check types 
+  if (source.type_name !== 'individual' || destination.type_name !== 'family'){
+    errors.push('one of the account type is not as should be');
+  }
+  // check currencies
+  if (source.currency !== destination.currency){
+    errors.push('accounts have different currency');
+  }
+  //check family owners contain individual who wants to transfer
+  const owner = destination.owners.find( o => o.individual_account_id === source.individual_account_id);
+  if (!owner){
+    errors.push('individual source doesnt own destination family account');
+  }
+  //check he has enough money in balance after transfer - at least 1000
+  if (source.balance - amount < 1000){
+    errors.push('individual source doesnt have enough balance to complete the transfer');
+  }
+
+  if (errors.length > 0) throw new ServerException(errors.join(','));
+  
+  return { source, destination };
 }

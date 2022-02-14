@@ -17,9 +17,7 @@ export async function getRate(base: string, currency: string): Promise<number> {
   const baseUrl = 'http://api.exchangeratesapi.io/latest';
   const url = `${baseUrl}?base=${base}&symbols=${currency}&access_key=d2a66464646b71360e0acc422b511633`;
   const response = await fetch(url);
-  const result = (await response.json()) as IRateResult;
-  console.log(result);
-  
+  const result = (await response.json()) as IRateResult;  
   return Number(Object.values(result.rates)[0]);
 }
 

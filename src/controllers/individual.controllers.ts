@@ -30,6 +30,22 @@ class IndividualController {
     };
     res.status(response.status).json(response);
   }
+  
+  async transferI2F(req: Request, res : Response){
+    const { sourceId, destinationId } = req.params;
+    const { amount } = req.query;
+    const result = await individualService.transferI2F(
+      Number(sourceId),
+      Number(destinationId),
+      Number(amount),
+    );
+    const response: ISuccessResponse = {
+      status: 200,
+      message: 'Transfer is complete',
+      data: result,
+    };
+    res.status(response.status).json(response);
+  }
 }
 
 const individualController = new IndividualController();

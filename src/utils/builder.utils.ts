@@ -39,6 +39,7 @@ class BuilderSQL implements Builder {
     return 'success';
   }
 
+  
   async getSecretByAccessKey(accessKey : string) : Promise<string> {
     const rowSecretKey = await generalRepository.getSecertKey(accessKey);
     const secretKey = (rowSecretKey[0] as ISecretKey).secret_key;
@@ -52,9 +53,9 @@ class BuilderSQL implements Builder {
   
   async createFamilyAccount(model: IFamilyAccountModel) : Promise<IFamilyAccountDTO>{
     const accountToInsert = EXTRACTOR.extractAccountRecord(model);
-    const createdAccount = await this.createAccount(accountToInsert);
     const familyToInsert = EXTRACTOR.extractFamilyRecord(model);
     const ownersToInsert = EXTRACTOR.extractOwnersIds(model);
+    const createdAccount = await this.createAccount(accountToInsert);
     familyToInsert.account_id = createdAccount.account_id;
     const createdFamilyAccount = await familyRepository.createFamilyAccount(familyToInsert);
     console.log(createdFamilyAccount);

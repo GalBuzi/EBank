@@ -376,6 +376,7 @@ a162fbb6-4bbb-4df7-8fa5-fddae62d70cf :: undefined :: Duplicate entry '7777779' f
 =======
 0b6e937c-c5eb-4cf4-80de-7a64670f40df :: GET :: /account/individual/27 >> 1644783555869 
 >>>>>>> testingBranch
+<<<<<<< HEAD
 e02e71cb-5d20-4169-b058-9539fa07d2bc :: GET :: /account/family/23434?detailed=short >> 1644834115914 
 e02e71cb-5d20-4169-b058-9539fa07d2bc :: 500 :: No access key provided! :: 1644834115918 >> Error: No access key provided!
     at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:8:27)
@@ -777,3 +778,33 @@ c97fea42-47a3-4b9b-b181-f6fea2a572b1 :: 412 :: precondition failed :: 1644865602
     at processTicksAndRejections (node:internal/process/task_queues:94:5)
     at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
 0e81fc2f-5a1e-4d00-aa1c-9bd6d3596e40 :: POST :: /account/individual >> 1644865768170 
+=======
+fd9d5452-c450-4fe4-a650-e8a9c2c6c795 :: GET :: /account/individual/27 >> 1644851747639 
+3b8da95a-4a45-4f22-9dd5-78b068d692d7 :: GET :: /account/individual/27 >> 1644851766518 
+9e2a8226-0c38-4555-b1f0-73540e050913 :: GET :: /account/individual/27 >> 1644851770313 
+760b0e5d-055f-4987-b0a4-521572d68063 :: GET :: /account/individual/27 >> 1644851772119 
+e0678e90-fbba-44e9-b615-2b4dad0cd7e2 :: PUT :: /account/business/transferB2B/source/1/3?amount=10 >> 1644852933711 
+e0678e90-fbba-44e9-b615-2b4dad0cd7e2 :: 404 :: /account/business/transferB2B/source/1/3?amount=10 :: 1644852933717 >> Error: /account/business/transferB2B/source/1/3?amount=10
+    at NotFound (file:///Users/elirandarshan/Desktop/eBank/dist/middleware/errors.middleware.js:6:10)
+    at Layer.handle [as handle_request] (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:323:13)
+    at /Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:275:10)
+    at /Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:641:15
+    at next (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:260:14)
+    at /Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:641:15
+    at next (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:260:14) 
+1489f699-bd2f-4f2e-8b48-2805ea36b69c :: POST :: /account/individual >> 1644852943452 
+1489f699-bd2f-4f2e-8b48-2805ea36b69c :: 404 :: individual_id is not 7 digits long :: 1644852943458 >> Error: individual_id is not 7 digits long
+    at file:///Users/elirandarshan/Desktop/eBank/dist/middleware/validation.middleware.js:28:18
+    at file:///Users/elirandarshan/Desktop/eBank/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:174:3) 
+>>>>>>> upstream/main
