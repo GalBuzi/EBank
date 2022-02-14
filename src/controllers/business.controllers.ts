@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 import businessService from '../services/business.services.js';
 import { IBusinessAccountModel } from '../types/models.types.js';
 import { ISuccessResponse } from '../types/responses.typings.js';
+import * as IdempotancyService from '../services/idempotancy.services.js';
+
 class BusinessController {
   async createBusinessAcc(req: Request, res: Response) {
     const result = await businessService.createBusinessAccount(req.body as IBusinessAccountModel);
@@ -10,6 +12,13 @@ class BusinessController {
       message: `Business account with id ${result.business_account_id} has been created!`,
       data: result,
     };
+
+    //save idempotancy details
+    const allParams = JSON.stringify({ ...req.params, ...req.query, ...req.body });
+    //take from req the response and save in db by idem_key & access
+    await IdempotancyService.insertResponseToDB(req.headers['x-access-key'] as string,
+      req.headers['x-idem-key'] as string, JSON.stringify(response), allParams);
+
     res.status(response.status).json(response);
   }
 

@@ -3,12 +3,7 @@ import fetch from 'node-fetch';
 import { IRateResult } from '../types/transfers.type.js';
 
 type AsyncReqHandler = (req: Request, res: Response, next: NextFunction) => Promise<void>;
-interface ActionToStatusName {
-  [key : string] : string
-}
-interface ActionToStatusId {
-  [key : string] : number
-}
+
 export default function errorWrapper(routingFunc: AsyncReqHandler | RequestHandler):AsyncReqHandler {
   return async function (req: Request, res: Response, next: NextFunction) {
     try {
@@ -26,10 +21,21 @@ export async function getRate(base: string, currency: string): Promise<number> {
   return Number(Object.values(result.rates)[0]);
 }
 
+
+
+interface ActionToStatusId {
+  [key : string] : number
+}
+
 export const actionToStatusId : ActionToStatusId = {
   'activate' : 1,
   'deactivate' : 2,
 };
+
+interface ActionToStatusName {
+  [key : string] : string
+}
+
 export const actionToStatusName : ActionToStatusName = {
   'activate' : 'ACTIVE',
   'deactivate' : 'INACTIVE',

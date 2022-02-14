@@ -1,11 +1,12 @@
 import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import { ServerException } from '../../exceptions/ServerExcpetion.exceptions.js';
 import { IAccountDTO } from '../../types/dto.types.js';
-import { IAccountModel} from '../../types/models.types.js';
+import { IAccountModel } from '../../types/models.types.js';
+import { RowDataAccount } from '../../types/rowData.types.js';
 import { db } from '../../utils/initializer.utils.js';
 
 class AccountRepository {
-  async getAccountById(id: number): Promise<IAccountDTO> {
+  async getAccountById(id: number): Promise<RowDataAccount> {
     const sql =
       'SELECT * FROM account a JOIN status s ON s.status_id = a.status_id WHERE account_id = ?';
     const results = await db.query(sql, id);
@@ -14,7 +15,7 @@ class AccountRepository {
     return account;
   }
 
-  async createAccount(payload: IAccountModel): Promise<IAccountDTO> {
+  async createAccount(payload: IAccountModel): Promise<RowDataAccount> {
     const [account] = (await db.query('INSERT INTO account SET ?', payload)) as ResultSetHeader[];
     if (account.changedRows === 0) throw new ServerException('artist was not created', 500);
     const accountCreated = await this.getAccountById(account.insertId);

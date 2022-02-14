@@ -38,7 +38,7 @@ class IndividualRepository {
     return individualCreated;
   }
 
-  async transferI2F(sourceAccount: IIndividualAccountDTO,destinationAccount: IFamilyAccountDTO,amount: number,) : Promise<void>{
+  async transferI2F(sourceAccount: IIndividualAccountDTO, destinationAccount: IFamilyAccountDTO, amount: number) : Promise<void>{
     await db.beginTransaction();
     try {
       await accountRepository.subtractAmountFromAccountBalance(sourceAccount.account_id, amount);
