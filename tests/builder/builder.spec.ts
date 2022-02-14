@@ -25,6 +25,7 @@ describe("Testing creating individual account , business account, family account
             sinon.stub(CONVERTER,'convertRowsDataToDTO').returns([individualMock.individualDto])
             const created_account = await builderSQL.createIndividualAccount(individualMock.individualModel);
             expect(created_account).to.deep.equal(individualMock.individualDto);
+
         })
     })
     context("#createBusinessAccount()",async ()=>{
