@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 d6f19f36-c002-4521-8b6a-9e764dee07a9 :: POST :: /account/family >> 1644782807280 
 d6f19f36-c002-4521-8b6a-9e764dee07a9 :: 500 :: No access key provided! :: 1644782807282 >> Error: No access key provided!
     at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:8:27)
@@ -372,3 +373,37 @@ a162fbb6-4bbb-4df7-8fa5-fddae62d70cf :: undefined :: Duplicate entry '7777779' f
     at async createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:4:24)
     at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
 882b7780-3043-4bee-8600-e7452dc5598e :: POST :: /account/individual >> 1644786874782 
+=======
+0b6e937c-c5eb-4cf4-80de-7a64670f40df :: GET :: /account/individual/27 >> 1644783555869 
+>>>>>>> testingBranch
+e02e71cb-5d20-4169-b058-9539fa07d2bc :: GET :: /account/family/23434?detailed=short >> 1644834115914 
+e02e71cb-5d20-4169-b058-9539fa07d2bc :: 500 :: No access key provided! :: 1644834115918 >> Error: No access key provided!
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:8:27)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5) 
+9f44246a-483b-4e24-a441-57f90375bb6d :: GET :: /account/family/23434?detailed=short >> 1644834141028 
+9f44246a-483b-4e24-a441-57f90375bb6d :: undefined :: Cannot read property 'account_id' of undefined :: 1644834141252 >> TypeError: Cannot read property 'account_id' of undefined
+    at formatDataToFamilyDTO (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/format.utils.js:29:33)
+    at Convert.convertRowsDataToDTO (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/covnert.utils.js:8:25)
+    at BuilderSQL.getFamilyAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:51:44)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.getFamilyAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:15:27)
+    at async getFamilyAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:22:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+42610028-70f6-4775-bfcc-169da7898ee3 :: GET :: /account/family/7?detailed=short >> 1644834214854 
+42610028-70f6-4775-bfcc-169da7898ee3 :: undefined :: Cannot read property 'account_id' of undefined :: 1644834214890 >> TypeError: Cannot read property 'account_id' of undefined
+    at formatDataToFamilyDTO (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/format.utils.js:29:33)
+    at Convert.convertRowsDataToDTO (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/covnert.utils.js:8:25)
+    at BuilderSQL.getFamilyAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:51:44)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.getFamilyAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:15:27)
+    at async getFamilyAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:22:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+7bc2ead5-33b1-4b8f-bde7-a9d0afdca907 :: GET :: /account/family/1?detailed=short >> 1644834222465 

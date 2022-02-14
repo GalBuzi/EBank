@@ -38,7 +38,7 @@
         "@typescript-eslint/no-floating-promises": 1,
         "no-case-declarations": 1,
         // changed await-thenable from 1 to 0
-        "@typescript-eslint/await-thenable": 0,
+        "@typescript-eslint/await-thenable": 1,
         "no-prototype-builtins": 1,
         "@typescript-eslint/require-await": 1,
         "@typescript-eslint/no-empty-function": 1,

@@ -45,7 +45,6 @@ export interface RowDataFamily extends RowDataAccount {
 export interface RowDataFamilyNoOwners extends RowDataAccount {
   context: string;
   family_account_id: number;
-  // indiv_account_id: number;
 }
 
 export type RowDataAccountAll = | RowDataIndividual | RowDataBusiness | RowDataFamilyNoOwners;

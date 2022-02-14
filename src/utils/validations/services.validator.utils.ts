@@ -2,7 +2,7 @@ import { RowDataAccount, RowDataBusiness, RowDataIndividual } from '../../types/
 import { validationConfigObj } from '../initializer.utils.js';
 import {
   isAllStatusGivenAccounts,
-  isNotGivenType,
+  isAllGivenType,
   ValidationStringToFuncPointer,
 } from './business.logic.validations.js';
 import { ValidationException } from '../../exceptions/ValidationException.excpetions.js';
@@ -168,7 +168,7 @@ export async function validateActivateDeactivateAccounts(
       `one of the accounts isnt in correct status to perform ${input.action}`,
     );
   //check no accounts of type family
-  errors.push(...isNotGivenType([...indivDTOS, ...businessDTOS], 'family'));
+  errors.push(...isAllGivenType([...indivDTOS, ...businessDTOS], 'family'));
   if (errors.length > 0)
     throw new ValidationException('one of the accounts is type of family where it shouldnt be');
 

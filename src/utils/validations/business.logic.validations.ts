@@ -16,8 +16,8 @@ export function isValidTypesB2B(source: IAccountDTO, destination: IAccountDTO): 
 export function isValidTypesB2I(source: IAccountDTO, 
   destination: IAccountDTO): string[] {
   const errors : string[] = [];
-  if (source.type_name !== 'business') errors.push('source type has to be business!');
-  if (destination.type_name !== 'individual') errors.push('destination type has to be individual!');
+  if (source.type_name !== 'business') errors.push('source type has to be business');
+  if (destination.type_name !== 'individual') errors.push('destination type has to be individual');
   if (errors.length > 0) return errors;
   return ['true'];
 }
@@ -28,33 +28,23 @@ export function isValidTypesF2B(source: IAccountDTO, destination: IAccountDTO): 
   if (destination.type_name !== 'business') errors.push('destination type must be business');
   (source as IFamilyAccountDTOLong).owners.forEach(o=>{
     if (o.type_name !== 'individual'){
-      errors.push('found owner which is not individual!');
+      errors.push('found owner which is not individual');
     }
   });
   if (errors.length > 0) return errors;
   return ['true'];
 }
 
-export function isNotGivenType(accounts: IAccountDTO[], type:string): string[] {
-  const errors : string[] = [];
-  for (const acc of accounts) {
-    if (acc.type_name === type){
-      errors.push(`account type must not be ${type}`);
-    }
-  }
-  return ['true'];
-}
-
 export function isAllGivenType(accounts: IAccountDTO[], type:string): string[] {
   const errors : string[] = [];
-  for (const acc of accounts) {
+  for (const acc of accounts) {   
     if (acc.type_name !== type){
-      errors.push(`account type must not be ${type}`);
+      errors.push(`account type must be ${type}`);
     }
   }
+  if (errors.length > 0) return errors;
   return ['true'];
 }
-
 
 //currency
 export function isSameCurrency(source: IAccountDTO, destination: IAccountDTO): string[] {
@@ -124,8 +114,8 @@ export function isValidBalanceF2B(source: IAccountDTO,
 export function isActiveAccounts(source: IAccountDTO, 
   destination: IAccountDTO): string[] {
   const errors : string[] = [];
-  if (source.status_id !== 1) errors.push('source status must be active!');
-  if (destination.status_id !== 1) errors.push('destination status must be active!');
+  if (source.status_id !== 1) errors.push('source status must be active');
+  if (destination.status_id !== 1) errors.push('destination status must be active');
   if (errors.length > 0) return errors;
   return ['true'];
 }
@@ -162,9 +152,9 @@ export function isLimitValidB2B(source: IAccountDTO,
   const errors : string[] = [];
   
   if ((source as IBusinessAccountDTO).company_id === (destination as IBusinessAccountDTO).company_id && amount > 10000)
-    errors.push('Amount must be under or equal to 10000 for same company!');
+    errors.push('Amount must be under or equal to 10000 for same company');
   if ((source as IBusinessAccountDTO).company_id !== (destination as IBusinessAccountDTO).company_id && amount > 1000)
-    errors.push('Amount must be under or equal to 1000 for different companies!');
+    errors.push('Amount must be under or equal to 1000 for different companies');
 
   if (errors.length > 0) return errors;
   return ['true'];
@@ -204,5 +194,4 @@ export const ValidationStringToFuncPointer : IValidationStringToFuncPointer = {
   'isLimitValidF2B' : isLimitValidF2B,
   'isAllGivenType' : isAllGivenType,
   'isAllStatusGivenAccounts' : isAllStatusGivenAccounts,
-  'isNotGivenType' : isNotGivenType,
 };
