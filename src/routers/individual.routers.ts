@@ -4,7 +4,7 @@ import individualController from '../controllers/individual.controllers.js';
 import { validateRoute } from '../middleware/validation.middleware.js';
 import { InputValidationPerRoute } from '../utils/validations/types.validations.js';
 import { authenticate } from '../middleware/authentication.middleware.js';
-// import { findIdemKey } from '../middleware/idempotancy.middleware.js';
+import { findIdemKey } from '../middleware/idempotancy.middleware.js';
 class IndividualRouter {
   private _router = express.Router();
 
@@ -13,8 +13,8 @@ class IndividualRouter {
   }
 
   initRouting() {
-    //errorWrapper(findIdemKey),
     this._router.post('/', 
+      errorWrapper(findIdemKey),
       errorWrapper(validateRoute(InputValidationPerRoute.createIndividualAccount)),
       errorWrapper(individualController.createIndividualAcc));
 
