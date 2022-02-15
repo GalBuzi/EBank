@@ -36,7 +36,7 @@ class FamilyRouter {
       errorWrapper(familyController.addIndividuals));
     
     this._router.put('/transferF2B/source/:sourceId/destination/:destinationId', 
-      errorWrapper(validateRoute(InputValidationPerRoute.addIndividualToFamily)),
+      errorWrapper(validateRoute(InputValidationPerRoute.transferF2B)),
       errorWrapper(familyController.transferF2B));
   }
 

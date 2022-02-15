@@ -1218,3 +1218,341 @@ ac2cadbd-2468-47f4-851d-12cc0cb39060 :: POST :: /account/individual >> 164488664
 a9871f7b-71dd-4670-a1c5-f173f8006e06 :: PUT :: /account/family/addIndividuals/3?display=short >> 1644887071081 
 0e130549-ee96-46d5-9ee9-8879756934ff :: PUT :: /account/family/addIndividuals/8?display=short >> 1644887123548 
 952fe920-58c8-4958-b13b-0e0e69a2866d :: PUT :: /account/family/addIndividuals/8?display=short >> 1644887185670 
+2aeeb13e-6f57-41a9-b12d-560ad945deee :: PUT :: /account/individual/transferI2F/source/32/destination/2?amount=500 >> 1644909441896 
+cf30380a-82df-4315-8039-debfa95c267b :: PUT :: /account/individual/transferI2F/source/32/destination/2?amount=500 >> 1644909446721 
+0ba4bb00-bf2c-4e04-89ab-44f371e0b53e :: PUT :: /account/individual/transferI2F/source/32/destination/2?amount=500 >> 1644909448746 
+2cc9631c-336c-414b-a660-2412901ec146 :: PUT :: /account/individual/transferI2F/source/32/destination/2?amount=500 >> 1644909451902 
+89b89214-745b-4513-a39d-9f953e00cadb :: PUT :: /account/individual/transferI2F/source/32/destination/2?amount=25000 >> 1644909473573 
+42d557d3-0305-495c-a9f5-0e332b2a3b75 :: PUT :: /account/individual/transferI2F/source/32/destination/2?amount=5500 >> 1644909483603 
+42d557d3-0305-495c-a9f5-0e332b2a3b75 :: 500 :: individual source doesnt have enough balance to complete the transfer :: 1644909483664 >> Error: individual source doesnt have enough balance to complete the transfer
+    at Module.validateTransferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:231:34)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:18:43)
+    at async transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:30:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+d87fa5f2-213b-43ac-a1f1-664b123adaa9 :: PUT :: /account/individual/transferI2F/source/32/destination/2?amount=100 >> 1644909491543 
+363c595f-0ddf-4add-8124-9ee422a9c49e :: PUT :: /account/individual/transferI2F/source/34/destination/2?amount=100 >> 1644909566952 
+363c595f-0ddf-4add-8124-9ee422a9c49e :: 500 :: accounts have different currency,individual source doesnt own destination family account :: 1644909566985 >> Error: accounts have different currency,individual source doesnt own destination family account
+    at Module.validateTransferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:231:34)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:18:43)
+    at async transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:30:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+bfc736b1-f591-49c9-a069-fb26f52902d6 :: PUT :: /account/individual/transferI2F/source/32/destination/2?amount=100 >> 1644909575837 
+598c0836-a8b7-42ed-b908-cfbba2d9fd1b :: PUT :: /account/individual/transferI2F/source/34/destination/2?amount=100 >> 1644909585634 
+598c0836-a8b7-42ed-b908-cfbba2d9fd1b :: 500 :: accounts have different currency,individual source doesnt own destination family account :: 1644909585656 >> Error: accounts have different currency,individual source doesnt own destination family account
+    at Module.validateTransferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:231:34)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:18:43)
+    at async transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:30:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+c3617ce9-2ba6-4a7e-801e-2aef5546107c :: PUT :: /account/individual/transferI2F/source/34/destination/2?amount=100 >> 1644909611258 
+c3617ce9-2ba6-4a7e-801e-2aef5546107c :: 500 :: accounts have different currency,individual source doesnt own destination family account :: 1644909611307 >> Error: accounts have different currency,individual source doesnt own destination family account
+    at Module.validateTransferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:231:34)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:18:43)
+    at async transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:30:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+533ac8f2-834f-4a0c-87b6-be0840a36df8 :: PUT :: /account/individual/transferI2F/source/34/destination/4?amount=100 >> 1644909629260 
+42e60da7-ee59-49a4-bd32-cc3b18a9bdb5 :: PUT :: /account/individual/transferI2F/source/34/destination/1?amount=100 >> 1644909636218 
+42e60da7-ee59-49a4-bd32-cc3b18a9bdb5 :: 500 :: one of the account is not active,accounts have different currency,individual source doesnt own destination family account :: 1644909636243 >> Error: one of the account is not active,accounts have different currency,individual source doesnt own destination family account
+    at Module.validateTransferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:231:34)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:18:43)
+    at async transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:30:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+f3180bd0-405d-4e90-877c-4665d6102ce2 :: PUT :: /account/family/removeIndividuals/2?display=short >> 1644909753064 
+f3180bd0-405d-4e90-877c-4665d6102ce2 :: 404 :: found individual account 31 which is not belong to family account :: 1644909753096 >> Error: found individual account 31 which is not belong to family account
+    at Module.validateRemovalIndividualsFromFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:180:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.removeIndividualFromFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:19:9)
+    at async removeIndividualsFromFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:37:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+798a7b22-9139-4899-88db-a988e09e1025 :: PUT :: /account/family/removeIndividuals/2?display=short >> 1644909772020 
+798a7b22-9139-4899-88db-a988e09e1025 :: 404 :: found individual account 31 which is not belong to family account :: 1644909772054 >> Error: found individual account 31 which is not belong to family account
+    at Module.validateRemovalIndividualsFromFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:180:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.removeIndividualFromFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:19:9)
+    at async removeIndividualsFromFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:37:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+490c50b5-d0fc-4568-9b4a-c6a21aae8a3c :: PUT :: /account/family/addIndividuals/2?display=short >> 1644909801264 
+da20d5ac-f5e9-4231-a20f-13986e91832e :: PUT :: /account/family/addIndividuals/2?display=short >> 1644909996953 
+da20d5ac-f5e9-4231-a20f-13986e91832e :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4 :: 1644909997086 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.getListOfIndividualsAccountsById (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:14:40)
+    at FamilyRepository.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/family.repository.js:71:71)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async BuilderSQL.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:203:9)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:25:27)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+a0238d7a-c70c-49eb-b7ef-fb4e085dfc7b :: PUT :: /account/family/addIndividuals/2?display=short >> 1644910148433 
+a0238d7a-c70c-49eb-b7ef-fb4e085dfc7b :: 404 :: account with id 32 already belongs to family :: 1644910148552 >> Error: account with id 32 already belongs to family
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:151:19
+    at Array.reduce (<anonymous>)
+    at Module.validateAdditionIndividualsToFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:148:17)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:24:9)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+2a726d85-d34b-4c69-94b8-b311186b82b2 :: PUT :: /account/family/addIndividuals/4?display=short >> 1644910253660 
+57fd8259-ff5e-4237-ac1b-f6f30a5c762f :: PUT :: /account/individual/transferI2F/source/38/destination/2?amount=100 >> 1644910353033 
+57fd8259-ff5e-4237-ac1b-f6f30a5c762f :: 500 :: accounts have different currency,individual source doesnt own destination family account :: 1644910353062 >> Error: accounts have different currency,individual source doesnt own destination family account
+    at Module.validateTransferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:235:34)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:18:43)
+    at async transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:30:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+f860bba1-2778-42a8-93b6-8ad52084171e :: PUT :: /account/individual/transferI2F/source/37/destination/2?amount=100 >> 1644910371000 
+f860bba1-2778-42a8-93b6-8ad52084171e :: 500 :: accounts have different currency,individual source doesnt own destination family account :: 1644910371039 >> Error: accounts have different currency,individual source doesnt own destination family account
+    at Module.validateTransferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:235:34)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:18:43)
+    at async transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:30:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+369a05fb-133f-44bd-944b-6fc81f98bb4b :: PUT :: /account/individual/transferI2F/source/37/destination/4?amount=1000 >> 1644910386932 
+369a05fb-133f-44bd-944b-6fc81f98bb4b :: 500 :: accounts have different currency :: 1644910386970 >> Error: accounts have different currency
+    at Module.validateTransferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:235:34)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:18:43)
+    at async transferI2F (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:30:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+cd7cbe2c-5af6-4d9f-a8ed-1102da9eaeec :: PUT :: /account/family/removeIndividuals/4?display=short >> 1644910467467 
+cd7cbe2c-5af6-4d9f-a8ed-1102da9eaeec :: 404 :: the balance that will be left in account is lower than the minimal allowed :: 1644910467483 >> Error: the balance that will be left in account is lower than the minimal allowed
+    at Module.validateRemovalIndividualsFromFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:196:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.removeIndividualFromFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:19:9)
+    at async removeIndividualsFromFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:37:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+ae0087bf-dd61-43b1-a65d-6fa67eab46b8 :: PUT :: /account/family/removeIndividuals/4?display=short >> 1644910473919 
+ae0087bf-dd61-43b1-a65d-6fa67eab46b8 :: 404 :: the balance that will be left in account is lower than the minimal allowed :: 1644910473981 >> Error: the balance that will be left in account is lower than the minimal allowed
+    at Module.validateRemovalIndividualsFromFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:196:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.removeIndividualFromFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:19:9)
+    at async removeIndividualsFromFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:37:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+9cfd8411-7c57-411b-b43e-9bf535d677b2 :: PUT :: /account/family/removeIndividuals/8?display=short >> 1644910520317 
+9cfd8411-7c57-411b-b43e-9bf535d677b2 :: 404 :: the balance that will be left in account is lower than the minimal allowed :: 1644910520339 >> Error: the balance that will be left in account is lower than the minimal allowed
+    at Module.validateRemovalIndividualsFromFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:196:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.removeIndividualFromFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:19:9)
+    at async removeIndividualsFromFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:37:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+d3be8479-0021-46ca-b4b2-76103d5fc0f9 :: PUT :: /account/family/removeIndividuals/7?display=short >> 1644910532349 
+be559502-0766-4b5a-9670-88b845676efc :: PUT :: /account/family/removeIndividuals/7?display=short >> 1644910541189 
+be559502-0766-4b5a-9670-88b845676efc :: 404 :: found individual account 35 which is not belong to family account :: 1644910541210 >> Error: found individual account 35 which is not belong to family account
+    at Module.validateRemovalIndividualsFromFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:184:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.removeIndividualFromFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:19:9)
+    at async removeIndividualsFromFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:37:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+d9483093-22f2-42a4-815d-7e56bcb8e90d :: PUT :: /account/family/addIndividuals/7?display=short >> 1644910561306 
+d9483093-22f2-42a4-815d-7e56bcb8e90d :: 404 :: account with id 34 already belongs to family :: 1644910561397 >> Error: account with id 34 already belongs to family
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:151:19
+    at Array.reduce (<anonymous>)
+    at Module.validateAdditionIndividualsToFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:148:17)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:24:9)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+4ade51e9-c8e1-4318-9f0d-af847b8bc135 :: PUT :: /account/family/addIndividuals/7?display=short >> 1644910567028 
+75492852-2b56-4330-b637-a49997dd70c0 :: PUT :: /account/individual/transferI2F/source/35/destination/7?amount=100 >> 1644910587252 
+2039d10e-ee74-4f13-92f1-4682770735e8 :: PUT :: /account/family/addIndividuals/7?display=short >> 1644910619040 
+2039d10e-ee74-4f13-92f1-4682770735e8 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4 :: 1644910619137 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.getListOfIndividualsAccountsById (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:14:40)
+    at FamilyRepository.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/family.repository.js:71:71)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async BuilderSQL.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:203:9)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:25:27)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+e71cca00-eb13-452d-be61-4be9318e5924 :: PUT :: /account/family/addIndividuals/7?display=short >> 1644910666743 
+e71cca00-eb13-452d-be61-4be9318e5924 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4 :: 1644910666852 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.getListOfIndividualsAccountsById (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:14:40)
+    at FamilyRepository.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/family.repository.js:71:71)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async BuilderSQL.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:203:9)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:25:27)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+d0ac7a54-4054-41fd-b931-635763e10761 :: PUT :: /account/family/addIndividuals/7?display=short >> 1644910703932 
+d0ac7a54-4054-41fd-b931-635763e10761 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4 :: 1644910704004 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.getListOfIndividualsAccountsById (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:14:40)
+    at FamilyRepository.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/family.repository.js:71:71)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async BuilderSQL.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:203:9)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:25:27)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+ca29276b-b328-49ba-aad9-a4036b7915d9 :: PUT :: /account/family/addIndividuals/7?display=short >> 1644910950096 
+ca29276b-b328-49ba-aad9-a4036b7915d9 :: 404 :: didnt find valid account to be added :: 1644910950158 >> Error: didnt find valid account to be added
+    at Module.validateAdditionIndividualsToFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:164:15)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:24:9)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+af7e99d5-041e-481e-9eaa-c71d1986eab4 :: PUT :: /account/family/addIndividuals/7?display=short >> 1644911209986 
+af7e99d5-041e-481e-9eaa-c71d1986eab4 :: 404 :: didnt find valid account to be added :: 1644911210018 >> Error: didnt find valid account to be added
+    at Module.validateAdditionIndividualsToFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:164:15)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:24:9)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+51e0388f-63c9-47cb-8b15-da311a336438 :: PUT :: /account/family/addIndividuals/7?display=short >> 1644911221217 
+51e0388f-63c9-47cb-8b15-da311a336438 :: 404 :: didnt find valid account to be added :: 1644911221240 >> Error: didnt find valid account to be added
+    at Module.validateAdditionIndividualsToFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:164:15)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:24:9)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+4dc90e3b-16c9-493f-83f9-3b14aab9b2e6 :: PUT :: /account/family/addIndividuals/7?display=short >> 1644911226280 
+4dc90e3b-16c9-493f-83f9-3b14aab9b2e6 :: 404 :: didnt find valid account to be added :: 1644911226302 >> Error: didnt find valid account to be added
+    at Module.validateAdditionIndividualsToFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:164:15)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:24:9)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+b18c6290-0a3a-4047-9245-bae91a70f960 :: PUT :: /account/family/addIndividuals/7?display=short >> 1644911230275 
+b18c6290-0a3a-4047-9245-bae91a70f960 :: 404 :: account with id 34 already belongs to family :: 1644911230348 >> Error: account with id 34 already belongs to family
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:151:19
+    at Array.reduce (<anonymous>)
+    at Module.validateAdditionIndividualsToFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:148:17)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:24:9)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+64b22594-5076-46ed-8df5-0a0d306f4d72 :: PUT :: /account/family/addIndividuals/7?display=short >> 1644911235300 
+64b22594-5076-46ed-8df5-0a0d306f4d72 :: 404 :: didnt find valid account to be added :: 1644911235330 >> Error: didnt find valid account to be added
+    at Module.validateAdditionIndividualsToFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:164:15)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:24:9)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+70f64fe1-685a-429a-8954-70485edab866 :: PUT :: /account/family/addIndividuals/7?display=short >> 1644911243912 
+70f64fe1-685a-429a-8954-70485edab866 :: 404 :: didnt find valid account to be added :: 1644911243980 >> Error: didnt find valid account to be added
+    at Module.validateAdditionIndividualsToFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:164:15)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:24:9)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+1ec05e47-38d7-42f2-b1e9-395f0322207e :: PUT :: /account/family/addIndividuals/7?display=short >> 1644911260059 
+1ec05e47-38d7-42f2-b1e9-395f0322207e :: 404 :: didnt find valid account to be added :: 1644911260276 >> Error: didnt find valid account to be added
+    at Module.validateAdditionIndividualsToFamily (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:164:15)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:24:9)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+06546dcc-d161-457c-a7f3-a1244f24107c :: GET :: /account/family/1?detailed=short >> 1644911269181 
+06546dcc-d161-457c-a7f3-a1244f24107c :: undefined :: Cannot read property 'secret_key' of undefined :: 1644911269202 >> TypeError: Cannot read property 'secret_key' of undefined
+    at BuilderSQL.getSecretByAccessKey (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:25:43)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:10:23)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+9036d5e6-797f-4e57-ab0c-058b9930bfc1 :: GET :: /account/family/1?detailed=short >> 1644911302652 
+505e7781-4624-4c86-9da1-c3cb8e9832b8 :: PUT :: /account/family/addIndividuals/1?display=short >> 1644911377290 
+0238ebc8-fa66-47c2-982c-ec61a9d22dcc :: GET :: /account/family/1?detailed=short >> 1644911673543 
+5f3702a7-df9e-472d-957f-d3fa324a476b :: PUT :: /account/individual/transferF2B/source/1/destination/7?amount=2000 >> 1644911693737 
+5f3702a7-df9e-472d-957f-d3fa324a476b :: 404 :: /account/individual/transferF2B/source/1/destination/7?amount=2000 :: 1644911693762 >> Error: /account/individual/transferF2B/source/1/destination/7?amount=2000
+    at NotFound (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/errors.middleware.js:6:10)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:641:15
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:260:14)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:641:15
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:260:14) 
+d855285b-c615-4af6-8a97-6a16a207d48b :: PUT :: /account/family/transferF2B/source/1/destination/7?amount=2000 >> 1644911714371 
+d855285b-c615-4af6-8a97-6a16a207d48b :: undefined :: Cannot read property '0' of undefined :: 1644911714389 >> TypeError: Cannot read property '0' of undefined
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:67:34
+    at Array.forEach (<anonymous>)
+    at areTuplesContainNumericNonNegative (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:66:10)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:18:33
+    at Array.forEach (<anonymous>)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:16:31
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3) 
+80fe99b5-db31-4929-8062-9c8040b5c07e :: PUT :: /account/family/transferF2B/source/1/destination/7?amount=2000 >> 1644911848410 
+80fe99b5-db31-4929-8062-9c8040b5c07e :: undefined :: Cannot read property '0' of undefined :: 1644911848425 >> TypeError: Cannot read property '0' of undefined
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:67:34
+    at Array.forEach (<anonymous>)
+    at areTuplesContainNumericNonNegative (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:66:10)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:18:33
+    at Array.forEach (<anonymous>)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:16:31
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3) 
+d82f4007-b2e4-46a1-8309-19b122d0765e :: PUT :: /account/family/transferF2B/source/1/destination/7?amount=2000 >> 1644912065225 
+d82f4007-b2e4-46a1-8309-19b122d0765e :: undefined :: Cannot read property '0' of undefined :: 1644912065235 >> TypeError: Cannot read property '0' of undefined
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:67:34
+    at Array.forEach (<anonymous>)
+    at areTuplesContainNumericNonNegative (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:66:10)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:18:33
+    at Array.forEach (<anonymous>)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:16:31
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3) 
+82dc7911-d8d2-4aa4-99b9-ddf5e0c9c46b :: PUT :: /account/family/transferF2B/source/1/destination/7?amount=2000 >> 1644912080427 
+82dc7911-d8d2-4aa4-99b9-ddf5e0c9c46b :: 500 :: Business with id 7 doesn't exists! :: 1644912080529 >> Error: Business with id 7 doesn't exists!
+    at BuilderSQL.getBusinessAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:150:36)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async Module.validateTransferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:61:25)
+    at async FamilyAccountService.transferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:33:43)
+    at async transferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:57:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+4ddb7e33-a0df-4ba1-bfbb-3fb16c71cdc5 :: PUT :: /account/family/transferF2B/source/1/destination/39?amount=2000 >> 1644912089911 
+4ddb7e33-a0df-4ba1-bfbb-3fb16c71cdc5 :: 500 :: Business with id 39 doesn't exists! :: 1644912089974 >> Error: Business with id 39 doesn't exists!
+    at BuilderSQL.getBusinessAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:150:36)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async Module.validateTransferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:61:25)
+    at async FamilyAccountService.transferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:33:43)
+    at async transferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:57:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+b72830de-58e4-49f7-a248-015ca01f9ef8 :: PUT :: /account/family/transferF2B/source/1/destination/1?amount=2000 >> 1644912106130 
+b72830de-58e4-49f7-a248-015ca01f9ef8 :: 404 :: source status must be active, source status must be active, family source account must remain with at least 5000 after transfer to business account :: 1644912106155 >> Error: source status must be active, source status must be active, family source account must remain with at least 5000 after transfer to business account
+    at runTransferValidationFunctions (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:29:34)
+    at Module.validateTransferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:62:5)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.transferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:33:43)
+    at async transferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:57:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+8f8b1fe6-5009-4fdb-9b89-a8c908986365 :: PUT :: /account/family/transferF2B/source/1/destination/2?amount=2000 >> 1644912118431 
+8f8b1fe6-5009-4fdb-9b89-a8c908986365 :: 404 :: source status must be active, source status must be active, family source account must remain with at least 5000 after transfer to business account :: 1644912118451 >> Error: source status must be active, source status must be active, family source account must remain with at least 5000 after transfer to business account
+    at runTransferValidationFunctions (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:29:34)
+    at Module.validateTransferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:62:5)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.transferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:33:43)
+    at async transferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:57:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+6c73885f-195e-4470-844e-99e2098e7486 :: PUT :: /account/family/transferF2B/source/2/destination/2?amount=2000 >> 1644912133716 
+b26dcad0-77a0-4d95-acc9-39e7ccdd132b :: PUT :: /account/family/transferF2B/source/2/destination/2?amount=2000 >> 1644912138726 
+00a01b2d-c704-446a-9983-91cdb437a1b5 :: PUT :: /account/family/transferF2B/source/2/destination/2?amount=2000 >> 1644912145391 
+0aabd11b-07cc-4aa8-a4f0-fcd761a08224 :: PUT :: /account/family/transferF2B/source/2/destination/2?amount=2000 >> 1644912160372 
+bc418f14-b611-4ee5-8791-fa9de81488e5 :: PUT :: /account/family/transferF2B/source/2/destination/2?amount=2000 >> 1644912168553 
+1048a67b-b228-4306-ba79-09a403740a1d :: PUT :: /account/family/transferF2B/source/1/destination/2?amount=2000 >> 1644912183870 
+1048a67b-b228-4306-ba79-09a403740a1d :: 404 :: source status must be active, source status must be active, family source account must remain with at least 5000 after transfer to business account :: 1644912183931 >> Error: source status must be active, source status must be active, family source account must remain with at least 5000 after transfer to business account
+    at runTransferValidationFunctions (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:29:34)
+    at Module.validateTransferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:62:5)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.transferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:33:43)
+    at async transferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:57:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+fda2d012-02e6-4e6c-88ab-8d5f1c056b22 :: PUT :: /account/family/transferF2B/source/2/destination/2?amount=100 >> 1644912193700 
+1811ae3f-1b27-47c7-8a2d-2fe43af3852f :: PUT :: /account/family/transferF2B/source/2/destination/2?amount=10000 >> 1644912210416 
+1811ae3f-1b27-47c7-8a2d-2fe43af3852f :: 404 :: Amount must be under or equal to 5000 while transfring from family account to business account :: 1644912210457 >> Error: Amount must be under or equal to 5000 while transfring from family account to business account
+    at runTransferValidationFunctions (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:29:34)
+    at Module.validateTransferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:62:5)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FamilyAccountService.transferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:33:43)
+    at async transferF2B (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:57:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 

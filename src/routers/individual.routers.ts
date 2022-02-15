@@ -22,7 +22,12 @@ class IndividualRouter {
       errorWrapper(authenticate),
       errorWrapper(validateRoute(InputValidationPerRoute.getIndividualAccountById)),
       errorWrapper(individualController.getIndividualAccById));
-    this._router.put('/transferI2F/source/:sourceId/destination/:destinationId', errorWrapper(individualController.transferI2F));
+
+
+    this._router.put('/transferI2F/source/:sourceId/destination/:destinationId', 
+      //add input validation
+      errorWrapper(validateRoute(InputValidationPerRoute.transferI2F)),
+      errorWrapper(individualController.transferI2F));
   }
 
   get router() {

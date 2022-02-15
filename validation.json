@@ -140,7 +140,7 @@
             "validation_functions": [
                 {
                     "func_name": "checkForRequiredFields",
-                    "params": ["sourceID", "destinationID","amount"],
+                    "params": ["sourceId", "destinationId","amount"],
                     "params_values" : []
                 },
                 {
