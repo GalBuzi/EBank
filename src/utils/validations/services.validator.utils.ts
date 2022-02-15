@@ -250,6 +250,9 @@ export async function validateRemovalIndividualsFromFamily(
   const contributions = sorted.map(o => o[1]);
   const individuals = await builderSQL.getListOfIndividualsAccountsById(ids);
   const family = await builderSQL.getFamilyAccountById(family_accout_id, 'short') as IFamilyAccountDTOShort;
+  if (individuals.length === 0){
+    throw new ValidationException('no valid individual accounts found');
+  }
   //check individuals belong to family
   for (const indiv of individuals) {
     if (family.owners.every(o => o !== indiv.individual_account_id)){
