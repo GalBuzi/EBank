@@ -25,7 +25,7 @@ class IndividualController {
     const individual = await individualService.getIndividualById(Number(req.params.id));
     const response: ISuccessResponse = {
       status: 200,
-      message: 'All Individual accounts have been loaded!',
+      message: 'Individual account have been loaded!',
       data: individual,
     };
     res.status(response.status).json(response);
