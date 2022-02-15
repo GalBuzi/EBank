@@ -202,17 +202,21 @@ export async function validateAdditionIndividualsToFamily(
   const ids = sorted.map(o => o[0]);
   const contributions = sorted.map(o => o[1]);
   const individuals = await builderSQL.getListOfIndividualsAccountsById(ids);
-  const family = await builderSQL.getFamilyAccountById(family_accout_id, 'full');
+  const family = await builderSQL.getFamilyAccountById(family_accout_id, 'full') as IFamilyAccountDTOLong;
   console.log('individuals', individuals);
   console.log('family', family);
+
+
   const tuples: number[][] = [];
   individuals.reduce((acc, curr, i) => {
+    if (family.owners.find(owner => owner.individual_account_id === curr.individual_account_id)){
+      throw new ValidationException(`account with id ${curr.individual_account_id} already belongs to family`);
+    }
     if (
       curr.individual_account_id !== null && //all exist
       curr.status_id === 1 && //all active
       curr.type_name === 'individual' && //all type individual
-      curr.currency === family.currency
-    ) {
+      curr.currency === family.currency    ) {
       //same currency as family
       tuples.push([ids[i], contributions[i]]);
     }
@@ -220,6 +224,10 @@ export async function validateAdditionIndividualsToFamily(
   }, tuples);
 
   model.individuals = tuples;
+  if (model.individuals.length === 0){
+    throw new ValidationException('didnt find valid account to be added to family by criteria');
+  }
+  
   return model;
 }
 
