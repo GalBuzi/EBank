@@ -155,17 +155,17 @@
             "validation_functions": [
                 {
                     "func_name": "checkForRequiredFields",
-                    "params": ["primaryID", "detailed", "tuplesToAdd"],
+                    "params": ["id", "display", "individuals"],
                     "params_values" : []
                 },
                 {
                     "func_name": "areTuplesContainNumericNonNegative",
-                    "params": ["tuplesToAdd"],
+                    "params": ["individuals"],
                     "params_values" : []
                 },
                 {
                     "func_name": "arraysNotEmpty",
-                    "params": ["tuplesToAdd"],
+                    "params": ["individuals"],
                     "params_values" : []
                 }
             ]
@@ -175,17 +175,17 @@
             "validation_functions": [
                 {
                     "func_name": "checkForRequiredFields",
-                    "params": ["primaryID", "detailed", "tuplesToAdd"],
+                    "params": ["id", "display", "individuals"],
                     "params_values" : []
                 },
                 {
                     "func_name": "areTuplesContainNumericNonNegative",
-                    "params": ["tuplesToAdd"],
+                    "params": ["individuals"],
                     "params_values" : []
                 },
                 {
                     "func_name": "arraysNotEmpty",
-                    "params": ["tuplesToAdd"],
+                    "params": ["individuals"],
                     "params_values" : []
                 }
             ]

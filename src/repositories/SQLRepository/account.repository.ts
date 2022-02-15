@@ -23,6 +23,8 @@ class AccountRepository {
   }
 
   async activateDeactivateAccounts(ids: number[], status_id: number): Promise<void> {
+    console.log('status_id', status_id);
+    
     await db.beginTransaction();
     try {
       for (const account of ids) {

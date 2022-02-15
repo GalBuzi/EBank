@@ -7,7 +7,7 @@ class AccountController {
     const result = await accountService.activateDeactivateAccounts(req.body as IChangeStatus);
     const response : ISuccessResponse = {
       status: 200,
-      message: `All accounts have been ${result.status}d!`,
+      message: `All accounts have been ${result.status}D!`,
       data: result,
     };
     res.status(response.status).json(response);

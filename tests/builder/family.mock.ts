@@ -1,6 +1,5 @@
 import { IAccountDTO, IFamilyAccountDTOShort } from '../../src/types/dto.types';
 import { IAccountRecord, IFamilyAccountRecord } from '../../src/types/records.type';
-import { RowDataFamily } from '../../src/types/rowData.types';
 
 export const accountToInsertFamily : IAccountRecord = {
   'currency': 'ILS',

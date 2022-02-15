@@ -1,7 +1,7 @@
 import { validationConfigObj } from '../initializer.utils.js';
 import {
   isAllStatusGivenAccounts,
-  isAllGivenType,
+  isAllNotGivenType,
   ValidationStringToFuncPointer,
 } from './business.logic.validations.js';
 import { ValidationException } from '../../exceptions/ValidationException.excpetions.js';
@@ -125,8 +125,7 @@ export async function validateFamilyAccountCreationOwners(
   const sorted: number[][] = familyModel.owners.sort((a, b) => a[0] - b[0]); //rows return in ascending order from sql
   const ids = sorted.map(o => o[0]);
   const contributions = sorted.map(o => o[1]);
-  const individuals = await builderSQL.getListOfIndividualsAccountsById(ids);
-
+  const individuals = await builderSQL.getListOfIndividualsAccountsById(ids);  
   const tuples: number[][] = [];
   individuals.reduce((acc, curr, i) => {
     if (
@@ -161,16 +160,22 @@ export async function validateActivateDeactivateAccounts(
   const busiIDS = inputBusiness.map(tuple => tuple[0]);
   const indivDTOS = await builderSQL.getListOfIndividualsAccountsById(indivIDS);
   const businessDTOS = await builderSQL.getListOfBusinessesAccountsById(busiIDS);
+  if (indivDTOS.length === 0 && businessDTOS.length === 0) 
+    throw new ValidationException('no account found to chagne status');
+  console.log('indivDTOS', indivDTOS);
+  console.log('businessDTOS', businessDTOS);
+  
+  
   const errors: string[] = [];
   //check all can perform action
   errors.push(...isAllStatusGivenAccounts([...indivDTOS, ...businessDTOS], input.action));
-  if (errors.length > 0)
+  if (errors[0] !== 'true')
     throw new ValidationException(
       `one of the accounts isnt in correct status to perform ${input.action}`,
     );
   //check no accounts of type family
-  errors.push(...isAllGivenType([...indivDTOS, ...businessDTOS], 'family'));
-  if (errors.length > 0)
+  errors.push(...isAllNotGivenType([...indivDTOS, ...businessDTOS], 'family'));
+  if (errors[0] !== 'true')
     throw new ValidationException('one of the accounts is type of family where it shouldnt be');
 
   const retObj = {
@@ -198,7 +203,8 @@ export async function validateAdditionIndividualsToFamily(
   const contributions = sorted.map(o => o[1]);
   const individuals = await builderSQL.getListOfIndividualsAccountsById(ids);
   const family = await builderSQL.getFamilyAccountById(family_accout_id, 'full');
-
+  console.log('individuals', individuals);
+  console.log('family', family);
   const tuples: number[][] = [];
   individuals.reduce((acc, curr, i) => {
     if (
@@ -228,7 +234,10 @@ export async function validateRemovalIndividualsFromFamily(
     In case of removing all of the family owners, the total amounts of the removed owner can result in up to a zero amount, but not go below 0.
     Other than that, in case other owners remain in the family account, we need to ensure a minimum allowed balance is being kept after the removal.
     */
+  
   const sorted: number[][] = model.individuals.sort((a, b) => a[0] - b[0]); //rows return in ascending order from sql
+ 
+  
   const ids = sorted.map(o => o[0]);
   const contributions = sorted.map(o => o[1]);
   const individuals = await builderSQL.getListOfIndividualsAccountsById(ids);

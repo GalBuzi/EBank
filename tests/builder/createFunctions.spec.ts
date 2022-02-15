@@ -9,8 +9,7 @@ import CONVERTER from '../../src/utils/covnert.utils.js';
 import businessRepository from '../../src/repositories/SQLRepository/business.repository';
 import * as individualMock from './individual.mock.js';
 import * as businessMock from './business.mock.js';
-import * as familyMock from './family.mock.js';
-import familyRepository from '../../src/repositories/SQLRepository/family.repository.js';
+
 describe('Testing creating individual account , business account, family account', () =>{
   afterEach(()=>restore());
   it('Should create a new individual account and return the DTO', async ()=>{

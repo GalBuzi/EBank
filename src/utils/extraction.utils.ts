@@ -73,12 +73,13 @@ class Extractor {
     return familyToInsert;
   }
   
-  extractOwnersIds(model: IFamilyAccountModel): number[] {
+  extractOwnersIds(model: IFamilyAccountModel): { ids : number[], sum:number } {
     const ownersToInsert: number[] = model.owners.map(tuple => {
       const id = tuple[0];
       return id;
     });
-    return ownersToInsert;
+    const sum = model.owners.reduce((acc, curr) => acc + curr[1], 0);
+    return { ids:ownersToInsert, sum : sum };
   }
 }
 const instance = new Extractor();
