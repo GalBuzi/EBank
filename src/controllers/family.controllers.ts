@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import family_service from '../services/family.services.js';
 import { IFamilyAccountModel, IModifyFamilyAccount } from '../types/models.types.js';
 import { ISuccessResponse } from '../types/responses.typings.js';
-// import * as IdempotancyService from '../services/idempotancy.services.js';
+import * as IdempotancyService from '../services/idempotancy.services.js';
 class FamilyController {
   async createFamilyAccount(req: Request, res: Response) {
     const result = await family_service.createFamilyAcc(req.body as IFamilyAccountModel);
@@ -11,11 +11,11 @@ class FamilyController {
       message: `Family account with id ${result.family_account_id} has been created!`,
       data: result,
     };
-    // //save idempotancy details
-    // const allParams = JSON.stringify({ ...req.params, ...req.query, ...req.body });
-    // //take from req the response and save in db by idem_key
-    // await IdempotancyService.insertResponseToDB(req.headers['x-access-key'] as string,
-    //   req.headers['x-idem-key'] as string, JSON.stringify(response), allParams);
+    //save idempotancy details
+    const allParams = JSON.stringify({ ...req.params, ...req.query, ...req.body });
+    //take from req the response and save in db by idem_key
+    await IdempotancyService.insertResponseToDB(req.headers['x-access-key'] as string,
+      req.headers['x-idem-key'] as string, JSON.stringify(response), allParams);
     
     res.status(response.status).json(response);
 

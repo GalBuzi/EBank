@@ -20,7 +20,8 @@ export function validateRoute(validationRouteName: string) : RequestHandler {
     if (toNext.length === 0){
       next();
     } else {
-      const msg = toNext.join(', ');
+      const uniqErrors = [...new Set(toNext)];
+      const msg = uniqErrors.join(', ');
       next(new ValidationException(msg));
     } 
   };

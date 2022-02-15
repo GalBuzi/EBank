@@ -51,8 +51,11 @@ function runTransferValidationFunctions(
     });
   }
   const toNext = validAnswers.filter(ans => ans !== 'true');
-  if (toNext.length > 0) throw new ValidationException(toNext.join(', '));
-  else return;
+  if (toNext.length > 0){
+    const uniqErrors = [...new Set(toNext)];
+    const msg = uniqErrors.join(', ');
+    throw new ValidationException(msg);
+  } else return;
 }
 
 export async function validateTransferB2B(
@@ -250,6 +253,9 @@ export async function validateRemovalIndividualsFromFamily(
   const contributions = sorted.map(o => o[1]);
   const individuals = await builderSQL.getListOfIndividualsAccountsById(ids);
   const family = await builderSQL.getFamilyAccountById(family_accout_id, 'short') as IFamilyAccountDTOShort;
+  if (individuals.length === 0){
+    throw new ValidationException('no valid individual accounts found');
+  }
   //check individuals belong to family
   for (const indiv of individuals) {
     if (family.owners.every(o => o !== indiv.individual_account_id)){
@@ -258,11 +264,14 @@ export async function validateRemovalIndividualsFromFamily(
   }
   //subtract amounts from family account
   const shrinkSum = contributions.reduce( (acc, curr)=> acc += curr);
+  console.log('ids.length === family.owners.length', ids.length === family.owners.length);
+  
   if (ids.length === family.owners.length){ //all of the owners are removed
     if (family.balance - shrinkSum < 0){
       throw new ValidationException('the balance that will be left in account is negative');
     }
   } else { //some owners left in account
+    console.log('some owners left in account');
     if (family.balance - shrinkSum < 5000){
       throw new ValidationException('the balance that will be left in account is lower than the minimal allowed');
     }
