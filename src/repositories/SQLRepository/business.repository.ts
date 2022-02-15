@@ -18,12 +18,11 @@ class BusinessRepository {
 
   async getListOfBusinessesAccountsById(individualsId: number[]): Promise<RowDataBusiness[]> {
     const str = individualsId.join(',');
-    console.log(str);
     const [individuals] = (await db.query(
       `SELECT * FROM business_account ba JOIN account a ON ba.account_id = a.account_id 
       JOIN address ad ON ba.address_id = ad.address_id 
       JOIN status s ON s.status_id = a.status_id
-      WHERE individual_account_id IN (${str})`,
+      WHERE ba.business_account_id IN (${str})`,
     )) as RowDataPacket[];
     return individuals as RowDataBusiness[];
   }

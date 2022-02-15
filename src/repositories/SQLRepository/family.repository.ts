@@ -1,7 +1,7 @@
 import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import { IFamilyAccountRecord } from '../../types/records.type.js';
 import { db } from '../../utils/initializer.utils.js';
-import { RowDataFamily, RowDataFamilyNoOwners } from '../../types/rowData.types.js';
+import { RowDataFamily, RowDataFamilyNoOwners, RowDataIndividual } from '../../types/rowData.types.js';
 import { IBusinessAccountDTO, IFamilyAccountDTO } from '../../types/dto.types.js';
 import individualRepository from './individual.repository.js';
 import accountRepository from './account.repository.js';
@@ -35,14 +35,25 @@ class FamilyRepository {
     return family as RowDataFamily[];
   }
 
-  async createOwners(ownersId: number[], familyAccountId: number): Promise<number[]> {
-    for (const id of ownersId) {
-      await db.query(
-        `INSERT INTO family_individual (fam_account_id,indiv_account_id)
-      VALUES (${familyAccountId},${id})`,
-      );
+  async createOwners(individualsDTOs : RowDataIndividual[],
+    ids: number[], amounts:number [], family_account_id : number): Promise<number[]> {
+    await db.beginTransaction();
+    try {
+      for (const [i, row] of individualsDTOs.entries()) {
+        await db.query(
+          `INSERT INTO family_individual (fam_account_id,indiv_account_id)
+        VALUES (${family_account_id},${row.individual_account_id})`,
+        );
+        // subtract amount from each individual account which donated to familt account
+        await accountRepository.subtractAmountFromAccountBalance(row.account_id, amounts[i]);
+      }
+
+      await db.commit();
+    } catch (err) {
+      await db.rollback();
     }
-    return ownersId as number[];
+    
+    return ids as number[];
   }
 
   async closeFamilyAccount(id: number): Promise<void> {
@@ -119,7 +130,7 @@ class FamilyRepository {
 
       //add to family account all the amounts
       const familyDetails = await this.getFamilyAccountById(family_account_id);
-      await accountRepository.subtractAmountFromAccountBalance(
+      await accountRepository.addAmountToAccountBalance(
         familyDetails[0].account_id,
         sumToAddToFamilyAccount,
       );

@@ -26,6 +26,7 @@ class FamilyAccountService {
   }
 
   async removeIndividualFromFamilyAccount(family_accout_id : number, model : IModifyFamilyAccount, display: string) : Promise<IFamilyAccountDTO>{
+
     await ValidationFunctions.validateRemovalIndividualsFromFamily(family_accout_id, model);
     const dtoFamily = await builderSQL.removeIndividualFromFamilyAccount(family_accout_id, model, display);
     return dtoFamily;

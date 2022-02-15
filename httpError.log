@@ -808,3 +808,413 @@ e0678e90-fbba-44e9-b615-2b4dad0cd7e2 :: 404 :: /account/business/transferB2B/sou
     at next (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:275:10)
     at Function.handle (/Users/elirandarshan/Desktop/eBank/node_modules/express/lib/router/index.js:174:3) 
 >>>>>>> upstream/main
+b1e0e42a-1be0-4d19-aaa0-1f28859fe70a :: POST :: /account/individual >> 1644875292968 
+c745e742-4852-47df-8f0c-86244be84dc4 :: POST :: /account/individual >> 1644876288290 
+c745e742-4852-47df-8f0c-86244be84dc4 :: 412 :: precondition failed :: 1644876288323 >> Error: precondition failed
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:26:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+abad768c-29e8-4361-964f-855348fe8cc1 :: POST :: /account/individual >> 1644876396219 
+abad768c-29e8-4361-964f-855348fe8cc1 :: 412 :: precondition failed :: 1644876396230 >> Error: precondition failed
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:26:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+ba836892-989c-47b2-8f22-070da3bc1f4c :: POST :: /account/individual >> 1644876499456 
+bec89d9d-dd06-4841-b716-2de39fc4986d :: POST :: /account/individual >> 1644876583175 
+bec89d9d-dd06-4841-b716-2de39fc4986d :: undefined :: Cannot read property 'access_key' of undefined :: 1644876583202 >> TypeError: Cannot read property 'access_key' of undefined
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:21:25)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+edffa121-b09c-4bf9-a106-854826850055 :: POST :: /account/individual >> 1644876588939 
+edffa121-b09c-4bf9-a106-854826850055 :: undefined :: Cannot read property 'access_key' of undefined :: 1644876588953 >> TypeError: Cannot read property 'access_key' of undefined
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:21:25)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+3b18cb57-c4f8-4851-a5c7-377eb8ea73e4 :: POST :: /account/individual >> 1644876592829 
+3b18cb57-c4f8-4851-a5c7-377eb8ea73e4 :: undefined :: Cannot read property 'access_key' of undefined :: 1644876592871 >> TypeError: Cannot read property 'access_key' of undefined
+    at findIdemKey (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/idempotancy.middleware.js:21:25)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+6030905a-19c8-4f4e-98c4-ff0f050d2645 :: POST :: /account/individual >> 1644876632151 
+6030905a-19c8-4f4e-98c4-ff0f050d2645 :: undefined :: Duplicate entry '9999555' for key 'individual_account.individual_id_UNIQUE' :: 1644876632433 >> Error: Duplicate entry '9999555' for key 'individual_account.individual_id_UNIQUE'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:21:39)
+    at BuilderSQL.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:96:62)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:6:26)
+    at async createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:5:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+b11ff6f2-1c55-4505-beec-3f761d06ed6b :: POST :: /account/individual >> 1644877244821 
+cbde896c-541c-43eb-88e6-cf9e57b41611 :: POST :: /account/individual >> 1644877254907 
+cbde896c-541c-43eb-88e6-cf9e57b41611 :: 404 :: individual_id is not 7 digits long :: 1644877254915 >> Error: individual_id is not 7 digits long
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:28:18
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:174:3) 
+80dd45fe-00ed-4c62-b4a5-3ce756b3e88b :: POST :: /account/individual >> 1644877259450 
+80dd45fe-00ed-4c62-b4a5-3ce756b3e88b :: 404 :: individual_id is not 7 digits long :: 1644877259456 >> Error: individual_id is not 7 digits long
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:28:18
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:174:3) 
+7bdc0854-7976-47fa-9109-924c19e2be2d :: POST :: /account/individual >> 1644877265824 
+7bdc0854-7976-47fa-9109-924c19e2be2d :: undefined :: Duplicate entry 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' for key 'idempotancy.PRIMARY' :: 1644877265901 >> Error: Duplicate entry 'faef42eef6faadd269ed2f7ff89b5eef71f7c7b4b71a6e44c5ccd445fd514a09' for key 'idempotancy.PRIMARY'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/general.repository.js:18:33)
+    at BuilderSQL.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:19:33)
+    at Module.insertResponseToDB (file:///Users/galbarkan/Desktop/ebank-project/dist/services/idempotancy.services.js:4:22)
+    at createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:18:34)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+a2a59511-edc8-4f21-a170-ee5ac02fc8ca :: POST :: /account/individual >> 1644877349311 
+a2a59511-edc8-4f21-a170-ee5ac02fc8ca :: undefined :: Duplicate entry '5555555' for key 'individual_account.individual_id_UNIQUE' :: 1644877349424 >> Error: Duplicate entry '5555555' for key 'individual_account.individual_id_UNIQUE'
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:21:39)
+    at BuilderSQL.createIndividualAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:96:62)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async IndividualAccountService.createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/individual.services.js:6:26)
+    at async createIndividualAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/individual.controllers.js:5:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+859c5fc5-89ff-4c57-afa3-18e643499192 :: POST :: /account/family >> 1644878048109 
+859c5fc5-89ff-4c57-afa3-18e643499192 :: 500 :: Denied! :: 1644878048143 >> Error: Denied!
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:12:39)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+b9277512-77fa-4a15-be97-cc9991d3a15c :: POST :: /account/family >> 1644878062361 
+b9277512-77fa-4a15-be97-cc9991d3a15c :: 404 :: no valid owners were found to open family account :: 1644878062424 >> Error: no valid owners were found to open family account
+    at FamilyAccountService.createFamilyAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:9:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async createFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:5:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+a1817051-c10a-4cd7-9a97-00c9187e8d1f :: POST :: /account/family >> 1644878085013 
+a1817051-c10a-4cd7-9a97-00c9187e8d1f :: 404 :: no valid owners were found to open family account :: 1644878085031 >> Error: no valid owners were found to open family account
+    at FamilyAccountService.createFamilyAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:9:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async createFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:5:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+ba7e74ce-018d-4c76-9f54-057f04658ead :: POST :: /account/family >> 1644878147738 
+ba7e74ce-018d-4c76-9f54-057f04658ead :: 404 :: no valid owners were found to open family account :: 1644878147754 >> Error: no valid owners were found to open family account
+    at FamilyAccountService.createFamilyAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:9:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async createFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:5:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+b0137fef-efe0-4c74-94c8-e64a898077cf :: POST :: /account/family >> 1644878215636 
+b0137fef-efe0-4c74-94c8-e64a898077cf :: 404 :: no valid owners were found to open family account :: 1644878215675 >> Error: no valid owners were found to open family account
+    at FamilyAccountService.createFamilyAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:9:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async createFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:5:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+7c5656dc-69cc-40a3-8943-08bc684337ae :: POST :: /account/family >> 1644878295798 
+3e5a3d06-9b78-4600-8868-227c7d0cb45f :: POST :: /account/individual >> 1644879732259 
+a576aed2-9a60-41e3-958f-ef08f3e3ad61 :: POST :: /account/individual >> 1644879738256 
+dc5f94a1-2a89-42f1-82a8-909b7ba1a7d4 :: POST :: /account/individual >> 1644879744098 
+42f1654d-99bd-492c-bfbe-113e80f83c90 :: POST :: /account/individual >> 1644879749501 
+f0ae6d1b-66e3-483e-8b01-05c1c29722ec :: POST :: /account/individual >> 1644879754798 
+16615461-97c3-4199-8ed9-b2e86bcc7b0c :: POST :: /account/individual >> 1644879766537 
+ffd9d340-4de5-4383-ad3a-2022c6532c4c :: POST :: /account/individual >> 1644879772061 
+fa4b9d2a-0fb9-4fd7-9a1e-414e8b5f17f7 :: POST :: /account/individual >> 1644879781098 
+9251ffba-f5b6-46f9-8905-6e9f1523c32e :: POST :: /account/individual >> 1644879789528 
+c28c3354-2bbe-4b22-96d2-6faf0692fa66 :: POST :: /account/business >> 1644879977167 
+c28c3354-2bbe-4b22-96d2-6faf0692fa66 :: 500 :: No access key provided! :: 1644879977173 >> Error: No access key provided!
+    at authenticate (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/authentication.middleware.js:9:27)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5) 
+b2f610c4-b91c-4820-9d71-4648d0d3dfba :: POST :: /account/business >> 1644880005347 
+f960c15a-91af-4ec2-9103-21dec8b71fec :: POST :: /account/business >> 1644880034418 
+2ce3629d-2d27-478c-9109-6ac6a3d3b627 :: POST :: /account/business >> 1644880039975 
+ffff94eb-4e80-45c4-9837-8109af4b4763 :: GET :: /account/activateDeactivateAccounts >> 1644880681764 
+ffff94eb-4e80-45c4-9837-8109af4b4763 :: 404 :: /account/activateDeactivateAccounts :: 1644880681765 >> Error: /account/activateDeactivateAccounts
+    at NotFound (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/errors.middleware.js:6:10)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:641:15
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:47:12) 
+1c4cee84-1967-498a-a717-959c09a299c3 :: GET :: /accounts/activateDeactivateAccounts >> 1644880698976 
+1c4cee84-1967-498a-a717-959c09a299c3 :: 404 :: /accounts/activateDeactivateAccounts :: 1644880698976 >> Error: /accounts/activateDeactivateAccounts
+    at NotFound (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/errors.middleware.js:6:10)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/loggers.middleware.js:8:9
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7 
+3937968e-04d9-457d-91d7-861852164d1b :: PUT :: /accounts/activateDeactivateAccounts >> 1644880720085 
+3937968e-04d9-457d-91d7-861852164d1b :: 404 :: /accounts/activateDeactivateAccounts :: 1644880720085 >> Error: /accounts/activateDeactivateAccounts
+    at NotFound (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/errors.middleware.js:6:10)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/loggers.middleware.js:8:9
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7 
+4b86c881-c5fc-4a5c-89eb-cfe944231f43 :: PUT :: /account/activateDeactivateAccounts >> 1644880728947 
+07dff52c-18c0-4bb0-8845-fd5f96ea33fc :: PUT :: /account/activateDeactivateAccounts >> 1644880788259 
+a4ae95a0-086c-4774-bdf3-df4d3075e71e :: PUT :: /account/activateDeactivateAccounts >> 1644880893203 
+1f15367c-df5e-4c54-a8d6-82c234f9ceed :: PUT :: /account/activateDeactivateAccounts >> 1644880933578 
+20937e18-43f2-4656-9a53-57966f62836a :: PUT :: /account/activateDeactivateAccounts >> 1644881006427 
+e2c40bfc-2af4-48e0-8dde-8e611c4f063e :: PUT :: /account/activateDeactivateAccounts >> 1644881080585 
+6684e4ef-46d9-49e0-8bf5-356e39b6d0f8 :: PUT :: /account/activateDeactivateAccounts >> 1644881190449 
+c2a2c41d-f3d2-4d6b-9c57-1cba61a923ef :: PUT :: /account/activateDeactivateAccounts >> 1644881306520 
+30d6e7b4-da73-45bf-9f0b-2dc90680a720 :: PUT :: /account/activateDeactivateAccounts >> 1644881333437 
+e2524544-1fc1-4a2c-a7a5-d6a1718eb8e0 :: PUT :: /account/activateDeactivateAccounts >> 1644881392583 
+40b9828a-4814-45e2-b9f4-eb749fb56795 :: PUT :: /account/activateDeactivateAccounts >> 1644881618131 
+8fe3f2c5-9867-4e40-b6e1-aaaa32e371d1 :: PUT :: /account/activateDeactivateAccounts >> 1644881682989 
+9eccca48-e24f-4b73-9c17-942cf31c35a4 :: PUT :: /account/activateDeactivateAccounts >> 1644881769344 
+a1033897-b19d-4405-866e-b707a9f48a6e :: PUT :: /account/activateDeactivateAccounts >> 1644881808345 
+30e125e9-3e3d-4b54-a47c-508c66ef2542 :: PUT :: /account/activateDeactivateAccounts >> 1644881864199 
+54c8fe80-475d-4f26-82a7-bd35c5c2b731 :: PUT :: /account/activateDeactivateAccounts >> 1644881928485 
+712ef9fe-3693-4dde-9b6c-d97cf4f2ecc5 :: PUT :: /account/activateDeactivateAccounts >> 1644882115556 
+4db6c7e7-d2fc-400c-9537-584cbbb50451 :: PUT :: /account/activateDeactivateAccounts >> 1644882257173 
+44d44911-e44a-4e60-9c15-d088c0184bdd :: PUT :: /account/activateDeactivateAccounts >> 1644882380728 
+db194357-1121-48e8-8772-106a19029fb4 :: PUT :: /account/activateDeactivateAccounts >> 1644882495217 
+8d7ce151-a801-4b92-8ba8-0a9196cae5e1 :: PUT :: /account/activateDeactivateAccounts >> 1644882580156 
+724ed673-4f83-4751-9b71-f6375dc56945 :: PUT :: /account/activateDeactivateAccounts >> 1644882721382 
+a4379a56-2c6e-499b-8240-8b831678db7d :: PUT :: /account/activateDeactivateAccounts >> 1644882729426 
+a472eca3-c17c-4c29-bb31-2e487ee75a48 :: PUT :: /account/activateDeactivateAccounts >> 1644882737964 
+e9dd7a4a-6c87-4595-9589-705c1ea50803 :: PUT :: /account/activateDeactivateAccounts >> 1644883061801 
+b7aead9c-25c5-4afa-ad1a-92263c0e7748 :: PUT :: /account/activateDeactivateAccounts >> 1644883116035 
+b7aead9c-25c5-4afa-ad1a-92263c0e7748 :: 404 :: no account found to chagne status :: 1644883116054 >> Error: no account found to chagne status
+    at validateActivateDeactivateAccounts (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:107:68)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async AccountService.activateDeactivateAccounts (file:///Users/galbarkan/Desktop/ebank-project/dist/services/account.services.js:5:31)
+    at async activateDeactivateAccounts (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/account.controllers.js:4:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+733084ee-fc2f-4427-a767-80bb419961e4 :: PUT :: /account/family/close/1 >> 1644883486080 
+5d06119e-d26b-4a3e-ade7-ca9b2dabf41d :: PUT :: /account/family/close/2 >> 1644883553857 
+5d06119e-d26b-4a3e-ade7-ca9b2dabf41d :: 500 :: Family with id 2 not found! :: 1644883553877 >> Error: Family with id 2 not found!
+    at BuilderSQL.getFamilyAccountById (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:53:49)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async Module.validateCloseFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/services.validator.utils.js:198:21)
+    at async FamilyAccountService.closeFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:29:9)
+    at async closeFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:19:9)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+07463dc3-c552-4257-b2f4-82fadeb4921e :: PUT :: /account/family/close/ >> 1644883559473 
+07463dc3-c552-4257-b2f4-82fadeb4921e :: 404 :: /account/family/close/ :: 1644883559484 >> Error: /account/family/close/
+    at NotFound (file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/errors.middleware.js:6:10)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:323:13)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at Immediate.next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at Immediate._onImmediate (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:641:15)
+    at processImmediate (node:internal/timers:465:21) 
+ce490f01-8575-40d1-a8da-a59bc190addc :: POST :: /account/family >> 1644883582199 
+ce490f01-8575-40d1-a8da-a59bc190addc :: 404 :: no valid owners were found to open family account :: 1644883582229 >> Error: no valid owners were found to open family account
+    at FamilyAccountService.createFamilyAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:9:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async createFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:5:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+4e50aba0-60c5-483b-89e9-09c9dfff39c2 :: POST :: /account/family >> 1644883617156 
+4e50aba0-60c5-483b-89e9-09c9dfff39c2 :: 404 :: no valid owners were found to open family account :: 1644883617179 >> Error: no valid owners were found to open family account
+    at FamilyAccountService.createFamilyAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:9:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async createFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:5:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+a6c1f774-b73a-4f89-9aeb-69e8b9e2a017 :: POST :: /account/family >> 1644883652236 
+9df459dc-7855-44e1-ad8a-736cce521a28 :: PUT :: /account/family/removeIndividuals/2 >> 1644883968268 
+9df459dc-7855-44e1-ad8a-736cce521a28 :: undefined :: Cannot read property '0' of undefined :: 1644883968288 >> TypeError: Cannot read property '0' of undefined
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:67:34
+    at Array.forEach (<anonymous>)
+    at areTuplesContainNumericNonNegative (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:66:10)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:18:33
+    at Array.forEach (<anonymous>)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:16:31
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3) 
+743b174b-19d8-4d7a-9e2b-ebc2ae8d2f99 :: PUT :: /account/family/removeIndividuals/2 >> 1644884020711 
+743b174b-19d8-4d7a-9e2b-ebc2ae8d2f99 :: undefined :: Cannot read property '0' of undefined :: 1644884020731 >> TypeError: Cannot read property '0' of undefined
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:67:34
+    at Array.forEach (<anonymous>)
+    at areTuplesContainNumericNonNegative (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:66:10)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:18:33
+    at Array.forEach (<anonymous>)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:16:31
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3) 
+c2ba968e-17e8-450b-a351-f378ec3a905c :: PUT :: /account/family/removeIndividuals/2?display=short >> 1644884075433 
+c2ba968e-17e8-450b-a351-f378ec3a905c :: undefined :: Cannot read property '0' of undefined :: 1644884075453 >> TypeError: Cannot read property '0' of undefined
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:67:34
+    at Array.forEach (<anonymous>)
+    at areTuplesContainNumericNonNegative (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:66:10)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:18:33
+    at Array.forEach (<anonymous>)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:16:31
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3) 
+2af351a2-c3d9-46f1-884e-e350718df2dd :: PUT :: /account/family/removeIndividuals/2?display=short >> 1644884140203 
+2af351a2-c3d9-46f1-884e-e350718df2dd :: undefined :: Cannot read property '0' of undefined :: 1644884140243 >> TypeError: Cannot read property '0' of undefined
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:67:34
+    at Array.forEach (<anonymous>)
+    at areTuplesContainNumericNonNegative (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:66:10)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:18:33
+    at Array.forEach (<anonymous>)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:16:31
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3) 
+12f5beef-f2c7-4da0-b601-3c21cc09ad68 :: PUT :: /account/family/removeIndividuals/2?display=short >> 1644884186132 
+12f5beef-f2c7-4da0-b601-3c21cc09ad68 :: undefined :: Cannot read property '0' of undefined :: 1644884186149 >> TypeError: Cannot read property '0' of undefined
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:67:34
+    at Array.forEach (<anonymous>)
+    at areTuplesContainNumericNonNegative (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:66:10)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:18:33
+    at Array.forEach (<anonymous>)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:16:31
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3) 
+7ab21263-aa9f-4442-a675-b8b793c60ef1 :: PUT :: /account/family/removeIndividuals/2?display=short >> 1644884297574 
+7ab21263-aa9f-4442-a675-b8b793c60ef1 :: undefined :: Cannot read property 'length' of undefined :: 1644884297589 >> TypeError: Cannot read property 'length' of undefined
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:112:22
+    at Array.forEach (<anonymous>)
+    at arraysNotEmpty (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:111:10)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:18:33
+    at Array.forEach (<anonymous>)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:16:31
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3) 
+cd48539c-1ab5-4a0f-a5cf-f0aa58f3d906 :: PUT :: /account/family/removeIndividuals/2?display=short >> 1644884335112 
+cd48539c-1ab5-4a0f-a5cf-f0aa58f3d906 :: 404 :: primaryID is required, detailed is required, tuplesToAdd is required, found invalid tuple (30,400,31,600) :: 1644884335129 >> Error: primaryID is required, detailed is required, tuplesToAdd is required, found invalid tuple (30,400,31,600)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:28:18
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22
+    at param (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:360:14)
+    at param (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:371:14)
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:416:3) 
+331918f1-4d61-45f3-9c1d-d16c805a51af :: PUT :: /account/family/removeIndividuals/2?display=short >> 1644884383235 
+331918f1-4d61-45f3-9c1d-d16c805a51af :: 404 :: found invalid tuple (30,400,31,600) :: 1644884383247 >> Error: found invalid tuple (30,400,31,600)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:28:18
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22
+    at param (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:360:14)
+    at param (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:371:14)
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:416:3) 
+5554b355-53ad-418c-8cb8-acef7a2f5f9b :: PUT :: /account/family/removeIndividuals/2?display=short >> 1644884487286 
+7daa0117-111c-4f3a-84df-f9fbdf4fbd91 :: POST :: /account/family >> 1644885198599 
+7daa0117-111c-4f3a-84df-f9fbdf4fbd91 :: 404 :: no valid owners were found to open family account :: 1644885198666 >> Error: no valid owners were found to open family account
+    at FamilyAccountService.createFamilyAcc (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:9:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async createFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:5:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+f86aa7ff-64bb-4e53-b2cb-c30b9513330a :: POST :: /account/family >> 1644885223110 
+1dd1d1af-8704-4a6d-97d2-236032884376 :: POST :: /account/family >> 1644885368443 
+521aba96-dbf3-4304-9ed9-97e1191eabce :: POST :: /account/family >> 1644885420572 
+237f5310-c3c2-4a0c-b97d-0f4e2411c424 :: POST :: /account/family >> 1644885527001 
+c3793f8c-42e6-4db2-aa89-13a394f2610a :: POST :: /account/family >> 1644886337356 
+28cf73d7-97b9-4712-922c-9f3021e4175c :: POST :: /account/family >> 1644886403454 
+250ff4ac-dde4-4fea-b6eb-01a224f48cac :: POST :: /account/individual >> 1644886642783 
+250ff4ac-dde4-4fea-b6eb-01a224f48cac :: 404 :: individual_id is not 7 digits long :: 1644886642790 >> Error: individual_id is not 7 digits long
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:28:18
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:341:12)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/index.js:174:3) 
+ac2cadbd-2468-47f4-851d-12cc0cb39060 :: POST :: /account/individual >> 1644886647723 
+0f03c13b-00e6-4779-9e3d-62db1fda1eb3 :: PUT :: /account/family/addIndividuals/2?display=short >> 1644886675041 
+0f03c13b-00e6-4779-9e3d-62db1fda1eb3 :: undefined :: Cannot read property '0' of undefined :: 1644886675053 >> TypeError: Cannot read property '0' of undefined
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:67:34
+    at Array.forEach (<anonymous>)
+    at areTuplesContainNumericNonNegative (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/validations/input.validator.js:66:10)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:18:33
+    at Array.forEach (<anonymous>)
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/middleware/validation.middleware.js:16:31
+    at file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:19
+    at Layer.handle [as handle_request] (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/galbarkan/Desktop/ebank-project/node_modules/express/lib/router/route.js:112:3) 
+3d46f448-f576-4c84-b004-3bee647d5613 :: PUT :: /account/family/addIndividuals/2?display=short >> 1644886746892 
+3d46f448-f576-4c84-b004-3bee647d5613 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4 :: 1644886746951 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.getListOfIndividualsAccountsById (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:14:40)
+    at FamilyRepository.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/family.repository.js:71:71)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async BuilderSQL.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:200:9)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:27:27)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:47:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+2b259c27-4505-452b-981e-d8ece33d3eb0 :: PUT :: /account/family/addIndividuals/2?display=short >> 1644886872278 
+2b259c27-4505-452b-981e-d8ece33d3eb0 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4 :: 1644886872340 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.getListOfIndividualsAccountsById (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:14:40)
+    at FamilyRepository.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/family.repository.js:71:71)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async BuilderSQL.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:203:9)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:27:27)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:47:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+90b53f5c-aca3-4819-bc09-82ad96ca1d1e :: PUT :: /account/family/addIndividuals/2?display=short >> 1644886937647 
+90b53f5c-aca3-4819-bc09-82ad96ca1d1e :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4 :: 1644886937703 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.getListOfIndividualsAccountsById (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:14:40)
+    at FamilyRepository.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/family.repository.js:71:71)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async BuilderSQL.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:203:9)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:27:27)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:47:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+4aa895c7-0e06-4f67-bf4f-46dda8fdc204 :: PUT :: /account/family/addIndividuals/2?display=short >> 1644887048728 
+4aa895c7-0e06-4f67-bf4f-46dda8fdc204 :: undefined :: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4 :: 1644887048792 >> Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4
+    at PromiseConnection.query (/Users/galbarkan/Desktop/ebank-project/node_modules/mysql2/promise.js:93:22)
+    at IndividualRepository.getListOfIndividualsAccountsById (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/individual.repository.js:14:40)
+    at FamilyRepository.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/repositories/SQLRepository/family.repository.js:71:71)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async BuilderSQL.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/utils/builder.utils.js:203:9)
+    at async FamilyAccountService.addIndividualsToFamilyAccount (file:///Users/galbarkan/Desktop/ebank-project/dist/services/family.services.js:25:27)
+    at async addIndividuals (file:///Users/galbarkan/Desktop/ebank-project/dist/controllers/family.controllers.js:46:24)
+    at async file:///Users/galbarkan/Desktop/ebank-project/dist/utils/helpers.utils.js:5:13 
+a9871f7b-71dd-4670-a1c5-f173f8006e06 :: PUT :: /account/family/addIndividuals/3?display=short >> 1644887071081 
+0e130549-ee96-46d5-9ee9-8879756934ff :: PUT :: /account/family/addIndividuals/8?display=short >> 1644887123548 
+952fe920-58c8-4958-b13b-0e0e69a2866d :: PUT :: /account/family/addIndividuals/8?display=short >> 1644887185670 

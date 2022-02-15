@@ -14,8 +14,9 @@ export async function findIdemKey(req : Request, res : Response, next : NextFunc
   const allParams = { ...req.params, ...req.query, ...req.body };
   //look for response related to that (idem_key + access) in DB
   const responseInDB = await builderSQL.getResponseByIdemKeyAccessKey(accessKey, idemKey);  
+  console.log('responseInDB', responseInDB);
   // if found and params are same -> return the respones saved in db  
-  if (responseInDB[0].access_key.length > 0){
+  if (responseInDB.length > 0){
     const isParamsEqual = _.isEqual(allParams, JSON.parse(responseInDB[0].params));    
     if (isParamsEqual) {      
       const parsed = JSON.parse(responseInDB[0].response);
@@ -24,7 +25,6 @@ export async function findIdemKey(req : Request, res : Response, next : NextFunc
       throw new ServerException('precondition failed', 412);  
     }
   } else {    //else -> continue to do whatever he needs
-    console.log('next');
     next();
   }
 

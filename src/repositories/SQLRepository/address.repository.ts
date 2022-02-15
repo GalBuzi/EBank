@@ -1,6 +1,5 @@
 import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import { IAddressModel } from '../../types/models.types.js';
-import { IAddressDTO } from '../../types/dto.types.js';
 import { db } from '../../utils/initializer.utils.js';
 import { ServerException } from '../../exceptions/ServerExcpetion.exceptions.js';
 import { RowDataAddress } from '../../types/rowData.types.js';

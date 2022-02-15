@@ -46,6 +46,17 @@ export function isAllGivenType(accounts: IAccountDTO[], type:string): string[] {
   return ['true'];
 }
 
+export function isAllNotGivenType(accounts: IAccountDTO[], type:string): string[] {
+  const errors : string[] = [];
+  for (const acc of accounts) {   
+    if (acc.type_name === type){
+      errors.push(`account type must be ${type}`);
+    }
+  }
+  if (errors.length > 0) return errors;
+  return ['true'];
+}
+
 //currency
 export function isSameCurrency(source: IAccountDTO, destination: IAccountDTO): string[] {
   const errors : string[] = [];
@@ -135,9 +146,11 @@ export function isActiveAccountsF2B(source: IAccountDTO,
 
 export function isAllStatusGivenAccounts(accounts: IAccountDTO[], action:string): string[] {
   const errors : string[] = [];
-  const statusIdGiven = actionToStatusId[action];
+  const statusToChange = actionToStatusId[action];
+  console.log('statusToChange', statusToChange);
+  
   for (const acc of accounts) {
-    if (acc.status_id === statusIdGiven){
+    if (acc.status_id === statusToChange){      
       errors.push(`can not perform ${action} on ${acc.status_name} account`);
     }
   }

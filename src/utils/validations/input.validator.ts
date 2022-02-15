@@ -64,8 +64,8 @@ function areTuplesContainNumericNonNegative(obj: ObjectAny, keys: string[]): str
   const ans: string[] = [];
 
   keys.forEach(key => {
-    if (isNaN(Number(obj[key][0])) || obj[key][1] < 0){
-      ans.push(`found invalid tuple (${obj[key][0]},${obj[key][1]})`);
+    if (isNaN(Number(obj[key][0][0])) || obj[key][0][1] < 0){
+      ans.push(`found invalid tuple (${obj[key][0][0]},${obj[key][1][1]})`);
     }
   });
 

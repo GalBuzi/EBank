@@ -13,6 +13,7 @@ import * as generalRepository from '../repositories/SQLRepository/general.reposi
 import { IAccountRecord } from '../types/records.type.js';
 import { RowDataFamily, RowDataIndividual } from '../types/rowData.types.js';
 import { FormatterMapper } from '../utils/covnert.utils.js';
+import { ValidationException } from '../exceptions/ValidationException.excpetions.js';
 interface Builder {
   createAccount : (model : IAccountModel) => Promise<IAccountDTO>;
   createFamilyAccount : (model : IFamilyAccountModel) => Promise<IFamilyAccountDTO>;
@@ -55,13 +56,18 @@ class BuilderSQL implements Builder {
     const accountToInsert = EXTRACTOR.extractAccountRecord(model);
     const familyToInsert = EXTRACTOR.extractFamilyRecord(model);
     const ownersToInsert = EXTRACTOR.extractOwnersIds(model);
+    accountToInsert.balance = ownersToInsert.sum;
     const createdAccount = await this.createAccount(accountToInsert);
     familyToInsert.account_id = createdAccount.account_id;
     const createdFamilyAccount = await familyRepository.createFamilyAccount(familyToInsert);
     console.log(createdFamilyAccount);
-    await familyRepository.createOwners(ownersToInsert, createdFamilyAccount.family_account_id);
+    const tuples = model.owners.sort((a, b) => a[0] - b[0]);
+    const ids = tuples.map(o => o[0]);
+    const amounts = tuples.map(o => o[1]);
+    const individualsDTOs = await individualRepository.getListOfIndividualsAccountsById(ownersToInsert.ids);
+    await familyRepository.createOwners(individualsDTOs, ids, amounts, createdFamilyAccount.family_account_id);
     const familyDTOArr = CONVERTER.convertRowsDataToDTO([createdFamilyAccount], FormatterMapper.formatDataToFamilyDTO) as IFamilyAccountDTO[];
-    familyDTOArr[0].owners = ownersToInsert;
+    familyDTOArr[0].owners = ownersToInsert.ids;
     return familyDTOArr[0];
   }
 
@@ -71,6 +77,7 @@ class BuilderSQL implements Builder {
     let  familyDetailsArrWithOwners : IFamilyAccountDTO;
     let rowData : RowDataIndividual[] = [];
     const familyRowsArray : RowDataFamily[] = await familyRepository.getFamilyAccountById(id);
+    if (familyRowsArray.length === 0) throw new ServerException(`Family with id ${id} not found!`, 500);
     let arrIDS = familyRowsArray.map((row)=>{
       return row.indiv_account_id ? row.indiv_account_id : 0;
     });
@@ -84,7 +91,7 @@ class BuilderSQL implements Builder {
         ownersFull = CONVERTER.convertRowsDataToDTO(rowData, FormatterMapper.formatToIndividualDTO) as IIndividualAccountDTO[];
         familyDetailsArrWithOwners = { ...familyDetailsArr[0], owners:ownersFull };
         break;
-      case 'partial':
+      case 'short':
         ownersShort = arrIDS;
         familyDetailsArrWithOwners = { ...familyDetailsArr[0], owners:ownersShort };
         break;
@@ -117,6 +124,7 @@ class BuilderSQL implements Builder {
   }
 
   async getListOfIndividualsAccountsById(ids : number[]) : Promise<IIndividualAccountDTO[]>{
+    if (ids.length === 0) return [];
     const individualAccounts = await individualRepository.getListOfIndividualsAccountsById(ids);
     if (!individualAccounts) throw new ServerException('One of the individuals doesn\'t exist!');
     const formattedAccount = CONVERTER.convertRowsDataToDTO(individualAccounts, FormatterMapper.formatToIndividualDTO) as IIndividualAccountDTO[];
@@ -124,9 +132,10 @@ class BuilderSQL implements Builder {
   }
 
   async getListOfBusinessesAccountsById(ids : number[]) : Promise<IBusinessAccountDTO[]>{
-    const businessAccounts = await businessRepository.getListOfBusinessesAccountsById(ids);
-    if (!businessAccounts) throw new ServerException('One of the individuals doesn\'t exist!');
-    const formattedAccount = CONVERTER.convertRowsDataToDTO(businessAccounts, FormatterMapper.formatToIndividualDTO) as IBusinessAccountDTO[];
+    if (ids.length === 0) return [];
+    const businessAccounts = await businessRepository.getListOfBusinessesAccountsById(ids);    
+    if (!businessAccounts) throw new ServerException('One of the businesses doesn\'t exist!');
+    const formattedAccount = CONVERTER.convertRowsDataToDTO(businessAccounts, FormatterMapper.formatToBusinessDTO) as IBusinessAccountDTO[];
     return formattedAccount;
   }
 
@@ -152,11 +161,16 @@ class BuilderSQL implements Builder {
 
   async activateDeactivateAccounts(model : IChangeStatusAccounts) : Promise<IChangeStatusResponse> {
     const statusId = actionToStatusId[model.action];
-    const idsToAction : number[] = [...model.individuals.map(indiv => indiv.individual_account_id),
+    
+    const accountsIdsToAction : number[] = [...model.individuals.map(indiv => indiv.account_id),
+      ...model.businesses.map(busi => busi.account_id)];
+
+    const accountsThatHaveChanged : number[] = [...model.individuals.map(indiv => indiv.individual_account_id),
       ...model.businesses.map(busi => busi.business_account_id)];
-    await accountRepository.activateDeactivateAccounts(idsToAction, statusId);
+    if (accountsIdsToAction.length === 0) throw new ValidationException('no accounts were found');
+    await accountRepository.activateDeactivateAccounts(accountsIdsToAction, statusId);
     const result : IChangeStatusResponse = {
-      ids : idsToAction,
+      ids : accountsThatHaveChanged,
       status: actionToStatusName[model.action],
     };
     return result;
@@ -177,6 +191,11 @@ class BuilderSQL implements Builder {
     const ids = sorted.map(o => o[0]);
     const amounts = sorted.map(o => o[1]);
     const sumToAddToFamilyAccount = model.individuals.reduce( (acc, curr) => acc + curr[1], 0);
+    console.log('ids', ids);
+    console.log('amounts', amounts);
+    console.log('sumToAddToFamilyAccount', sumToAddToFamilyAccount);
+
+    
     await familyRepository.addIndividualsToFamilyAccount(family_accout_id, ids, amounts, sumToAddToFamilyAccount);
     const familyDTO = await this.getFamilyAccountById(family_accout_id, display);
     return familyDTO;

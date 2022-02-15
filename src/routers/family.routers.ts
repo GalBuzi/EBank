@@ -4,7 +4,7 @@ import express from 'express';
 import { validateRoute } from '../middleware/validation.middleware.js';
 import { InputValidationPerRoute } from '../utils/validations/types.validations.js';
 import { authenticate } from '../middleware/authentication.middleware.js';
-import { findIdemKey } from '../middleware/idempotancy.middleware.js';
+// import { findIdemKey } from '../middleware/idempotancy.middleware.js';
 
 class FamilyRouter {
   private _router = express.Router();
@@ -14,7 +14,8 @@ class FamilyRouter {
   }
 
   initRouting() {
-    this._router.post('/', errorWrapper(findIdemKey),
+    // errorWrapper(findIdemKey),
+    this._router.post('/',
       errorWrapper(validateRoute(InputValidationPerRoute.createFamilyAccount)),
       errorWrapper(familyController.createFamilyAccount));
 
